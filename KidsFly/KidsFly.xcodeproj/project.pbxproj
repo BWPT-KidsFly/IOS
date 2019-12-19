@@ -16,6 +16,8 @@
 		44AD0EB723AB1D3D0096B2E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44AD0EB623AB1D3D0096B2E9 /* Assets.xcassets */; };
 		44AD0EBA23AB1D3D0096B2E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44AD0EB823AB1D3D0096B2E9 /* LaunchScreen.storyboard */; };
 		44AD0EC523AB1F0C0096B2E9 /* KidsFly.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 44AD0EC323AB1F0C0096B2E9 /* KidsFly.xcdatamodeld */; };
+		44AD0EC723ABEC2B0096B2E9 /* Bearer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AD0EC623ABEC2B0096B2E9 /* Bearer.swift */; };
+		44AD0ECD23ABF3450096B2E9 /* TravelerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AD0ECC23ABF3450096B2E9 /* TravelerController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		44AD0EB923AB1D3D0096B2E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		44AD0EBB23AB1D3D0096B2E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		44AD0EC423AB1F0C0096B2E9 /* KidsFly.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = KidsFly.xcdatamodel; sourceTree = "<group>"; };
+		44AD0EC623ABEC2B0096B2E9 /* Bearer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bearer.swift; sourceTree = "<group>"; };
+		44AD0ECC23ABF3450096B2E9 /* TravelerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelerController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +77,8 @@
 			isa = PBXGroup;
 			children = (
 				44AD0EB123AB1D3C0096B2E9 /* ViewController.swift */,
+				44AD0EC623ABEC2B0096B2E9 /* Bearer.swift */,
+				44AD0ECC23ABF3450096B2E9 /* TravelerController.swift */,
 				4463646D23AB49B80000CF3E /* Models */,
 				44AD0EC223AB1E6D0096B2E9 /* Storyboards */,
 				44AD0EC123AB1E040096B2E9 /* Resources */,
@@ -174,9 +180,11 @@
 				4463646F23AB49FE0000CF3E /* ModelRepresentations.swift in Sources */,
 				4463646C23AB35EB0000CF3E /* CoreDataStack.swift in Sources */,
 				44AD0EB223AB1D3C0096B2E9 /* ViewController.swift in Sources */,
+				44AD0EC723ABEC2B0096B2E9 /* Bearer.swift in Sources */,
 				44AD0EAE23AB1D3C0096B2E9 /* AppDelegate.swift in Sources */,
 				44AD0EC523AB1F0C0096B2E9 /* KidsFly.xcdatamodeld in Sources */,
 				44AD0EB023AB1D3C0096B2E9 /* SceneDelegate.swift in Sources */,
+				44AD0ECD23ABF3450096B2E9 /* TravelerController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
