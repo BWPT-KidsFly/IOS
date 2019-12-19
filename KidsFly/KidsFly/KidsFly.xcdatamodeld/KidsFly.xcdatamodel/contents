@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="18G95" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15508" systemVersion="18G103" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="KFConnection" representedClassName="KFConnection" syncable="YES" codeGenerationType="class">
         <attribute name="identifier" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="password" attributeType="String"/>
         <attribute name="username" attributeType="String"/>
+        <relationship name="travelers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Traveler" inverseName="connections" inverseEntity="Traveler"/>
+        <relationship name="trips" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Trip" inverseName="connection" inverseEntity="Trip"/>
     </entity>
     <entity name="Traveler" representedClassName="Traveler" syncable="YES" codeGenerationType="class">
         <attribute name="airport" optional="YES" attributeType="String"/>
@@ -17,6 +19,8 @@
         <attribute name="streetAddress" optional="YES" attributeType="String"/>
         <attribute name="username" attributeType="String"/>
         <attribute name="zipCode" optional="YES" attributeType="String"/>
+        <relationship name="connections" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="KFConnection" inverseName="travelers" inverseEntity="KFConnection"/>
+        <relationship name="trips" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Trip" inverseName="traveler" inverseEntity="Trip"/>
     </entity>
     <entity name="Trip" representedClassName="Trip" syncable="YES" codeGenerationType="class">
         <attribute name="aiport" optional="YES" attributeType="String"/>
@@ -28,10 +32,12 @@
         <attribute name="flightNumber" optional="YES" attributeType="String"/>
         <attribute name="identifier" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="notes" optional="YES" attributeType="String"/>
+        <relationship name="connection" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="KFConnection" inverseName="trips" inverseEntity="KFConnection"/>
+        <relationship name="traveler" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Traveler" inverseName="trips" inverseEntity="Traveler"/>
     </entity>
     <elements>
-        <element name="Traveler" positionX="-286.1875" positionY="-146.671875" width="128" height="208"/>
-        <element name="KFConnection" positionX="-54" positionY="-9" width="128" height="88"/>
-        <element name="Trip" positionX="-108.4609375" positionY="-305.94921875" width="128" height="178"/>
+        <element name="KFConnection" positionX="84.296875" positionY="-75.76953125" width="128" height="118"/>
+        <element name="Traveler" positionX="-286.1875" positionY="-146.671875" width="128" height="238"/>
+        <element name="Trip" positionX="-108.4609375" positionY="-305.94921875" width="128" height="208"/>
     </elements>
 </model>
