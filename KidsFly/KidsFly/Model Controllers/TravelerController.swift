@@ -12,6 +12,7 @@ import UIKit
 enum HTTPMethod: String {
     case get = "GET"
     case post = "POST"
+    case put = "PUT"
 }
 
 class TravelerController {
@@ -25,7 +26,7 @@ class TravelerController {
     
     
     // MARK: - Sign Up New Traveler
-    func signUp(with user: TravelerRepresentation, completion: @escaping (Error?) -> ()) {
+    func signUp(with traveler: TravelerRepresentation, completion: @escaping (Error?) -> ()) {
         let signUpURL = baseURL.appendingPathComponent("auth/register")
         
         var request = URLRequest(url: signUpURL)
@@ -34,7 +35,7 @@ class TravelerController {
         
         let jsonEncoder = JSONEncoder()
         do {
-            let jsonData = try jsonEncoder.encode(user)
+            let jsonData = try jsonEncoder.encode(traveler)
             request.httpBody = jsonData
         } catch {
             print("Error encoding user object: \(error)")
@@ -59,7 +60,7 @@ class TravelerController {
     }
     
     // MARK: - Log In Traveler
-    func logIn(with user: TravelerRepresentation, completion: @escaping (Error?) -> ()) {
+    func logIn(with traveler: TravelerRepresentation, completion: @escaping (Error?) -> ()) {
         let logInUrl = baseURL.appendingPathComponent("auth/login")
         
         var request = URLRequest(url: logInUrl)
@@ -68,7 +69,7 @@ class TravelerController {
         
         let jsonEncoder = JSONEncoder()
         do {
-            let jsonData = try jsonEncoder.encode(user)
+            let jsonData = try jsonEncoder.encode(traveler)
             request.httpBody = jsonData
         } catch {
             print("Error encoding user object: \(error)")
@@ -105,5 +106,14 @@ class TravelerController {
             
             completion(nil)
         }.resume()
+    }
+    
+    // MARK: - Put Trip to Server
+    func put(traveler: TravelerRepresentation, trip: TripRepresentation, completion: @escaping (Error?) -> Void = {_ in }) {
+        guard let bearer = bearer else {
+            print("No authorized to put trip to server")
+            completion(NSError())
+            return
+        }
     }
 }

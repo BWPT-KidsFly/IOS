@@ -29,9 +29,9 @@ extension Trip {
                                         airline: String,
                                         flightNumber: String,
                                         departureTime: Date,
-                                        childrenQty: Int,
-                                        carryOnQty: Int,
-                                        checkedBagQty: Int,
+                                        childrenQty: Int16,
+                                        carryOnQty: Int16,
+                                        checkedBagQty: Int16,
                                         notes: String,
                                         context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         
@@ -41,9 +41,9 @@ extension Trip {
         self.airline = airline
         self.flightNumber = flightNumber
         self.departureTime = departureTime
-        self.childrenQty = Int16(childrenQty)
-        self.carryOnQty = Int16(carryOnQty)
-        self.checkedBagQty = Int16(checkedBagQty)
+        self.childrenQty = childrenQty
+        self.carryOnQty = carryOnQty
+        self.checkedBagQty = checkedBagQty
         self.notes = notes
     }
     
@@ -59,7 +59,7 @@ extension Trip {
             let checkedBagQty = tripRepresentation.checkedBagQty,
             let notes = tripRepresentation.notes else { return nil }
         
-        self.init(identifier: UUID(uuidString: identifier) ?? UUID(), airport: airport, airline: airline, flightNumber: flightNumber, departureTime: departureTime, childrenQty: childrenQty, carryOnQty: carryOnQty, checkedBagQty: checkedBagQty, notes: notes)
+        self.init(identifier: UUID(uuidString: identifier) ?? UUID(), airport: airport, airline: airline, flightNumber: flightNumber, departureTime: departureTime, childrenQty: Int16(childrenQty), carryOnQty: Int16(carryOnQty), checkedBagQty: Int16(checkedBagQty), notes: notes)
     }
     
     var tripRepresentation: TripRepresentation {
