@@ -40,7 +40,22 @@ extension Traveler {
                                         context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         
         self.init(context: context)
-        self.
+        self.identifier = identifier
+        self.username = username
+        self.password = password
+        self.firstName = firstName
+        self.lastName = lastName
+        self.streetAddress = streetAddress
+        self.cityAddress = cityAddress
+        self.stateAddress = stateAddress
+        self.zipCode = zipCode
+        self.phoneNumber = phoneNumber
+        self.airport = airport
+    }
+    
+    @discardableResult convenience init?(travelerRepresentation: TravelerRepresentation, context: NSManagedObjectContext) {
+        
+        
     }
     
 //    var travelerRepresentation: TravelerRepresentation? {

@@ -23,7 +23,7 @@ class TravelerController {
     
     // MARK: - Sign Up New Traveler
     func signUp(with user: TravelerRepresentation, completion: @escaping (Error?) -> ()) {
-        let signUpURL = baseURL.appendingPathComponent("users/signup")  // TODO: Change url
+        let signUpURL = baseURL.appendingPathComponent("auth/register")
         
         var request = URLRequest(url: signUpURL)
         request.httpMethod = HTTPMethod.post.rawValue
@@ -57,7 +57,7 @@ class TravelerController {
     
     // MARK: - Log In Traveler
     func logIn(with user: TravelerRepresentation, completion: @escaping (Error?) -> ()) {
-        let logInUrl = baseURL.appendingPathComponent("users/login")  // TODO: Change url
+        let logInUrl = baseURL.appendingPathComponent("auth/login")
         
         var request = URLRequest(url: logInUrl)
         request.httpMethod = HTTPMethod.post.rawValue
