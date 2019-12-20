@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		4463646C23AB35EB0000CF3E /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4463646B23AB35EB0000CF3E /* CoreDataStack.swift */; };
 		4463646F23AB49FE0000CF3E /* ModelRepresentations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4463646E23AB49FE0000CF3E /* ModelRepresentations.swift */; };
+		4463647123AC7C7D0000CF3E /* KFConnection+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4463647023AC7C7D0000CF3E /* KFConnection+Convenience.swift */; };
+		4463647323AC815C0000CF3E /* Trip+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4463647223AC815B0000CF3E /* Trip+Convenience.swift */; };
 		44AD0EAE23AB1D3C0096B2E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AD0EAD23AB1D3C0096B2E9 /* AppDelegate.swift */; };
 		44AD0EB023AB1D3C0096B2E9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AD0EAF23AB1D3C0096B2E9 /* SceneDelegate.swift */; };
 		44AD0EB223AB1D3C0096B2E9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AD0EB123AB1D3C0096B2E9 /* ViewController.swift */; };
@@ -25,6 +27,8 @@
 /* Begin PBXFileReference section */
 		4463646B23AB35EB0000CF3E /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		4463646E23AB49FE0000CF3E /* ModelRepresentations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelRepresentations.swift; sourceTree = "<group>"; };
+		4463647023AC7C7D0000CF3E /* KFConnection+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KFConnection+Convenience.swift"; sourceTree = "<group>"; };
+		4463647223AC815B0000CF3E /* Trip+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Trip+Convenience.swift"; sourceTree = "<group>"; };
 		44AD0EAA23AB1D3C0096B2E9 /* KidsFly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KidsFly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44AD0EAD23AB1D3C0096B2E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		44AD0EAF23AB1D3C0096B2E9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,6 +61,8 @@
 				4463646B23AB35EB0000CF3E /* CoreDataStack.swift */,
 				4463646E23AB49FE0000CF3E /* ModelRepresentations.swift */,
 				44AD0ED223AC3C630096B2E9 /* Traveler+Convenience.swift */,
+				4463647023AC7C7D0000CF3E /* KFConnection+Convenience.swift */,
+				4463647223AC815B0000CF3E /* Trip+Convenience.swift */,
 				44AD0EC623ABEC2B0096B2E9 /* Bearer.swift */,
 				44AD0EC323AB1F0C0096B2E9 /* KidsFly.xcdatamodeld */,
 			);
@@ -207,8 +213,10 @@
 				44AD0EAE23AB1D3C0096B2E9 /* AppDelegate.swift in Sources */,
 				44AD0EC523AB1F0C0096B2E9 /* KidsFly.xcdatamodeld in Sources */,
 				44AD0EB023AB1D3C0096B2E9 /* SceneDelegate.swift in Sources */,
+				4463647323AC815C0000CF3E /* Trip+Convenience.swift in Sources */,
 				44AD0ECF23AC2F020096B2E9 /* KFConnectionController.swift in Sources */,
 				44AD0ECD23ABF3450096B2E9 /* TravelerController.swift in Sources */,
+				4463647123AC7C7D0000CF3E /* KFConnection+Convenience.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

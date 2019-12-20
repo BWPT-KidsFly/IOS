@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="18G95" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15508" systemVersion="18G103" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="KFConnection" representedClassName="KFConnection" syncable="YES" codeGenerationType="class">
         <attribute name="identifier" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="password" attributeType="String"/>
@@ -23,8 +23,8 @@
         <relationship name="trips" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Trip" inverseName="traveler" inverseEntity="Trip"/>
     </entity>
     <entity name="Trip" representedClassName="Trip" syncable="YES" codeGenerationType="class">
-        <attribute name="aiport" optional="YES" attributeType="String"/>
         <attribute name="airline" optional="YES" attributeType="String"/>
+        <attribute name="airport" optional="YES" attributeType="String"/>
         <attribute name="carryOnQty" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="checkedBagQty" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="childrenQty" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
