@@ -26,9 +26,26 @@ extension Traveler {
 //        case airport = ""
 //    }
     
-    var travelerRepresentation: TravelerRepresentation? {
-        guard let username = username,
-            let password = password else { return nil }
-        return TravelerRepresentation(identifier: identifier?.uuidString ?? UUID().uuidString, username: username, password: password, firstName: firstName, lastName: lastName, streetAddress: streetAddress, cityAddress: cityAddress, stateAddress: stateAddress, zipCode: zipCode, phoneNumber: phoneNumber, airport: airport)
+    @discardableResult convenience init(identifier: UUID,
+                                        username: String,
+                                        password: String,
+                                        firstName: String,
+                                        lastName: String,
+                                        streetAddress: String,
+                                        cityAddress: String,
+                                        stateAddress: String,
+                                        zipCode: String,
+                                        phoneNumber: String,
+                                        airport: String,
+                                        context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
+        
+        self.init(context: context)
+        self.
     }
+    
+//    var travelerRepresentation: TravelerRepresentation? {
+//        guard let username = username,
+//            let password = password else { return nil }
+//        return TravelerRepresentation(identifier: indentifier?.uuidString ?? UUID().uuidString, username: username, password: password, firstName: firstName, lastName: lastName, streetAddress: streetAddress, cityAddress: cityAddress, stateAddress: stateAddress, zipCode: zipCode, phoneNumber: phoneNumber, airport: airport)
+//    }
 }
