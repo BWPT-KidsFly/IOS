@@ -16,6 +16,9 @@ enum HTTPMethod: String {
 
 class TravelerController {
     
+    // Return the traveler's data and also their associated trips.
+    // If there is an active (non-completed) trip, that should be highlighted
+    
     
     var bearer: Bearer?
     private let baseURL = URL(string: "lambdaanimalspotter.vapor.cloud/api")! // TODO: Change url
