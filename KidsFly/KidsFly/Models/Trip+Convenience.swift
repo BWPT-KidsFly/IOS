@@ -11,6 +11,19 @@ import CoreData
 
 extension Trip {
     
+     // uncomment CodingKeys when we get the api endpoints.
+//    enum CodingKeys: String, CodingKey {
+//        case identifier = ""
+//        case airport = ""
+//        case airline = ""
+//        case flightNumber = ""
+//        case departureTime = ""
+//        case childrenQty = ""
+//        case carryOnQty = ""
+//        case checkedBagQty = ""
+//        case notes = ""
+//    }
+    
     @discardableResult convenience init(identifier: UUID,
                                         airport: String,
                                         airline: String,
