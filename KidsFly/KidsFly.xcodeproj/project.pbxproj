@@ -19,6 +19,7 @@
 		44AD0EC723ABEC2B0096B2E9 /* Bearer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AD0EC623ABEC2B0096B2E9 /* Bearer.swift */; };
 		44AD0ECD23ABF3450096B2E9 /* TravelerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AD0ECC23ABF3450096B2E9 /* TravelerController.swift */; };
 		44AD0ECF23AC2F020096B2E9 /* KFConnectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AD0ECE23AC2F020096B2E9 /* KFConnectionController.swift */; };
+		44AD0ED323AC3C630096B2E9 /* Traveler+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AD0ED223AC3C630096B2E9 /* Traveler+Convenience.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		44AD0EC623ABEC2B0096B2E9 /* Bearer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bearer.swift; sourceTree = "<group>"; };
 		44AD0ECC23ABF3450096B2E9 /* TravelerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelerController.swift; sourceTree = "<group>"; };
 		44AD0ECE23AC2F020096B2E9 /* KFConnectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KFConnectionController.swift; sourceTree = "<group>"; };
+		44AD0ED223AC3C630096B2E9 /* Traveler+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Traveler+Convenience.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 			children = (
 				4463646B23AB35EB0000CF3E /* CoreDataStack.swift */,
 				4463646E23AB49FE0000CF3E /* ModelRepresentations.swift */,
+				44AD0ED223AC3C630096B2E9 /* Traveler+Convenience.swift */,
 				44AD0EC623ABEC2B0096B2E9 /* Bearer.swift */,
 				44AD0EC323AB1F0C0096B2E9 /* KidsFly.xcdatamodeld */,
 			);
@@ -198,6 +201,7 @@
 			files = (
 				4463646F23AB49FE0000CF3E /* ModelRepresentations.swift in Sources */,
 				4463646C23AB35EB0000CF3E /* CoreDataStack.swift in Sources */,
+				44AD0ED323AC3C630096B2E9 /* Traveler+Convenience.swift in Sources */,
 				44AD0EB223AB1D3C0096B2E9 /* ViewController.swift in Sources */,
 				44AD0EC723ABEC2B0096B2E9 /* Bearer.swift in Sources */,
 				44AD0EAE23AB1D3C0096B2E9 /* AppDelegate.swift in Sources */,
