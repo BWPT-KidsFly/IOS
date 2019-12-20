@@ -10,8 +10,8 @@ import Foundation
 
 struct TravelerRepresentation: Equatable, Codable {
     var identifier: String?
-    var username: String?
-    var password: String?
+    var username: String
+    var password: String
     var firstName: String?
     var lastName: String?
     var streetAddress: String?
@@ -24,8 +24,8 @@ struct TravelerRepresentation: Equatable, Codable {
 
 struct KFConnectionRepresentation: Equatable, Codable {
     var identifier: String?
-    var username: String?
-    var password: String?
+    var username: String
+    var password: String
 }
 
 struct TripRepresentation: Equatable, Codable {
