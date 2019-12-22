@@ -23,6 +23,7 @@ class TravelerController {
     
     var bearer: Bearer?
     private let baseURL = URL(string: "lambdaanimalspotter.vapor.cloud/api")! // TODO: Change url
+    var trips: [TripRepresentation] = []
     
     
     // MARK: - Sign Up New Traveler
@@ -115,5 +116,52 @@ class TravelerController {
             completion(NSError())
             return
         }
+        
+        let requestUrl = baseURL.appendingPathComponent("trips") // TODO: change URL
+        var request = URLRequest(url: requestUrl)
+        request.httpMethod = HTTPMethod.post.rawValue  // TODO: post or put?
+        request.setValue("Bearer \(bearer.token)", forHTTPHeaderField: "Authorization")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let jsonEncoder = JSONEncoder()
+        jsonEncoder.dateEncodingStrategy = .iso8601
+        do {
+            let jsonData = try jsonEncoder.encode(trip)
+            request.httpBody = jsonData
+        } catch {
+            print("Error encoding trip: \(error)")
+            completion(error)
+            return
+        }
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let response = response as? HTTPURLResponse,
+                response.statusCode != 200 {
+                completion(error)
+                return
+            }
+            
+            if error != nil {
+                completion(error)
+                return
+            }
+            
+            guard let data = data else {
+                completion(error)
+                return
+            }
+            
+            let decoder = JSONDecoder()
+            decoder.dateDecodingStrategy = .iso8601
+            do {
+                let allTrips = try decoder.decode(TripRepresentation.self, from: data)
+                self.trips.append(allTrips)
+                
+            } catch {
+                print("Error decoding new Trip: \(error)")
+                completion(error)
+                return
+            }
+        }.resume()
     }
 }
