@@ -22,6 +22,7 @@
 		44AD0ECD23ABF3450096B2E9 /* TravelerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AD0ECC23ABF3450096B2E9 /* TravelerController.swift */; };
 		44AD0ECF23AC2F020096B2E9 /* KFConnectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AD0ECE23AC2F020096B2E9 /* KFConnectionController.swift */; };
 		44AD0ED323AC3C630096B2E9 /* Traveler+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AD0ED223AC3C630096B2E9 /* Traveler+Convenience.swift */; };
+		44AD0ED523B139FA0096B2E9 /* Error Codes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AD0ED423B139FA0096B2E9 /* Error Codes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		44AD0ECC23ABF3450096B2E9 /* TravelerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelerController.swift; sourceTree = "<group>"; };
 		44AD0ECE23AC2F020096B2E9 /* KFConnectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KFConnectionController.swift; sourceTree = "<group>"; };
 		44AD0ED223AC3C630096B2E9 /* Traveler+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Traveler+Convenience.swift"; sourceTree = "<group>"; };
+		44AD0ED423B139FA0096B2E9 /* Error Codes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error Codes.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 			children = (
 				44AD0ECC23ABF3450096B2E9 /* TravelerController.swift */,
 				44AD0ECE23AC2F020096B2E9 /* KFConnectionController.swift */,
+				44AD0ED423B139FA0096B2E9 /* Error Codes.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 				44AD0EC723ABEC2B0096B2E9 /* Bearer.swift in Sources */,
 				44AD0EAE23AB1D3C0096B2E9 /* AppDelegate.swift in Sources */,
 				44AD0EC523AB1F0C0096B2E9 /* KidsFly.xcdatamodeld in Sources */,
+				44AD0ED523B139FA0096B2E9 /* Error Codes.swift in Sources */,
 				44AD0EB023AB1D3C0096B2E9 /* SceneDelegate.swift in Sources */,
 				4463647323AC815C0000CF3E /* Trip+Convenience.swift in Sources */,
 				44AD0ECF23AC2F020096B2E9 /* KFConnectionController.swift in Sources */,

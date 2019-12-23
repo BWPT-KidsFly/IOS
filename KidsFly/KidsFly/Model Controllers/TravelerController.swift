@@ -110,10 +110,10 @@ class TravelerController {
     }
     
     // MARK: - Put Trip to Server
-    func put(traveler: TravelerRepresentation, trip: TripRepresentation, completion: @escaping (Error?) -> Void = {_ in }) {
+    func put(traveler: TravelerRepresentation, trip: TripRepresentation, completion: @escaping (Result<Bool, NetworkError>) -> Void = {_ in }) {
         guard let bearer = bearer else {
             print("No authorized to put trip to server")
-            completion(NSError())
+            completion(.failure(.noAuthorization))
             return
         }
         
@@ -130,24 +130,24 @@ class TravelerController {
             request.httpBody = jsonData
         } catch {
             print("Error encoding trip: \(error)")
-            completion(error)
+            completion(.failure(.notEncodedProperly))
             return
         }
         
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let response = response as? HTTPURLResponse,
                 response.statusCode != 200 {
-                completion(error)
+                completion(.failure(.otherError))
                 return
             }
             
             if error != nil {
-                completion(error)
+                completion(.failure(.otherError))
                 return
             }
             
             guard let data = data else {
-                completion(error)
+                completion(.failure(.badData))
                 return
             }
             
@@ -156,12 +156,17 @@ class TravelerController {
             do {
                 let allTrips = try decoder.decode(TripRepresentation.self, from: data)
                 self.trips.append(allTrips)
-                
+                completion(.success(true))
             } catch {
                 print("Error decoding new Trip: \(error)")
-                completion(error)
+                completion(.failure(.notDecodedProperly))
                 return
             }
         }.resume()
+        // The following block is me trying to understand how the relationships work between the two models.
+//        let traveler = Traveler(identifier: UUID(), username: "bob", password: "jones", firstName: "bob", lastName: "jones", streetAddress: "123", cityAddress: "madris", stateAddress: "MN", zipCode: "55352", phoneNumber: "34543", airport: "MSP", context: CoreDataStack.shared.mainContext)
+//        let trip1 = Trip(identifier: UUID(), airport: "MSP", airline: "Delta", flightNumber: "345", departureTime: Date(), childrenQty: 2, carryOnQty: 2, checkedBagQty: 2, notes: "None", context: CoreDataStack.shared.mainContext)
+//        traveler.trips = [trip1]
+//
     }
 }
