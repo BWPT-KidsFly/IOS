@@ -32,6 +32,7 @@ struct TripRepresentation: Equatable, Codable {
     var identifier: String?
     var airport: String?
     var airline: String?
+    var completedStatus: Bool?
     var flightNumber: String?
     var departureTime: Date?
     var childrenQty: Int?

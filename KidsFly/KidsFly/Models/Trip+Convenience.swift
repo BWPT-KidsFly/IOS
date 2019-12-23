@@ -16,6 +16,7 @@ extension Trip {
 //        case identifier = ""
 //        case airport = ""
 //        case airline = ""
+//        case completedStatus = ""
 //        case flightNumber = ""
 //        case departureTime = ""
 //        case childrenQty = ""
@@ -27,6 +28,7 @@ extension Trip {
     @discardableResult convenience init(identifier: UUID,
                                         airport: String,
                                         airline: String,
+                                        completedStatus: Bool,
                                         flightNumber: String,
                                         departureTime: Date,
                                         childrenQty: Int16,
@@ -39,6 +41,7 @@ extension Trip {
         self.identifier = identifier
         self.airport = airport
         self.airline = airline
+        self.completedStatus = completedStatus
         self.flightNumber = flightNumber
         self.departureTime = departureTime
         self.childrenQty = childrenQty
@@ -52,6 +55,7 @@ extension Trip {
         guard let identifier = tripRepresentation.identifier,
             let airport = tripRepresentation.airport,
             let airline = tripRepresentation.airline,
+            let completedStatus = tripRepresentation.completedStatus,
             let flightNumber = tripRepresentation.flightNumber,
             let departureTime = tripRepresentation.departureTime,
             let childrenQty = tripRepresentation.childrenQty,
@@ -59,10 +63,10 @@ extension Trip {
             let checkedBagQty = tripRepresentation.checkedBagQty,
             let notes = tripRepresentation.notes else { return nil }
         
-        self.init(identifier: UUID(uuidString: identifier) ?? UUID(), airport: airport, airline: airline, flightNumber: flightNumber, departureTime: departureTime, childrenQty: Int16(childrenQty), carryOnQty: Int16(carryOnQty), checkedBagQty: Int16(checkedBagQty), notes: notes)
+        self.init(identifier: UUID(uuidString: identifier) ?? UUID(), airport: airport, airline: airline, completedStatus: completedStatus, flightNumber: flightNumber, departureTime: departureTime, childrenQty: Int16(childrenQty), carryOnQty: Int16(carryOnQty), checkedBagQty: Int16(checkedBagQty), notes: notes)
     }
     
     var tripRepresentation: TripRepresentation {
-        return TripRepresentation(identifier: identifier?.uuidString, airport: airport, airline: airline, flightNumber: flightNumber, departureTime: departureTime, childrenQty: Int(childrenQty), carryOnQty: Int(carryOnQty), checkedBagQty: Int(checkedBagQty), notes: notes)
+        return TripRepresentation(identifier: identifier?.uuidString, airport: airport, airline: airline, completedStatus: completedStatus, flightNumber: flightNumber, departureTime: departureTime, childrenQty: Int(childrenQty), carryOnQty: Int(carryOnQty), checkedBagQty: Int(checkedBagQty), notes: notes)
     }
 }
