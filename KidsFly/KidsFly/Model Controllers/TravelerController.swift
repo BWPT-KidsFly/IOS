@@ -176,7 +176,7 @@ class TravelerController {
     }
     
     // MARK: - Fetch Trips from Server
-    func fetchTripsFromServer(completion: @escaping (Result<[TripRepresentation], NetworkError>) -> Void = {_ in }) {
+    func fetchTripsFromServer(traveler: TravelerRepresentation, completion: @escaping (Result<[TripRepresentation], NetworkError>) -> Void = {_ in }) {
         guard let bearer = bearer else {
             completion(.failure(.noAuthorization))
             return
