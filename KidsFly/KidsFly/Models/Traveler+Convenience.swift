@@ -26,7 +26,7 @@ extension Traveler {
 //        case airport = ""
 //    }
     
-    @discardableResult convenience init(identifier: UUID,
+    @discardableResult convenience init(identifier: UUID = UUID(),
                                         username: String,
                                         password: String,
                                         firstName: String,

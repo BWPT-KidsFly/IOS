@@ -13,7 +13,7 @@
 		4463647323AC815C0000CF3E /* Trip+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4463647223AC815B0000CF3E /* Trip+Convenience.swift */; };
 		44AD0EAE23AB1D3C0096B2E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AD0EAD23AB1D3C0096B2E9 /* AppDelegate.swift */; };
 		44AD0EB023AB1D3C0096B2E9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AD0EAF23AB1D3C0096B2E9 /* SceneDelegate.swift */; };
-		44AD0EB223AB1D3C0096B2E9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AD0EB123AB1D3C0096B2E9 /* ViewController.swift */; };
+		44AD0EB223AB1D3C0096B2E9 /* TravelerSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AD0EB123AB1D3C0096B2E9 /* TravelerSignUpViewController.swift */; };
 		44AD0EB523AB1D3C0096B2E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44AD0EB323AB1D3C0096B2E9 /* Main.storyboard */; };
 		44AD0EB723AB1D3D0096B2E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44AD0EB623AB1D3D0096B2E9 /* Assets.xcassets */; };
 		44AD0EBA23AB1D3D0096B2E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44AD0EB823AB1D3D0096B2E9 /* LaunchScreen.storyboard */; };
@@ -33,7 +33,7 @@
 		44AD0EAA23AB1D3C0096B2E9 /* KidsFly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KidsFly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44AD0EAD23AB1D3C0096B2E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		44AD0EAF23AB1D3C0096B2E9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		44AD0EB123AB1D3C0096B2E9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		44AD0EB123AB1D3C0096B2E9 /* TravelerSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelerSignUpViewController.swift; sourceTree = "<group>"; };
 		44AD0EB423AB1D3C0096B2E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		44AD0EB623AB1D3D0096B2E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		44AD0EB923AB1D3D0096B2E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -132,7 +132,7 @@
 		44AD0ED123AC2F230096B2E9 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				44AD0EB123AB1D3C0096B2E9 /* ViewController.swift */,
+				44AD0EB123AB1D3C0096B2E9 /* TravelerSignUpViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -211,7 +211,7 @@
 				4463646F23AB49FE0000CF3E /* ModelRepresentations.swift in Sources */,
 				4463646C23AB35EB0000CF3E /* CoreDataStack.swift in Sources */,
 				44AD0ED323AC3C630096B2E9 /* Traveler+Convenience.swift in Sources */,
-				44AD0EB223AB1D3C0096B2E9 /* ViewController.swift in Sources */,
+				44AD0EB223AB1D3C0096B2E9 /* TravelerSignUpViewController.swift in Sources */,
 				44AD0EC723ABEC2B0096B2E9 /* Bearer.swift in Sources */,
 				44AD0EAE23AB1D3C0096B2E9 /* AppDelegate.swift in Sources */,
 				44AD0EC523AB1F0C0096B2E9 /* KidsFly.xcdatamodeld in Sources */,
