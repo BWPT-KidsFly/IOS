@@ -25,10 +25,10 @@ extension Trip {
 //        case notes = ""
 //    }
     
-    @discardableResult convenience init(identifier: UUID,
+    @discardableResult convenience init(identifier: UUID = UUID(),
                                         airport: String,
                                         airline: String,
-                                        completedStatus: Bool,
+                                        completedStatus: Bool = false,
                                         flightNumber: String,
                                         departureTime: Date,
                                         childrenQty: Int16,

@@ -13,6 +13,7 @@ class TravelerSignUpViewController: UIViewController {
     // MARK: - Properties
     var travelerController: TravelerController?
     
+    // MARK: - Outlets
     @IBOutlet weak var airportTextField: UITextField!
     @IBOutlet weak var cityTextField: UITextField!
     @IBOutlet weak var firstNameTextField: UITextField!
@@ -29,6 +30,7 @@ class TravelerSignUpViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    // MARK: - Actions
     @IBAction func signUpButtonTapped(_ sender: UIButton) {
         guard let travelerController = travelerController else { return }
         if let airport = airportTextField.text,
@@ -52,10 +54,13 @@ class TravelerSignUpViewController: UIViewController {
             let zipCode = zipCodeTextField.text,
             !zipCode.isEmpty {
             
+            // Create a Traveler object
             let traveler = Traveler(username: username, password: password, firstName: firstName, lastName: lastName, streetAddress: street, cityAddress: city, stateAddress: state, zipCode: zipCode, phoneNumber: phoneNumber, airport: airport)
             
+            // Transform Traveler into representation for json
             let representation = TravelerRepresentation(identifier: traveler.identifier?.uuidString, username: traveler.username!, password: traveler.password!, firstName: traveler.firstName, lastName: traveler.lastName, streetAddress: traveler.streetAddress, cityAddress: traveler.cityAddress, stateAddress: traveler.stateAddress, zipCode: traveler.zipCode, phoneNumber: traveler.phoneNumber, airport: traveler.airport)
             
+            // Call signUp method with traveler representation
             travelerController.signUp(with: representation) { error in
                 if let error = error {
                     print("Error occurred during sign up: \(error)")

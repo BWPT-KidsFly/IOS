@@ -23,6 +23,7 @@
 		44AD0ECF23AC2F020096B2E9 /* KFConnectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AD0ECE23AC2F020096B2E9 /* KFConnectionController.swift */; };
 		44AD0ED323AC3C630096B2E9 /* Traveler+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AD0ED223AC3C630096B2E9 /* Traveler+Convenience.swift */; };
 		44AD0ED523B139FA0096B2E9 /* Error Codes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AD0ED423B139FA0096B2E9 /* Error Codes.swift */; };
+		44AD0ED723B5568B0096B2E9 /* NewTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AD0ED623B5568B0096B2E9 /* NewTripViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		44AD0ECE23AC2F020096B2E9 /* KFConnectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KFConnectionController.swift; sourceTree = "<group>"; };
 		44AD0ED223AC3C630096B2E9 /* Traveler+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Traveler+Convenience.swift"; sourceTree = "<group>"; };
 		44AD0ED423B139FA0096B2E9 /* Error Codes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error Codes.swift"; sourceTree = "<group>"; };
+		44AD0ED623B5568B0096B2E9 /* NewTripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTripViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				44AD0EB123AB1D3C0096B2E9 /* TravelerSignUpViewController.swift */,
+				44AD0ED623B5568B0096B2E9 /* NewTripViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -210,6 +213,7 @@
 			files = (
 				4463646F23AB49FE0000CF3E /* ModelRepresentations.swift in Sources */,
 				4463646C23AB35EB0000CF3E /* CoreDataStack.swift in Sources */,
+				44AD0ED723B5568B0096B2E9 /* NewTripViewController.swift in Sources */,
 				44AD0ED323AC3C630096B2E9 /* Traveler+Convenience.swift in Sources */,
 				44AD0EB223AB1D3C0096B2E9 /* TravelerSignUpViewController.swift in Sources */,
 				44AD0EC723ABEC2B0096B2E9 /* Bearer.swift in Sources */,
