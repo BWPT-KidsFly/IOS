@@ -12,6 +12,7 @@ class NewTripViewController: UIViewController {
     
     // MARK: - Properties
     var travelerController: TravelerController?
+    var tripController: TripController?
     var traveler: TravelerRepresentation?
     
     // MARK: - Outlets
@@ -32,6 +33,7 @@ class NewTripViewController: UIViewController {
     // MARK: - Actions
     @IBAction func addNewTripButtonTapped(_ sender: Any) {
         guard let travelerController = travelerController,
+            let tripController = tripController,
         let traveler = traveler else { return }
         if let airline = airlineTextField.text,
             !airline.isEmpty,
@@ -50,7 +52,7 @@ class NewTripViewController: UIViewController {
             
             let representation = TripRepresentation(identifier: newTrip.identifier?.uuidString, airport: newTrip.airport, airline: newTrip.airline, completedStatus: newTrip.completedStatus, flightNumber: newTrip.flightNumber, departureTime: newTrip.departureTime, childrenQty: Int(newTrip.childrenQty), carryOnQty: Int(newTrip.carryOnQty), checkedBagQty: Int(newTrip.checkedBagQty), notes: newTrip.notes)
             
-            travelerController.put(traveler: traveler, trip: representation) { result in
+            tripController.put(traveler: traveler, trip: representation) { result in
                 DispatchQueue.main.async {
                     let alertController = UIAlertController(title: "New Trip Added", message: "Your new trip was created.", preferredStyle: .alert)
                     let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
