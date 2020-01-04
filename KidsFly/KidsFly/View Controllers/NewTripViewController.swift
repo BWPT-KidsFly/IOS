@@ -53,7 +53,7 @@ class NewTripViewController: UIViewController {
             let representation = newTrip.tripRepresentation
             
             
-            tripController.put(traveler: traveler, trip: representation) { result in
+            tripController.put(traveler: traveler, trip: newTrip) { result in
                 DispatchQueue.main.async {
                     let alertController = UIAlertController(title: "New Trip Added", message: "Your new trip was created.", preferredStyle: .alert)
                     let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
