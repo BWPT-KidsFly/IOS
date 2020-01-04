@@ -50,8 +50,6 @@ class NewTripViewController: UIViewController {
             
             let newTrip = Trip(airport: airport, airline: airline, flightNumber: flightNumber, departureTime: departureTimePicker.date, childrenQty: Int16(childrenQty)!, carryOnQty: Int16(carryOnQty)!, checkedBagQty: Int16(checkedBagQty)!, notes: notesTextView.text)
             
-            let representation = newTrip.tripRepresentation
-            
             
             tripController.put(traveler: traveler, trip: newTrip) { result in
                 DispatchQueue.main.async {

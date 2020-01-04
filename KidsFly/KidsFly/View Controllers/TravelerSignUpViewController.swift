@@ -61,7 +61,6 @@ class TravelerSignUpViewController: UIViewController {
             // Transform Traveler into representation for json
             let newTraveler = traveler.travelerRepresentation
             travelerController.traveler = newTraveler
-            print(travelerController.traveler)
             
             // Call signUp method with traveler representation
 //            travelerController.signUp(with: representation) { error in
