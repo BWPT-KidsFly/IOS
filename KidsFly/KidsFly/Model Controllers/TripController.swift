@@ -13,25 +13,32 @@ class TripController {
     
     var travelerController: TravelerController?
     
-    private let baseURL = URL(string: "lambdaanimalspotter.vapor.cloud/api")! // TODO: Change url
+    private let baseURL = URL(string: "https://kidsfly-43b49.firebaseio.com/")! // TODO: Change url
     var trips: [TripRepresentation] = []
     var openTrips: [TripRepresentation] = []  // Idea is to filter on completedStatus to find the Trip that has not been marked as completed.
     var completedTrips: [TripRepresentation] = []
     
     // MARK: - Put Trip to Server
     func put(traveler: TravelerRepresentation, trip: TripRepresentation, completion: @escaping (Result<Bool, NetworkError>) -> Void = {_ in }) {
-        guard let travelerController = travelerController,
-            let bearer = travelerController.bearer else {
-            print("No authorized to put trip to server")
-            completion(.failure(.noAuthorization))
-            return
-        }
         
-        let requestUrl = baseURL.appendingPathComponent("trips") // TODO: change URL
+/* TESTING WITH FIREBASE URL -- UNCOMMENT THIS FOR PRODUCTION BACK END
+//        guard let travelerController = travelerController,
+//            let bearer = travelerController.bearer else {
+//            print("No authorized to put trip to server")
+//            completion(.failure(.noAuthorization))
+//            return
+//        }
+//
+//        let requestUrl = baseURL.appendingPathComponent("trips") // TODO: change URL
+//        var request = URLRequest(url: requestUrl)
+//        request.httpMethod = HTTPMethod.post.rawValue  // TODO: post or put?
+//        request.setValue("Bearer \(bearer.token)", forHTTPHeaderField: "Authorization")
+//        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+ */
+        guard let identifier = trip.identifier else { return }
+        let requestUrl = baseURL.appendingPathComponent(identifier).appendingPathExtension("json")
         var request = URLRequest(url: requestUrl)
-        request.httpMethod = HTTPMethod.post.rawValue  // TODO: post or put?
-        request.setValue("Bearer \(bearer.token)", forHTTPHeaderField: "Authorization")
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpMethod = "PUT"
         
         let jsonEncoder = JSONEncoder()
         jsonEncoder.dateEncodingStrategy = .iso8601
@@ -44,6 +51,16 @@ class TripController {
             return
         }
         
+        URLSession.shared.dataTask(with: request) { (data, _, error) in
+            guard error == nil else {
+                print("Error PUTing task to server: \(error!)")
+                completion(.failure(.otherError))
+                return
+            }
+          
+        }.resume()
+        
+/* TESTING WITH FIREBASE URL -- UNCOMMENT THIS FOR PRODUCTION BACK END
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let response = response as? HTTPURLResponse,
                 response.statusCode != 200 {
@@ -76,6 +93,7 @@ class TripController {
                 return
             }
         }.resume()
+ */
         // The following block is me trying to understand how the relationships work between the two models.
         //        let traveler = Traveler(identifier: UUID(), username: "bob", password: "jones", firstName: "bob", lastName: "jones", streetAddress: "123", cityAddress: "madris", stateAddress: "MN", zipCode: "55352", phoneNumber: "34543", airport: "MSP", context: CoreDataStack.shared.mainContext)
         //        let trip1 = Trip(identifier: UUID(), airport: "MSP", airline: "Delta", flightNumber: "345", departureTime: Date(), childrenQty: 2, carryOnQty: 2, checkedBagQty: 2, notes: "None", context: CoreDataStack.shared.mainContext)

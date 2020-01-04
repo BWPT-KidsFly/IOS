@@ -12,7 +12,7 @@ import UIKit
 class KFConnectionController {
     
     var bearer: Bearer?
-    private let baseURL = URL(string: "lambdaanimalspotter.vapor.cloud/api")! // TODO: Change url
+    private let baseURL = URL(string: "https://kidsfly-43b49.firebaseio.com/")! // TODO: Change url
     
     
     // MARK: - Sign Up New KFConnection

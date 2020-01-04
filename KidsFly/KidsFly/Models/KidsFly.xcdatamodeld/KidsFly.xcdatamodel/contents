@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="18G95" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="KFConnection" representedClassName="KFConnection" syncable="YES" codeGenerationType="class">
-        <attribute name="identifier" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="identifier" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="password" attributeType="String"/>
         <attribute name="username" attributeType="String"/>
         <relationship name="travelers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Traveler" inverseName="connections" inverseEntity="Traveler"/>
@@ -11,7 +11,7 @@
         <attribute name="airport" optional="YES" attributeType="String"/>
         <attribute name="cityAddress" optional="YES" attributeType="String"/>
         <attribute name="firstName" optional="YES" attributeType="String"/>
-        <attribute name="identifier" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="identifier" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="lastName" optional="YES" attributeType="String"/>
         <attribute name="password" attributeType="String"/>
         <attribute name="phoneNumber" optional="YES" attributeType="String"/>

@@ -13,7 +13,6 @@ class NewTripViewController: UIViewController {
     // MARK: - Properties
     var travelerController: TravelerController?
     var tripController: TripController?
-    var traveler: TravelerRepresentation?
     
     // MARK: - Outlets
     @IBOutlet weak var airlineTextField: UITextField!
@@ -34,7 +33,8 @@ class NewTripViewController: UIViewController {
     @IBAction func addNewTripButtonTapped(_ sender: Any) {
         guard let travelerController = travelerController,
             let tripController = tripController,
-        let traveler = traveler else { return }
+            let traveler = travelerController.traveler
+            else { return }
         if let airline = airlineTextField.text,
             !airline.isEmpty,
             let airport = airportTextField.text,
@@ -50,7 +50,8 @@ class NewTripViewController: UIViewController {
             
             let newTrip = Trip(airport: airport, airline: airline, flightNumber: flightNumber, departureTime: departureTimePicker.date, childrenQty: Int16(childrenQty)!, carryOnQty: Int16(carryOnQty)!, checkedBagQty: Int16(checkedBagQty)!, notes: notesTextView.text)
             
-            let representation = TripRepresentation(identifier: newTrip.identifier?.uuidString, airport: newTrip.airport, airline: newTrip.airline, completedStatus: newTrip.completedStatus, flightNumber: newTrip.flightNumber, departureTime: newTrip.departureTime, childrenQty: Int(newTrip.childrenQty), carryOnQty: Int(newTrip.carryOnQty), checkedBagQty: Int(newTrip.checkedBagQty), notes: newTrip.notes)
+            let representation = newTrip.tripRepresentation
+            
             
             tripController.put(traveler: traveler, trip: representation) { result in
                 DispatchQueue.main.async {

@@ -12,6 +12,7 @@ class TravelerSignUpViewController: UIViewController {
     
     // MARK: - Properties
     var travelerController: TravelerController?
+    var tripController: TripController?
     
     // MARK: - Outlets
     @IBOutlet weak var airportTextField: UITextField!
@@ -58,23 +59,35 @@ class TravelerSignUpViewController: UIViewController {
             let traveler = Traveler(username: username, password: password, firstName: firstName, lastName: lastName, streetAddress: street, cityAddress: city, stateAddress: state, zipCode: zipCode, phoneNumber: phoneNumber, airport: airport)
             
             // Transform Traveler into representation for json
-            let representation = TravelerRepresentation(identifier: traveler.identifier?.uuidString, username: traveler.username!, password: traveler.password!, firstName: traveler.firstName, lastName: traveler.lastName, streetAddress: traveler.streetAddress, cityAddress: traveler.cityAddress, stateAddress: traveler.stateAddress, zipCode: traveler.zipCode, phoneNumber: traveler.phoneNumber, airport: traveler.airport)
+            let newTraveler = traveler.travelerRepresentation
+            travelerController.traveler = newTraveler
+            print(travelerController.traveler)
             
             // Call signUp method with traveler representation
-            travelerController.signUp(with: representation) { error in
-                if let error = error {
-                    print("Error occurred during sign up: \(error)")
-                } else {
-                    DispatchQueue.main.async {
-                        let alertController = UIAlertController(title: "Sign Up Successful", message: "Your account was created, please log in to continue.", preferredStyle: .alert)
-                        let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-                        alertController.addAction(alertAction)
-                        self.present(alertController, animated: true) {
-                            self.dismiss(animated: true, completion: nil)
-                        }
-                    }
-                }
-            }
+//            travelerController.signUp(with: representation) { error in
+//                if let error = error {
+//                    print("Error occurred during sign up: \(error)")
+//                } else {
+//                    DispatchQueue.main.async {
+//                        let alertController = UIAlertController(title: "Sign Up Successful", message: "Your account was created, please log in to continue.", preferredStyle: .alert)
+//                        let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+//                        alertController.addAction(alertAction)
+//                        self.present(alertController, animated: true) {
+//                            self.dismiss(animated: true, completion: nil)
+//                        }
+//                    }
+//                }
+//            }
+        }
+        
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "TripSegue" {
+            guard let newTripVC = segue.destination as? NewTripViewController else { return }
+            newTripVC.tripController = tripController
+            newTripVC.travelerController = travelerController
         }
     }
 

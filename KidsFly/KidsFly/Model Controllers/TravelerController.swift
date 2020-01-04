@@ -20,9 +20,9 @@ class TravelerController {
     // Return the traveler's data and also their associated trips.
     // If there is an active (non-completed) trip, that should be highlighted
     
-    
+    var traveler: TravelerRepresentation?
     var bearer: Bearer?
-    private let baseURL = URL(string: "lambdaanimalspotter.vapor.cloud/api")! // TODO: Change url
+    private let baseURL = URL(string: "https://kidsfly-43b49.firebaseio.com/")! // TODO: Change url
     
     
     // MARK: - Sign Up New Traveler
