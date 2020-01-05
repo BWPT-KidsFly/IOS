@@ -11,8 +11,8 @@
 		4463646F23AB49FE0000CF3E /* ModelRepresentations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4463646E23AB49FE0000CF3E /* ModelRepresentations.swift */; };
 		4463647123AC7C7D0000CF3E /* KFConnection+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4463647023AC7C7D0000CF3E /* KFConnection+Convenience.swift */; };
 		4463647323AC815C0000CF3E /* Trip+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4463647223AC815B0000CF3E /* Trip+Convenience.swift */; };
-		449555DD23C022A500B5FC48 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449555DC23C022A500B5FC48 /* TestViewController.swift */; };
 		449555DF23C246B200B5FC48 /* TripTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449555DE23C246B200B5FC48 /* TripTableViewController.swift */; };
+		449555E123C24C6C00B5FC48 /* TripTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449555E023C24C6C00B5FC48 /* TripTableViewCell.swift */; };
 		44AD0EAE23AB1D3C0096B2E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AD0EAD23AB1D3C0096B2E9 /* AppDelegate.swift */; };
 		44AD0EB023AB1D3C0096B2E9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AD0EAF23AB1D3C0096B2E9 /* SceneDelegate.swift */; };
 		44AD0EB223AB1D3C0096B2E9 /* TravelerSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AD0EB123AB1D3C0096B2E9 /* TravelerSignUpViewController.swift */; };
@@ -34,8 +34,8 @@
 		4463646E23AB49FE0000CF3E /* ModelRepresentations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelRepresentations.swift; sourceTree = "<group>"; };
 		4463647023AC7C7D0000CF3E /* KFConnection+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KFConnection+Convenience.swift"; sourceTree = "<group>"; };
 		4463647223AC815B0000CF3E /* Trip+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Trip+Convenience.swift"; sourceTree = "<group>"; };
-		449555DC23C022A500B5FC48 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		449555DE23C246B200B5FC48 /* TripTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripTableViewController.swift; sourceTree = "<group>"; };
+		449555E023C24C6C00B5FC48 /* TripTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripTableViewCell.swift; sourceTree = "<group>"; };
 		44AD0EAA23AB1D3C0096B2E9 /* KidsFly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KidsFly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44AD0EAD23AB1D3C0096B2E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		44AD0EAF23AB1D3C0096B2E9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -144,7 +144,7 @@
 				44AD0EB123AB1D3C0096B2E9 /* TravelerSignUpViewController.swift */,
 				44AD0ED623B5568B0096B2E9 /* NewTripViewController.swift */,
 				449555DE23C246B200B5FC48 /* TripTableViewController.swift */,
-				449555DC23C022A500B5FC48 /* TestViewController.swift */,
+				449555E023C24C6C00B5FC48 /* TripTableViewCell.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -222,12 +222,12 @@
 			files = (
 				4463646F23AB49FE0000CF3E /* ModelRepresentations.swift in Sources */,
 				4463646C23AB35EB0000CF3E /* CoreDataStack.swift in Sources */,
-				449555DD23C022A500B5FC48 /* TestViewController.swift in Sources */,
 				44AD0ED723B5568B0096B2E9 /* NewTripViewController.swift in Sources */,
 				44AD0ED923B66A4C0096B2E9 /* TripController.swift in Sources */,
 				44AD0ED323AC3C630096B2E9 /* Traveler+Convenience.swift in Sources */,
 				44AD0EB223AB1D3C0096B2E9 /* TravelerSignUpViewController.swift in Sources */,
 				44AD0EC723ABEC2B0096B2E9 /* Bearer.swift in Sources */,
+				449555E123C24C6C00B5FC48 /* TripTableViewCell.swift in Sources */,
 				44AD0EAE23AB1D3C0096B2E9 /* AppDelegate.swift in Sources */,
 				44AD0EC523AB1F0C0096B2E9 /* KidsFly.xcdatamodeld in Sources */,
 				44AD0ED523B139FA0096B2E9 /* Error Codes.swift in Sources */,
