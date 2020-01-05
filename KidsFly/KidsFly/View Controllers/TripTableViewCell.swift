@@ -15,7 +15,13 @@ class TripTableViewCell: UITableViewCell {
             updateViews()
         }
     }
-
+    
+    @IBOutlet weak var airlineLabel: UILabel!
+    @IBOutlet weak var airportLabel: UILabel!
+    @IBOutlet weak var kidsLabel: UILabel!
+    @IBOutlet weak var flightLabel: UILabel!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -28,7 +34,12 @@ class TripTableViewCell: UITableViewCell {
     }
     
     func updateViews() {
+        guard let trip = trip else { return }
         
+        airlineLabel.text = trip.airline
+        airportLabel.text = trip.airport
+        kidsLabel.text = String(trip.childrenQty)
+        flightLabel.text = trip.flightNumber
     }
 
 }
