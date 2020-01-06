@@ -12,11 +12,11 @@
             <objects>
                 <viewController id="DVO-uD-rmT" customClass="NewTripViewController" customModule="KidsFly" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="C4m-hE-fmX">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="S8U-fd-YQs">
-                                <rect key="frame" x="40" y="160" width="334" height="589"/>
+                                <rect key="frame" x="40" y="20" width="334" height="589"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="airline" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rlr-5K-hyA">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="34"/>
@@ -190,6 +190,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="2en-e7-F3c">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </refreshControl>
                     <connections>
                         <segue destination="E8T-na-IfB" kind="presentation" identifier="NewTravelerSegue" id="w8v-ci-0Zh"/>
                     </connections>
