@@ -159,6 +159,8 @@ class TripController {
                 self.completedTrips = self.trips.filter {$0.completedStatus == true}
                 
                 // At this point the trips are in the correct arrays corresponding to the server data. They lose their organization subsquently in core data. I assume this is because I am not yet calling the updateTrips method.
+                
+                try self.updateTrips(with: self.trips)
                 completion(.success(self.trips))
             } catch {
                 print("Error decoding all Trips: \(error)")
@@ -187,7 +189,7 @@ class TripController {
                 for trip in existingTrips {
                     guard let id = trip.identifier?.uuidString,
                         let representation = representationsByID[id] else {
-                            let moc = CoreDataStack.shared.mainContext
+//                            let moc = CoreDataStack.shared.mainContext
                             moc.delete(trip)
                             continue
                     }

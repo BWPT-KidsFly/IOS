@@ -50,7 +50,7 @@ extension Trip {
         self.notes = notes
     }
     
-    @discardableResult convenience init?(tripRepresentation: TripRepresentation, context: NSManagedObjectContext) {
+    @discardableResult convenience init?(tripRepresentation: TripRepresentation, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         
         guard let identifier = tripRepresentation.identifier,
             let airport = tripRepresentation.airport,
