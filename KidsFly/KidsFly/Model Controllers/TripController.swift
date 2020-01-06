@@ -153,12 +153,12 @@ class TripController {
                 self.trips = []
                 self.openTrips = []
                 self.completedTrips = []
-                self.trips = Array(try JSONDecoder().decode([String : TripRepresentation].self, from: data).values)
-                
-//          There is a bug here; compiler finds a type mismatch.  Possibly with the UUID and/or departureTime
+                self.trips = Array(try decoder.decode([String : TripRepresentation].self, from: data).values)
                 
                 self.openTrips = self.trips.filter {$0.completedStatus == false}
                 self.completedTrips = self.trips.filter {$0.completedStatus == true}
+                
+                // At this point the trips are in the correct arrays corresponding to the server data. They lose their organization subsquently in core data. I assume this is because I am not yet calling the updateTrips method.
                 completion(.success(self.trips))
             } catch {
                 print("Error decoding all Trips: \(error)")
