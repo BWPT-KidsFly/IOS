@@ -55,18 +55,16 @@ class NewTripViewController: UIViewController {
                     print("Error occurred while PUTin a new trip to server: \(error)")
                 } else {
                     DispatchQueue.main.async {
-                        // I ATTEMPTED TO PRESENT AN ALERT BUT IT DISMISSED THE ALERT INSTEAD OF THE SCREEN.
-//                        let alertController = UIAlertController(title: "New Trip Added", message: "Your new trip was created.", preferredStyle: .alert)
-//                        let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-//                        alertController.addAction(alertAction)
-//                        self.present(alertController, animated: true)
-                        self.dismiss(animated: true, completion: nil)
+                        let alertController = UIAlertController(title: "New Trip Added", message: "Your new trip was created.", preferredStyle: .alert)
+                        let alertAction = UIAlertAction(title: "OK", style: .default) { (_) in
+                            self.dismiss(animated: true, completion: nil)
+                        }
+                        alertController.addAction(alertAction)
+                        self.present(alertController, animated: true)
                     }
                 }
             }
-            
         }
-        
     }
 
     /*
