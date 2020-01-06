@@ -186,10 +186,13 @@
                     <navigationItem key="navigationItem" id="UnD-yu-gRf">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="eyq-y3-nEV">
                             <connections>
-                                <segue destination="DVO-uD-rmT" kind="show" identifier="NewTripSegue" id="JTu-LK-qcP"/>
+                                <segue destination="DVO-uD-rmT" kind="presentation" identifier="NewTripSegue" id="JTu-LK-qcP"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="E8T-na-IfB" kind="presentation" identifier="NewTravelerSegue" id="w8v-ci-0Zh"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NEa-ys-1C9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -200,11 +203,11 @@
             <objects>
                 <viewController id="E8T-na-IfB" customClass="TravelerSignUpViewController" customModule="KidsFly" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JPj-ec-ota">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="3Be-If-xYY">
-                                <rect key="frame" x="40" y="84" width="334" height="430"/>
+                                <rect key="frame" x="40" y="40" width="334" height="430"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="airport" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qra-JR-RUk">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="34"/>
@@ -264,7 +267,6 @@
                                 <state key="normal" title="Save"/>
                                 <connections>
                                     <action selector="signUpButtonTapped:" destination="E8T-na-IfB" eventType="touchUpInside" id="L0w-CP-qrh"/>
-                                    <segue destination="DVO-uD-rmT" kind="show" identifier="TripSegue" id="2B9-MV-NHz"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -313,7 +315,4 @@
             <point key="canvasLocation" x="660.86956521739137" y="9.375"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="JTu-LK-qcP"/>
-    </inferredMetricsTieBreakers>
 </document>

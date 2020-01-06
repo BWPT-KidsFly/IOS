@@ -50,13 +50,16 @@ class NewTripViewController: UIViewController {
             
             let newTrip = Trip(airport: airport, airline: airline, flightNumber: flightNumber, departureTime: departureTimePicker.date, childrenQty: Int16(childrenQty)!, carryOnQty: Int16(carryOnQty)!, checkedBagQty: Int16(checkedBagQty)!, notes: notesTextView.text)
             
-            
-            tripController.put(traveler: traveler, trip: newTrip) { result in
-                DispatchQueue.main.async {
-                    let alertController = UIAlertController(title: "New Trip Added", message: "Your new trip was created.", preferredStyle: .alert)
-                    let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-                    alertController.addAction(alertAction)
-                    self.present(alertController, animated: true) {
+            tripController.put(traveler: traveler, trip: newTrip) { error in
+                if error != .success(true) {
+                    print("Error occurred while PUTin a new trip to server: \(error)")
+                } else {
+                    DispatchQueue.main.async {
+                        // I ATTEMPTED TO PRESENT AN ALERT BUT IT DISMISSED THE ALERT INSTEAD OF THE SCREEN.
+//                        let alertController = UIAlertController(title: "New Trip Added", message: "Your new trip was created.", preferredStyle: .alert)
+//                        let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+//                        alertController.addAction(alertAction)
+//                        self.present(alertController, animated: true)
                         self.dismiss(animated: true, completion: nil)
                     }
                 }

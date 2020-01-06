@@ -36,6 +36,10 @@ class TripTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        if travelerController.bearer == nil {
+            performSegue(withIdentifier: "NewTravelerSegue", sender: self)
+        }
+        
         tableView.reloadData()
     }
     
@@ -96,6 +100,9 @@ class TripTableViewController: UITableViewController {
             guard let newTripVC = segue.destination as? NewTripViewController else { return }
             newTripVC.tripController = tripController
             newTripVC.travelerController = travelerController
+        } else if segue.identifier == "NewTravelerSegue" {
+            guard let newTravelerVC = segue.destination as? TravelerSignUpViewController else { return }
+            newTravelerVC.travelerController = travelerController
         }
         
     }

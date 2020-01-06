@@ -64,7 +64,7 @@ class TripController {
                 completion(.failure(.otherError))
                 return
             }
-          
+            completion(.success(true))
         }.resume()
         
 /* TESTING WITH FIREBASE URL -- UNCOMMENT THIS FOR PRODUCTION BACK END

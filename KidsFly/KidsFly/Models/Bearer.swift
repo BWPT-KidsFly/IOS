@@ -10,5 +10,5 @@ import Foundation
 
 // used to get the authorization token from the API
 struct Bearer: Codable {
-    let token: String
+    var token: String
 }
