@@ -64,20 +64,30 @@ class NewTripViewController: UIViewController {
             if let trip = trip {
                 let newTrip = Trip(identifier: trip.identifier!, airport: airport, airline: airline, completedStatus: trip.completedStatus, flightNumber: flightNumber, departureTime: departureTimePicker.date, childrenQty: Int16(childrenQty)!, carryOnQty: Int16(carryOnQty)!, checkedBagQty: Int16(checkedBagQty)!, notes: notesTextView.text)
                 
-                tripController.put(traveler: traveler, trip: newTrip) { error in
-                    if error != .success(true) {
-                        print("Error occurred while PUTin a new trip to server: \(error)")
-                    } else {
-                        DispatchQueue.main.async {
-                            let alertController = UIAlertController(title: "Trip Updated", message: "Your trip was successfully changed.", preferredStyle: .alert)
-                            let alertAction = UIAlertAction(title: "OK", style: .default) { (_) in
-                                self.dismiss(animated: true, completion: nil)
-                            }
-                            alertController.addAction(alertAction)
-                            self.present(alertController, animated: true)
-                        }
-                    }
+                tripController.updateExistingTrip(for: traveler, trip: newTrip)
+                
+                let alertController = UIAlertController(title: "Trip Updated", message: "Your trip was successfully changed.", preferredStyle: .alert)
+                let alertAction = UIAlertAction(title: "OK", style: .default) { (_) in
+                    self.dismiss(animated: true, completion: nil)
                 }
+                alertController.addAction(alertAction)
+                self.present(alertController, animated: true)
+            
+                
+//                { error in
+//                    if error != .success(true) {
+//                        print("Error occurred while PUTin a new trip to server: \(error)")
+//                    } else {
+//                        DispatchQueue.main.async {
+//                            let alertController = UIAlertController(title: "Trip Updated", message: "Your trip was successfully changed.", preferredStyle: .alert)
+//                            let alertAction = UIAlertAction(title: "OK", style: .default) { (_) in
+//                                self.dismiss(animated: true, completion: nil)
+//                            }
+//                            alertController.addAction(alertAction)
+//                            self.present(alertController, animated: true)
+//                        }
+//                    }
+//                }
             } else {
                 let newTrip = Trip(airport: airport, airline: airline, flightNumber: flightNumber, departureTime: departureTimePicker.date, childrenQty: Int16(childrenQty)!, carryOnQty: Int16(carryOnQty)!, checkedBagQty: Int16(checkedBagQty)!, notes: notesTextView.text)
                 tripController.put(traveler: traveler, trip: newTrip) { error in
@@ -126,18 +136,5 @@ class NewTripViewController: UIViewController {
             markAsCompletedButton.isEnabled = false
             markAsCompletedButton.setTitleColor(UIColor.systemGray, for: .disabled)
         }
-        
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

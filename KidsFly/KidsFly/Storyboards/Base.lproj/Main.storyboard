@@ -26,11 +26,11 @@
             <objects>
                 <viewController id="DVO-uD-rmT" customClass="NewTripViewController" customModule="KidsFly" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="C4m-hE-fmX">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="S8U-fd-YQs">
-                                <rect key="frame" x="40" y="20" width="334" height="627"/>
+                                <rect key="frame" x="40" y="160" width="334" height="627"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="airline" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rlr-5K-hyA">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="34"/>
@@ -117,10 +117,10 @@
             </objects>
             <point key="canvasLocation" x="2687" y="779"/>
         </scene>
-        <!--Trip Table View Controller-->
+        <!--My Trips-->
         <scene sceneID="NPk-Uu-pbO">
             <objects>
-                <tableViewController id="rrV-ZH-t8q" customClass="TripTableViewController" customModule="KidsFly" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="My Trips" id="rrV-ZH-t8q" customClass="TripTableViewController" customModule="KidsFly" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="5Oh-fg-pVR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -197,7 +197,7 @@
                                     <outlet property="airportLabel" destination="suB-ND-9NQ" id="FeO-3j-RwK"/>
                                     <outlet property="flightLabel" destination="1BN-oQ-qSb" id="HAB-Cl-GUT"/>
                                     <outlet property="kidsLabel" destination="8qX-CI-D5Q" id="cF9-Ym-lJr"/>
-                                    <segue destination="DVO-uD-rmT" kind="presentation" identifier="TripDetailSegue" id="GlM-vG-HpH"/>
+                                    <segue destination="DVO-uD-rmT" kind="show" identifier="TripDetailSegue" id="GlM-vG-HpH"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -216,6 +216,10 @@
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="2en-e7-F3c">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <attributedString key="attributedTitle"/>
+                        <connections>
+                            <action selector="refresh:" destination="rrV-ZH-t8q" eventType="valueChanged" id="7Gu-I1-xg0"/>
+                        </connections>
                     </refreshControl>
                     <connections>
                         <segue destination="dv5-6f-cZd" kind="presentation" identifier="TravelerSignInSegue" id="uuh-fZ-84q"/>
