@@ -13,6 +13,11 @@ class NewTripViewController: UIViewController {
     // MARK: - Properties
     var travelerController: TravelerController?
     var tripController: TripController?
+    var trip: Trip? {
+        didSet {
+            updateViews()
+        }
+    }
     
     // MARK: - Outlets
     @IBOutlet weak var airlineTextField: UITextField!
@@ -23,6 +28,7 @@ class NewTripViewController: UIViewController {
     @IBOutlet weak var departureTimePicker: UIDatePicker!
     @IBOutlet weak var flightNumberTextField: UITextField!
     @IBOutlet weak var notesTextView: UITextView!
+    @IBOutlet weak var markAsCompletedButton: UIButton!
     
 
     override func viewDidLoad() {
@@ -66,6 +72,31 @@ class NewTripViewController: UIViewController {
             }
         }
     }
+    
+    @IBAction func toggleTripCompletionStatus(_ sender: UIButton) {
+        
+    }
+    
+    private func updateViews() {
+        guard isViewLoaded else { return }
+        
+        if let trip = trip {
+            title = trip.flightNumber
+            airlineTextField.text = trip.airline
+            airportTextField.text = trip.airport
+            carryOnQtyPicker.text = String(trip.carryOnQty)
+            checkedBagQtyPicker.text = String(trip.checkedBagQty)
+            childrenQtyPicker.text = String(trip.childrenQty)
+            flightNumberTextField.text = trip.flightNumber
+            notesTextView.text = trip.notes
+            departureTimePicker.date = trip.departureTime!
+        } else {
+        title = "Create New Trip"
+            markAsCompletedButton.setTitleColor(UIColor.systemGray, for: .disabled)
+        }
+        
+    }
+    
 
     /*
     // MARK: - Navigation

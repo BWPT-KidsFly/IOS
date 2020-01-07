@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="S8U-fd-YQs">
-                                <rect key="frame" x="40" y="20" width="334" height="589"/>
+                                <rect key="frame" x="40" y="20" width="334" height="627"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="airline" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rlr-5K-hyA">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="34"/>
@@ -63,9 +63,16 @@
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qxd-Xw-d5c">
                                         <rect key="frame" x="0.0" y="559" width="334" height="30"/>
-                                        <state key="normal" title="Button"/>
+                                        <state key="normal" title="Save Trip"/>
                                         <connections>
                                             <action selector="addNewTripButtonTapped:" destination="DVO-uD-rmT" eventType="touchUpInside" id="yfJ-i1-sJx"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EzY-gx-Syw">
+                                        <rect key="frame" x="0.0" y="597" width="334" height="30"/>
+                                        <state key="normal" title="Mark Trip as Completed"/>
+                                        <connections>
+                                            <action selector="toggleTripCompletionStatus:" destination="DVO-uD-rmT" eventType="touchUpInside" id="BUZ-QF-whY"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -88,6 +95,7 @@
                         <outlet property="childrenQtyPicker" destination="D6X-B1-yQa" id="ett-ra-W63"/>
                         <outlet property="departureTimePicker" destination="Hzq-wk-NCf" id="Q6p-Ku-mJs"/>
                         <outlet property="flightNumberTextField" destination="Qfg-cA-XLg" id="eUm-S1-9HO"/>
+                        <outlet property="markAsCompletedButton" destination="EzY-gx-Syw" id="4yM-I6-1u5"/>
                         <outlet property="notesTextView" destination="1jb-j4-2rW" id="tWd-QZ-BQu"/>
                     </connections>
                 </viewController>
@@ -114,11 +122,11 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="oxG-l1-hf6">
                                             <rect key="frame" x="10" y="8" width="394" height="44"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="g64-BP-zpo">
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="g64-BP-zpo">
                                                     <rect key="frame" x="0.0" y="0.0" width="189.5" height="44"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sMu-ZP-LZk">
-                                                            <rect key="frame" x="0.0" y="0.0" width="189.5" height="23"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="189.5" height="22"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="23" id="a3S-6H-w76"/>
                                                             </constraints>
@@ -127,7 +135,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="suB-ND-9NQ">
-                                                            <rect key="frame" x="0.0" y="23" width="189.5" height="21"/>
+                                                            <rect key="frame" x="0.0" y="22" width="189.5" height="22"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="23" id="Fve-XZ-Diq"/>
                                                             </constraints>
@@ -137,11 +145,11 @@
                                                         </label>
                                                     </subviews>
                                                 </stackView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="evu-5N-4F3">
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="evu-5N-4F3">
                                                     <rect key="frame" x="204.5" y="0.0" width="189.5" height="44"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8qX-CI-D5Q">
-                                                            <rect key="frame" x="0.0" y="0.0" width="189.5" height="23"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="189.5" height="22"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="23" id="Igb-YL-4bg"/>
                                                             </constraints>
@@ -150,7 +158,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1BN-oQ-qSb">
-                                                            <rect key="frame" x="0.0" y="23" width="189.5" height="21"/>
+                                                            <rect key="frame" x="0.0" y="22" width="189.5" height="22"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="23" id="Q6W-as-hon"/>
                                                             </constraints>
@@ -175,6 +183,7 @@
                                     <outlet property="airportLabel" destination="suB-ND-9NQ" id="FeO-3j-RwK"/>
                                     <outlet property="flightLabel" destination="1BN-oQ-qSb" id="HAB-Cl-GUT"/>
                                     <outlet property="kidsLabel" destination="8qX-CI-D5Q" id="cF9-Ym-lJr"/>
+                                    <segue destination="DVO-uD-rmT" kind="presentation" identifier="TripDetailSegue" id="GlM-vG-HpH"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -191,6 +200,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="2en-e7-F3c">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </refreshControl>
                     <connections>
@@ -318,4 +328,7 @@
             <point key="canvasLocation" x="660.86956521739137" y="9.375"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="GlM-vG-HpH"/>
+    </inferredMetricsTieBreakers>
 </document>
