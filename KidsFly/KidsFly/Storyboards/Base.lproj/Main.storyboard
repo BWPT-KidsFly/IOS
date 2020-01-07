@@ -6,6 +6,20 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="MYRIADPRO-BOLD.OTF">
+            <string>MyriadPro-Bold</string>
+        </array>
+        <array key="MYRIADPRO-REGULAR.OTF">
+            <string>MyriadPro-Regular</string>
+        </array>
+        <array key="MYRIADPRO-SEMIBOLD.OTF">
+            <string>MyriadPro-Semibold</string>
+        </array>
+        <array key="MYRIADPRO-SEMIBOLDIT.OTF">
+            <string>MyriadPro-SemiboldIt</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--New Trip View Controller-->
         <scene sceneID="1eM-qy-YAO">
@@ -195,7 +209,7 @@
                     <navigationItem key="navigationItem" id="UnD-yu-gRf">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="eyq-y3-nEV">
                             <connections>
-                                <segue destination="DVO-uD-rmT" kind="presentation" identifier="NewTripSegue" id="JTu-LK-qcP"/>
+                                <segue destination="9Rr-Ud-ax3" kind="presentation" id="mP4-AL-FdK"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -309,6 +323,474 @@
             </objects>
             <point key="canvasLocation" x="2571.0144927536235" y="-285.26785714285711"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="144-1s-xt1">
+            <objects>
+                <viewController id="9Rr-Ud-ax3" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oek-r0-4bk">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Vys-b9-6cd">
+                                <rect key="frame" x="25" y="26" width="364" height="17"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add New Trip" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="azN-91-KaA">
+                                        <rect key="frame" x="0.0" y="0.0" width="124.5" height="17"/>
+                                        <fontDescription key="fontDescription" name="MyriadPro-Bold" family="Myriad Pro" pointSize="21"/>
+                                        <color key="textColor" red="0.2627450980392157" green="0.25098039215686274" blue="0.26666666666666666" alpha="1" colorSpace="custom" customColorSpace="adobeRGB1998"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LRK-X5-tN1">
+                                        <rect key="frame" x="347" y="0.0" width="17" height="17"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="17" id="LlE-nL-GSr"/>
+                                            <constraint firstAttribute="height" constant="17" id="Lxb-oT-jfE"/>
+                                        </constraints>
+                                        <state key="normal" title="Close Icon" image="CloseIcon"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DateRect" translatesAutoresizingMaskIntoConstraints="NO" id="qbB-zT-YK1">
+                                <rect key="frame" x="54.5" y="262" width="305" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="d8e-Lz-ew7"/>
+                                    <constraint firstAttribute="width" constant="305" id="hod-Qw-5gb"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="It2-SU-i3m">
+                                <rect key="frame" x="35" y="58" width="344" height="58"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d0X-UK-OG0">
+                                        <rect key="frame" x="0.0" y="0.0" width="344" height="14"/>
+                                        <fontDescription key="fontDescription" name="MyriadPro-SemiboldIt" family="Myriad Pro" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" background="DepartTxtField" translatesAutoresizingMaskIntoConstraints="NO" id="yhT-UR-sFg">
+                                        <rect key="frame" x="0.0" y="28" width="344" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="vPJ-K9-9sq"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="tjk-E2-mpc">
+                                <rect key="frame" x="35" y="131" width="344" height="58"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kfY-6p-dNu">
+                                        <rect key="frame" x="0.0" y="0.0" width="344" height="14"/>
+                                        <fontDescription key="fontDescription" name="MyriadPro-SemiboldIt" family="Myriad Pro" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" background="ReturnTxtField" translatesAutoresizingMaskIntoConstraints="NO" id="MbB-AB-zNa">
+                                        <rect key="frame" x="0.0" y="28" width="344" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="FgL-vB-0JV"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5LP-P2-1D1">
+                                <rect key="frame" x="35" y="241" width="29.5" height="14"/>
+                                <fontDescription key="fontDescription" name="MyriadPro-Bold" family="Myriad Pro" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="GUd-2M-v6c">
+                                <rect key="frame" x="75" y="269" width="92" height="41"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Leave" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CTK-5i-rqk">
+                                        <rect key="frame" x="0.0" y="0.0" width="92" height="12"/>
+                                        <fontDescription key="fontDescription" name="MyriadPro-Semibold" family="Myriad Pro" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bnV-2H-i8w">
+                                        <rect key="frame" x="0.0" y="12" width="92" height="29"/>
+                                        <fontDescription key="fontDescription" name="MyriadPro-Bold" family="Myriad Pro" pointSize="17"/>
+                                        <state key="normal" title="01/10/20 Fri"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="AwO-Zi-GSi">
+                                <rect key="frame" x="238" y="269" width="101" height="41"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Return" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oHW-ea-7A4">
+                                        <rect key="frame" x="0.0" y="0.0" width="101" height="12"/>
+                                        <fontDescription key="fontDescription" name="MyriadPro-Semibold" family="Myriad Pro" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="apf-bY-lW1">
+                                        <rect key="frame" x="0.0" y="12" width="101" height="29"/>
+                                        <fontDescription key="fontDescription" name="MyriadPro-Bold" family="Myriad Pro" pointSize="17"/>
+                                        <state key="normal" title="01/19/20 Sun"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="52" translatesAutoresizingMaskIntoConstraints="NO" id="Nlv-x2-Ela">
+                                <rect key="frame" x="88" y="415" width="92" height="12"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LAX" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YM2-Fr-wEk">
+                                        <rect key="frame" x="0.0" y="0.0" width="20" height="12"/>
+                                        <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LAX" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U0X-ri-sS1">
+                                        <rect key="frame" x="72" y="0.0" width="20" height="12"/>
+                                        <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="52" translatesAutoresizingMaskIntoConstraints="NO" id="2T3-0S-sQy">
+                                <rect key="frame" x="262" y="415" width="92" height="12"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LAX" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QRa-on-VKV">
+                                        <rect key="frame" x="0.0" y="0.0" width="20" height="12"/>
+                                        <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LAX" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E4u-PU-kcn">
+                                        <rect key="frame" x="72" y="0.0" width="20" height="12"/>
+                                        <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="gI0-jO-OIw">
+                                <rect key="frame" x="75" y="435" width="122" height="21"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" background="DepartTime" translatesAutoresizingMaskIntoConstraints="NO" id="OQC-KN-1KX">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="Xie-m2-uqr"/>
+                                            <constraint firstAttribute="width" constant="50" id="eNX-on-Dfa"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TimeArrow" translatesAutoresizingMaskIntoConstraints="NO" id="SGh-4T-1Ep">
+                                        <rect key="frame" x="54" y="6" width="14" height="9"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="14" id="eVN-AX-3rl"/>
+                                            <constraint firstAttribute="height" constant="9" id="qaw-4U-dQJ"/>
+                                        </constraints>
+                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
+                                    </imageView>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" background="ArriveTime" translatesAutoresizingMaskIntoConstraints="NO" id="tEF-1E-W2j">
+                                        <rect key="frame" x="72" y="0.0" width="50" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="6iK-Wz-NMC"/>
+                                            <constraint firstAttribute="width" constant="50" id="iOu-jP-zAH"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="SGh-4T-1Ep" firstAttribute="centerY" secondItem="OQC-KN-1KX" secondAttribute="centerY" id="yXG-l1-smp"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="MIU-2N-4KY">
+                                <rect key="frame" x="247" y="435" width="122" height="21"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" background="DepartTime" translatesAutoresizingMaskIntoConstraints="NO" id="JYD-lM-nLs">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="AnI-VM-cYP"/>
+                                            <constraint firstAttribute="height" constant="21" id="Qmo-7H-GjV"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TimeArrow" translatesAutoresizingMaskIntoConstraints="NO" id="W4F-jE-dBl">
+                                        <rect key="frame" x="54" y="6" width="14" height="9"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="9" id="IRY-x5-QqU"/>
+                                            <constraint firstAttribute="width" constant="14" id="yiu-LU-M5a"/>
+                                        </constraints>
+                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
+                                    </imageView>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" background="ArriveTime" translatesAutoresizingMaskIntoConstraints="NO" id="snm-d4-MBz">
+                                        <rect key="frame" x="72" y="0.0" width="50" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="qCY-la-9ss"/>
+                                            <constraint firstAttribute="width" constant="50" id="rTM-Hx-E3L"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="W4F-jE-dBl" firstAttribute="centerY" secondItem="JYD-lM-nLs" secondAttribute="centerY" id="Ifx-6s-Pjg"/>
+                                </constraints>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flight Times" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V3W-S0-OHe">
+                                <rect key="frame" x="35" y="381" width="75.5" height="14"/>
+                                <fontDescription key="fontDescription" name="MyriadPro-Bold" family="Myriad Pro" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="qDX-cR-4sr">
+                                <rect key="frame" x="97" y="476" width="78" height="14"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LbR-1L-Ews">
+                                        <rect key="frame" x="0.0" y="0.0" width="14" height="14"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="14" id="3ff-rl-uHc"/>
+                                            <constraint firstAttribute="height" constant="14" id="M46-Xp-feX"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="CrossBox"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cvv-cs-43t">
+                                        <rect key="frame" x="64" y="0.0" width="14" height="14"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="14" id="LgO-7p-SO4"/>
+                                            <constraint firstAttribute="height" constant="14" id="gBD-uM-fU5"/>
+                                        </constraints>
+                                        <state key="normal" image="CrossBox"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="1jG-GE-yRm">
+                                <rect key="frame" x="97" y="500" width="78" height="14"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VvC-So-T3d">
+                                        <rect key="frame" x="0.0" y="0.0" width="14" height="14"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="14" id="TsR-VQ-VDj"/>
+                                            <constraint firstAttribute="width" constant="14" id="weA-dg-Og7"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="CrossBox"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jyT-QS-NmU">
+                                        <rect key="frame" x="64" y="0.0" width="14" height="14"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="14" id="b4Y-CY-HbN"/>
+                                            <constraint firstAttribute="height" constant="14" id="tg4-9r-VIB"/>
+                                        </constraints>
+                                        <state key="normal" image="CrossBox"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="5MA-V5-TBD">
+                                <rect key="frame" x="269" y="476" width="78" height="14"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UmX-bn-1eb">
+                                        <rect key="frame" x="0.0" y="0.0" width="14" height="14"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="14" id="5ud-1T-n5I"/>
+                                            <constraint firstAttribute="height" constant="14" id="gey-pF-QOi"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="CrossBox"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LxE-4w-LNg">
+                                        <rect key="frame" x="64" y="0.0" width="14" height="14"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="14" id="2Z4-0J-o6k"/>
+                                            <constraint firstAttribute="height" constant="14" id="SMF-Jt-beC"/>
+                                        </constraints>
+                                        <state key="normal" image="CrossBox"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="XnN-nv-skp">
+                                <rect key="frame" x="269" y="500" width="78" height="14"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I5l-lA-err">
+                                        <rect key="frame" x="0.0" y="0.0" width="14" height="14"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="14" id="89W-s8-tPo"/>
+                                            <constraint firstAttribute="width" constant="14" id="s0Z-yt-ECn"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="CrossBox"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Opw-fz-tCe">
+                                        <rect key="frame" x="64" y="0.0" width="14" height="14"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="14" id="Ga3-wN-Gcl"/>
+                                            <constraint firstAttribute="height" constant="14" id="dES-8E-WDY"/>
+                                        </constraints>
+                                        <state key="normal" image="CrossBox"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="tW1-wd-BGl">
+                                <rect key="frame" x="20" y="476" width="50.5" height="38"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meals?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RkC-mx-D0D">
+                                        <rect key="frame" x="0.0" y="0.0" width="50.5" height="14"/>
+                                        <fontDescription key="fontDescription" name="MyriadPro-Semibold" family="Myriad Pro" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stroller?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HuJ-fQ-ggT">
+                                        <rect key="frame" x="0.0" y="24" width="50.5" height="14"/>
+                                        <fontDescription key="fontDescription" name="MyriadPro-Semibold" family="Myriad Pro" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="RSx-rq-6hi">
+                                <rect key="frame" x="34.5" y="574" width="345.5" height="69"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="wMR-sL-kNE">
+                                        <rect key="frame" x="0.0" y="0.0" width="92" height="69"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Children" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uQr-Ti-JdR">
+                                                <rect key="frame" x="19" y="0.0" width="53.5" height="14"/>
+                                                <fontDescription key="fontDescription" name="MyriadPro-Bold" family="Myriad Pro" pointSize="14"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15 &amp; Under" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bes-Of-LRW">
+                                                <rect key="frame" x="18" y="19" width="56" height="12"/>
+                                                <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="12"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" background="InputTextField" translatesAutoresizingMaskIntoConstraints="NO" id="UMA-f8-rQq">
+                                                <rect key="frame" x="0.0" y="36" width="92" height="33"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="33" id="Frx-4a-eJ6"/>
+                                                    <constraint firstAttribute="width" constant="92" id="tVW-71-diS"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="MyriadPro-Bold" family="Myriad Pro" pointSize="18"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Zn2-Au-5Ek">
+                                        <rect key="frame" x="122" y="0.0" width="92" height="69"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adults" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gv1-Xt-frX">
+                                                <rect key="frame" x="25.5" y="0.0" width="41" height="14"/>
+                                                <fontDescription key="fontDescription" name="MyriadPro-Bold" family="Myriad Pro" pointSize="14"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="16 &amp; Older" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Pp-Bg-GyB">
+                                                <rect key="frame" x="19.5" y="19" width="52.5" height="12"/>
+                                                <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="12"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" background="InputTextField" translatesAutoresizingMaskIntoConstraints="NO" id="b1r-QB-0Rd">
+                                                <rect key="frame" x="0.0" y="36" width="92" height="33"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="33" id="CSK-6a-3d9"/>
+                                                    <constraint firstAttribute="width" constant="92" id="Quq-b1-DLz"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="MyriadPro-Bold" family="Myriad Pro" pointSize="18"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="OaR-hY-MH0">
+                                        <rect key="frame" x="244" y="0.0" width="101.5" height="69"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Baggage Count" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r1L-yM-S15">
+                                                <rect key="frame" x="2.5" y="0.0" width="96" height="14"/>
+                                                <fontDescription key="fontDescription" name="MyriadPro-Bold" family="Myriad Pro" pointSize="14"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Checked &amp; Carry-On" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oPu-9u-84z">
+                                                <rect key="frame" x="0.0" y="19" width="101.5" height="12"/>
+                                                <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="12"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" background="InputTextField" translatesAutoresizingMaskIntoConstraints="NO" id="J1R-lA-vCc">
+                                                <rect key="frame" x="4.5" y="36" width="92" height="33"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="33" id="KhX-YT-Jeu"/>
+                                                    <constraint firstAttribute="width" constant="92" id="cPP-h1-Pmd"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="MyriadPro-Bold" family="Myriad Pro" pointSize="18"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DZW-Bk-cY7">
+                                <rect key="frame" x="87" y="728" width="240" height="51"/>
+                                <state key="normal" image="AddTripBtn"/>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DateArrow" translatesAutoresizingMaskIntoConstraints="NO" id="O9H-QX-YwS">
+                                <rect key="frame" x="196.5" y="282.5" width="21" height="14"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="21" id="BQG-re-4nr"/>
+                                    <constraint firstAttribute="height" constant="14" id="wn7-zd-S4c"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="2T3-0S-sQy" firstAttribute="leading" secondItem="Nlv-x2-Ela" secondAttribute="trailing" constant="82" id="0nM-JQ-t6U"/>
+                            <constraint firstItem="5MA-V5-TBD" firstAttribute="top" secondItem="qDX-cR-4sr" secondAttribute="top" id="1SG-sR-6dM"/>
+                            <constraint firstItem="MIU-2N-4KY" firstAttribute="centerY" secondItem="gI0-jO-OIw" secondAttribute="centerY" id="3nu-z3-bmm"/>
+                            <constraint firstItem="O9H-QX-YwS" firstAttribute="centerX" secondItem="oek-r0-4bk" secondAttribute="centerX" id="4D0-47-feZ"/>
+                            <constraint firstItem="qDX-cR-4sr" firstAttribute="centerX" secondItem="gI0-jO-OIw" secondAttribute="centerX" id="5VF-zV-QPM"/>
+                            <constraint firstItem="XnN-nv-skp" firstAttribute="centerX" secondItem="5MA-V5-TBD" secondAttribute="centerX" id="5zP-8u-IXx"/>
+                            <constraint firstItem="Nlv-x2-Ela" firstAttribute="top" secondItem="V3W-S0-OHe" secondAttribute="bottom" constant="20" id="9u2-Pn-8zR"/>
+                            <constraint firstItem="tW1-wd-BGl" firstAttribute="leading" secondItem="jVT-lV-Edr" secondAttribute="leading" constant="20" id="B8H-Bj-Wrg"/>
+                            <constraint firstItem="qbB-zT-YK1" firstAttribute="centerX" secondItem="oek-r0-4bk" secondAttribute="centerX" id="FiT-n0-2Hc"/>
+                            <constraint firstItem="2T3-0S-sQy" firstAttribute="centerY" secondItem="Nlv-x2-Ela" secondAttribute="centerY" id="Fjq-4J-s3P"/>
+                            <constraint firstItem="1jG-GE-yRm" firstAttribute="bottom" secondItem="tW1-wd-BGl" secondAttribute="bottom" id="Inr-pU-hGq"/>
+                            <constraint firstItem="gI0-jO-OIw" firstAttribute="top" secondItem="V3W-S0-OHe" secondAttribute="bottom" constant="40" id="LL7-mb-hL0"/>
+                            <constraint firstItem="GUd-2M-v6c" firstAttribute="leading" secondItem="jVT-lV-Edr" secondAttribute="leading" constant="75" id="ObG-0x-2ze"/>
+                            <constraint firstItem="jVT-lV-Edr" firstAttribute="trailing" secondItem="It2-SU-i3m" secondAttribute="trailing" constant="35" id="PRl-4Y-gJV"/>
+                            <constraint firstItem="tjk-E2-mpc" firstAttribute="top" secondItem="It2-SU-i3m" secondAttribute="bottom" constant="15" id="REc-cH-Uze"/>
+                            <constraint firstItem="gI0-jO-OIw" firstAttribute="leading" secondItem="jVT-lV-Edr" secondAttribute="leading" constant="75" id="TZS-d2-ggo"/>
+                            <constraint firstItem="DZW-Bk-cY7" firstAttribute="centerX" secondItem="oek-r0-4bk" secondAttribute="centerX" id="UnS-Y5-VVn"/>
+                            <constraint firstItem="Vys-b9-6cd" firstAttribute="top" secondItem="jVT-lV-Edr" secondAttribute="top" constant="26" id="UsB-LC-ntd"/>
+                            <constraint firstItem="V3W-S0-OHe" firstAttribute="leading" secondItem="jVT-lV-Edr" secondAttribute="leading" constant="35" id="V5r-I5-wMR"/>
+                            <constraint firstItem="5LP-P2-1D1" firstAttribute="leading" secondItem="jVT-lV-Edr" secondAttribute="leading" constant="35" id="Vjo-w0-ymq"/>
+                            <constraint firstItem="RSx-rq-6hi" firstAttribute="centerX" secondItem="oek-r0-4bk" secondAttribute="centerX" id="XaM-gv-v8O"/>
+                            <constraint firstItem="Vys-b9-6cd" firstAttribute="leading" secondItem="jVT-lV-Edr" secondAttribute="leading" constant="25" id="YCb-FL-cNo"/>
+                            <constraint firstItem="jVT-lV-Edr" firstAttribute="trailing" secondItem="Vys-b9-6cd" secondAttribute="trailing" constant="25" id="Zzq-7X-mIl"/>
+                            <constraint firstItem="qDX-cR-4sr" firstAttribute="top" secondItem="tW1-wd-BGl" secondAttribute="top" id="aKl-jI-qav"/>
+                            <constraint firstItem="Nlv-x2-Ela" firstAttribute="leading" secondItem="jVT-lV-Edr" secondAttribute="leading" constant="88" id="bjW-Z9-xHe"/>
+                            <constraint firstItem="5MA-V5-TBD" firstAttribute="centerX" secondItem="MIU-2N-4KY" secondAttribute="centerX" id="dG5-5P-aMT"/>
+                            <constraint firstItem="GUd-2M-v6c" firstAttribute="top" secondItem="5LP-P2-1D1" secondAttribute="bottom" constant="14" id="ddi-RP-600"/>
+                            <constraint firstItem="qbB-zT-YK1" firstAttribute="centerY" secondItem="GUd-2M-v6c" secondAttribute="centerY" id="dpj-6A-P0H"/>
+                            <constraint firstItem="tW1-wd-BGl" firstAttribute="top" secondItem="MIU-2N-4KY" secondAttribute="bottom" constant="20" id="fKM-sl-aGd"/>
+                            <constraint firstItem="1jG-GE-yRm" firstAttribute="centerX" secondItem="qDX-cR-4sr" secondAttribute="centerX" id="fur-Q3-hbk"/>
+                            <constraint firstItem="GUd-2M-v6c" firstAttribute="top" secondItem="tjk-E2-mpc" secondAttribute="bottom" constant="80" id="gSd-je-C6r"/>
+                            <constraint firstItem="tjk-E2-mpc" firstAttribute="leading" secondItem="jVT-lV-Edr" secondAttribute="leading" constant="35" id="j8H-ll-tsE"/>
+                            <constraint firstItem="DZW-Bk-cY7" firstAttribute="top" secondItem="RSx-rq-6hi" secondAttribute="bottom" constant="85" id="lcU-So-HDF"/>
+                            <constraint firstItem="XnN-nv-skp" firstAttribute="bottom" secondItem="tW1-wd-BGl" secondAttribute="bottom" id="lea-PR-CVW"/>
+                            <constraint firstItem="AwO-Zi-GSi" firstAttribute="top" secondItem="tjk-E2-mpc" secondAttribute="bottom" constant="80" id="p2a-hL-tYb"/>
+                            <constraint firstItem="It2-SU-i3m" firstAttribute="leading" secondItem="jVT-lV-Edr" secondAttribute="leading" constant="35" id="suN-jU-9t1"/>
+                            <constraint firstItem="RSx-rq-6hi" firstAttribute="top" secondItem="tW1-wd-BGl" secondAttribute="bottom" constant="60" id="syk-3S-f71"/>
+                            <constraint firstItem="jVT-lV-Edr" firstAttribute="trailing" secondItem="MIU-2N-4KY" secondAttribute="trailing" constant="45" id="uTG-cN-SWm"/>
+                            <constraint firstItem="V3W-S0-OHe" firstAttribute="top" secondItem="AwO-Zi-GSi" secondAttribute="bottom" constant="71" id="uw4-xa-lLl"/>
+                            <constraint firstItem="jVT-lV-Edr" firstAttribute="trailing" secondItem="AwO-Zi-GSi" secondAttribute="trailing" constant="75" id="xc0-iR-tAd"/>
+                            <constraint firstItem="jVT-lV-Edr" firstAttribute="trailing" secondItem="tjk-E2-mpc" secondAttribute="trailing" constant="35" id="zh3-Bd-F7K"/>
+                            <constraint firstItem="It2-SU-i3m" firstAttribute="top" secondItem="Vys-b9-6cd" secondAttribute="bottom" constant="15" id="zjq-Sz-DAb"/>
+                            <constraint firstItem="O9H-QX-YwS" firstAttribute="centerY" secondItem="GUd-2M-v6c" secondAttribute="centerY" id="zr4-fJ-9um"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="jVT-lV-Edr"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="tlq-Eb-isB"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GCr-cb-ffQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3702.898550724638" y="-285.26785714285711"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="3rL-wa-G9V">
             <objects>
@@ -328,7 +810,17 @@
             <point key="canvasLocation" x="660.86956521739137" y="9.375"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="GlM-vG-HpH"/>
-    </inferredMetricsTieBreakers>
+    <resources>
+        <image name="AddTripBtn" width="240" height="51"/>
+        <image name="ArriveTime" width="50" height="21"/>
+        <image name="CloseIcon" width="17" height="17"/>
+        <image name="CrossBox" width="14" height="14"/>
+        <image name="DateArrow" width="20.5" height="13.5"/>
+        <image name="DateRect" width="305" height="55"/>
+        <image name="DepartTime" width="50" height="21"/>
+        <image name="DepartTxtField" width="462" height="41"/>
+        <image name="InputTextField" width="92" height="33"/>
+        <image name="ReturnTxtField" width="308" height="27.5"/>
+        <image name="TimeArrow" width="14" height="9.5"/>
+    </resources>
 </document>
