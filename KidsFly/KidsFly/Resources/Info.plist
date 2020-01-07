@@ -2,6 +2,21 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>MYRIADPRO-BOLD</string>
+		<string>MYRIADPRO-BOLDCOND</string>
+		<string>MYRIADPRO-BOLDCONDIT</string>
+		<string>MYRIADPRO-BOLDIT</string>
+		<string>MYRIADPRO-COND</string>
+		<string>MYRIADPRO-CONDIT</string>
+		<string>MyriadPro-Light</string>
+		<string>MYRIADPRO-REGULAR</string>
+		<string>MYRIADPRO-SEMIBOLD</string>
+		<string>MYRIADPRO-SEMIBOLDIT</string>
+	</array>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
