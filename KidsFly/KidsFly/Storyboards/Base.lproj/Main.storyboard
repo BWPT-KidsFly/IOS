@@ -395,7 +395,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="GUd-2M-v6c">
-                                <rect key="frame" x="55" y="269" width="77" height="42"/>
+                                <rect key="frame" x="75" y="269" width="77" height="42"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Leave" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CTK-5i-rqk">
                                         <rect key="frame" x="0.0" y="0.0" width="77" height="12"/>
@@ -410,7 +410,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="AwO-Zi-GSi">
-                                <rect key="frame" x="277" y="269" width="82" height="42"/>
+                                <rect key="frame" x="257" y="269" width="82" height="42"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Return" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oHW-ea-7A4">
                                         <rect key="frame" x="0.0" y="0.0" width="82" height="12"/>
@@ -434,6 +434,23 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LAX" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U0X-ri-sS1">
+                                        <rect key="frame" x="72" y="0.0" width="20" height="12"/>
+                                        <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="52" translatesAutoresizingMaskIntoConstraints="NO" id="2T3-0S-sQy">
+                                <rect key="frame" x="262" y="416" width="92" height="12"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LAX" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QRa-on-VKV">
+                                        <rect key="frame" x="0.0" y="0.0" width="20" height="12"/>
+                                        <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LAX" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E4u-PU-kcn">
                                         <rect key="frame" x="72" y="0.0" width="20" height="12"/>
                                         <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="12"/>
                                         <nil key="textColor"/>
@@ -515,32 +532,121 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="52" translatesAutoresizingMaskIntoConstraints="NO" id="2T3-0S-sQy">
-                                <rect key="frame" x="262" y="416" width="92" height="12"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="qDX-cR-4sr">
+                                <rect key="frame" x="97" y="477" width="78" height="14"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LAX" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QRa-on-VKV">
-                                        <rect key="frame" x="0.0" y="0.0" width="20" height="12"/>
-                                        <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="12"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LbR-1L-Ews">
+                                        <rect key="frame" x="0.0" y="0.0" width="14" height="14"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="14" id="3ff-rl-uHc"/>
+                                            <constraint firstAttribute="height" constant="14" id="M46-Xp-feX"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="CrossBox"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cvv-cs-43t">
+                                        <rect key="frame" x="64" y="0.0" width="14" height="14"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="14" id="LgO-7p-SO4"/>
+                                            <constraint firstAttribute="height" constant="14" id="gBD-uM-fU5"/>
+                                        </constraints>
+                                        <state key="normal" image="CrossBox"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="5MA-V5-TBD">
+                                <rect key="frame" x="269" y="477" width="78" height="14"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UmX-bn-1eb">
+                                        <rect key="frame" x="0.0" y="0.0" width="14" height="14"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="14" id="5ud-1T-n5I"/>
+                                            <constraint firstAttribute="height" constant="14" id="gey-pF-QOi"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="CrossBox"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LxE-4w-LNg">
+                                        <rect key="frame" x="64" y="0.0" width="14" height="14"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="14" id="2Z4-0J-o6k"/>
+                                            <constraint firstAttribute="height" constant="14" id="SMF-Jt-beC"/>
+                                        </constraints>
+                                        <state key="normal" image="CrossBox"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="XnN-nv-skp">
+                                <rect key="frame" x="269" y="501" width="78" height="14"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I5l-lA-err">
+                                        <rect key="frame" x="0.0" y="0.0" width="14" height="14"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="14" id="89W-s8-tPo"/>
+                                            <constraint firstAttribute="width" constant="14" id="s0Z-yt-ECn"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="CrossBox"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Opw-fz-tCe">
+                                        <rect key="frame" x="64" y="0.0" width="14" height="14"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="14" id="Ga3-wN-Gcl"/>
+                                            <constraint firstAttribute="height" constant="14" id="dES-8E-WDY"/>
+                                        </constraints>
+                                        <state key="normal" image="CrossBox"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="tW1-wd-BGl">
+                                <rect key="frame" x="20" y="477" width="50.5" height="38"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meals?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RkC-mx-D0D">
+                                        <rect key="frame" x="0.0" y="0.0" width="50.5" height="14"/>
+                                        <fontDescription key="fontDescription" name="MyriadPro-Semibold" family="Myriad Pro" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LAX" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E4u-PU-kcn">
-                                        <rect key="frame" x="72" y="0.0" width="20" height="12"/>
-                                        <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="12"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stroller?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HuJ-fQ-ggT">
+                                        <rect key="frame" x="0.0" y="24" width="50.5" height="14"/>
+                                        <fontDescription key="fontDescription" name="MyriadPro-Semibold" family="Myriad Pro" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="1jG-GE-yRm">
+                                <rect key="frame" x="97" y="501" width="78" height="14"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VvC-So-T3d">
+                                        <rect key="frame" x="0.0" y="0.0" width="14" height="14"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="14" id="TsR-VQ-VDj"/>
+                                            <constraint firstAttribute="width" constant="14" id="weA-dg-Og7"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="CrossBox"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jyT-QS-NmU">
+                                        <rect key="frame" x="64" y="0.0" width="14" height="14"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="14" id="b4Y-CY-HbN"/>
+                                            <constraint firstAttribute="height" constant="14" id="tg4-9r-VIB"/>
+                                        </constraints>
+                                        <state key="normal" image="CrossBox"/>
+                                    </button>
                                 </subviews>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="2T3-0S-sQy" firstAttribute="leading" secondItem="Nlv-x2-Ela" secondAttribute="trailing" constant="82" id="0nM-JQ-t6U"/>
+                            <constraint firstItem="5MA-V5-TBD" firstAttribute="top" secondItem="qDX-cR-4sr" secondAttribute="top" id="1SG-sR-6dM"/>
                             <constraint firstItem="MIU-2N-4KY" firstAttribute="centerY" secondItem="gI0-jO-OIw" secondAttribute="centerY" id="3nu-z3-bmm"/>
+                            <constraint firstItem="qDX-cR-4sr" firstAttribute="centerX" secondItem="gI0-jO-OIw" secondAttribute="centerX" id="5VF-zV-QPM"/>
+                            <constraint firstItem="XnN-nv-skp" firstAttribute="centerX" secondItem="5MA-V5-TBD" secondAttribute="centerX" id="5zP-8u-IXx"/>
                             <constraint firstItem="Nlv-x2-Ela" firstAttribute="top" secondItem="V3W-S0-OHe" secondAttribute="bottom" constant="20" id="9u2-Pn-8zR"/>
+                            <constraint firstItem="tW1-wd-BGl" firstAttribute="leading" secondItem="jVT-lV-Edr" secondAttribute="leading" constant="20" id="B8H-Bj-Wrg"/>
                             <constraint firstItem="2T3-0S-sQy" firstAttribute="centerY" secondItem="Nlv-x2-Ela" secondAttribute="centerY" id="Fjq-4J-s3P"/>
+                            <constraint firstItem="1jG-GE-yRm" firstAttribute="bottom" secondItem="tW1-wd-BGl" secondAttribute="bottom" id="Inr-pU-hGq"/>
                             <constraint firstItem="gI0-jO-OIw" firstAttribute="top" secondItem="V3W-S0-OHe" secondAttribute="bottom" constant="40" id="LL7-mb-hL0"/>
-                            <constraint firstItem="GUd-2M-v6c" firstAttribute="leading" secondItem="jVT-lV-Edr" secondAttribute="leading" constant="55" id="ObG-0x-2ze"/>
+                            <constraint firstItem="GUd-2M-v6c" firstAttribute="leading" secondItem="jVT-lV-Edr" secondAttribute="leading" constant="75" id="ObG-0x-2ze"/>
                             <constraint firstItem="jVT-lV-Edr" firstAttribute="trailing" secondItem="It2-SU-i3m" secondAttribute="trailing" constant="35" id="PRl-4Y-gJV"/>
                             <constraint firstItem="tjk-E2-mpc" firstAttribute="top" secondItem="It2-SU-i3m" secondAttribute="bottom" constant="15" id="REc-cH-Uze"/>
                             <constraint firstItem="gI0-jO-OIw" firstAttribute="leading" secondItem="jVT-lV-Edr" secondAttribute="leading" constant="75" id="TZS-d2-ggo"/>
@@ -549,15 +655,20 @@
                             <constraint firstItem="5LP-P2-1D1" firstAttribute="leading" secondItem="jVT-lV-Edr" secondAttribute="leading" constant="35" id="Vjo-w0-ymq"/>
                             <constraint firstItem="Vys-b9-6cd" firstAttribute="leading" secondItem="jVT-lV-Edr" secondAttribute="leading" constant="25" id="YCb-FL-cNo"/>
                             <constraint firstItem="jVT-lV-Edr" firstAttribute="trailing" secondItem="Vys-b9-6cd" secondAttribute="trailing" constant="25" id="Zzq-7X-mIl"/>
+                            <constraint firstItem="qDX-cR-4sr" firstAttribute="top" secondItem="tW1-wd-BGl" secondAttribute="top" id="aKl-jI-qav"/>
                             <constraint firstItem="Nlv-x2-Ela" firstAttribute="leading" secondItem="jVT-lV-Edr" secondAttribute="leading" constant="88" id="bjW-Z9-xHe"/>
+                            <constraint firstItem="5MA-V5-TBD" firstAttribute="centerX" secondItem="MIU-2N-4KY" secondAttribute="centerX" id="dG5-5P-aMT"/>
                             <constraint firstItem="GUd-2M-v6c" firstAttribute="top" secondItem="5LP-P2-1D1" secondAttribute="bottom" constant="14" id="ddi-RP-600"/>
+                            <constraint firstItem="tW1-wd-BGl" firstAttribute="top" secondItem="MIU-2N-4KY" secondAttribute="bottom" constant="20" id="fKM-sl-aGd"/>
+                            <constraint firstItem="1jG-GE-yRm" firstAttribute="centerX" secondItem="qDX-cR-4sr" secondAttribute="centerX" id="fur-Q3-hbk"/>
                             <constraint firstItem="GUd-2M-v6c" firstAttribute="top" secondItem="tjk-E2-mpc" secondAttribute="bottom" constant="80" id="gSd-je-C6r"/>
                             <constraint firstItem="tjk-E2-mpc" firstAttribute="leading" secondItem="jVT-lV-Edr" secondAttribute="leading" constant="35" id="j8H-ll-tsE"/>
+                            <constraint firstItem="XnN-nv-skp" firstAttribute="bottom" secondItem="tW1-wd-BGl" secondAttribute="bottom" id="lea-PR-CVW"/>
                             <constraint firstItem="AwO-Zi-GSi" firstAttribute="top" secondItem="tjk-E2-mpc" secondAttribute="bottom" constant="80" id="p2a-hL-tYb"/>
                             <constraint firstItem="It2-SU-i3m" firstAttribute="leading" secondItem="jVT-lV-Edr" secondAttribute="leading" constant="35" id="suN-jU-9t1"/>
                             <constraint firstItem="jVT-lV-Edr" firstAttribute="trailing" secondItem="MIU-2N-4KY" secondAttribute="trailing" constant="45" id="uTG-cN-SWm"/>
                             <constraint firstItem="V3W-S0-OHe" firstAttribute="top" secondItem="AwO-Zi-GSi" secondAttribute="bottom" constant="71" id="uw4-xa-lLl"/>
-                            <constraint firstItem="jVT-lV-Edr" firstAttribute="trailing" secondItem="AwO-Zi-GSi" secondAttribute="trailing" constant="55" id="xc0-iR-tAd"/>
+                            <constraint firstItem="jVT-lV-Edr" firstAttribute="trailing" secondItem="AwO-Zi-GSi" secondAttribute="trailing" constant="75" id="xc0-iR-tAd"/>
                             <constraint firstItem="jVT-lV-Edr" firstAttribute="trailing" secondItem="tjk-E2-mpc" secondAttribute="trailing" constant="35" id="zh3-Bd-F7K"/>
                             <constraint firstItem="It2-SU-i3m" firstAttribute="top" secondItem="Vys-b9-6cd" secondAttribute="bottom" constant="15" id="zjq-Sz-DAb"/>
                         </constraints>
@@ -591,6 +702,7 @@
     <resources>
         <image name="ArriveTime" width="50" height="21"/>
         <image name="CloseIcon" width="17" height="17"/>
+        <image name="CrossBox" width="14" height="14"/>
         <image name="DepartTime" width="50" height="21"/>
         <image name="DepartTxtField" width="462" height="41"/>
         <image name="ReturnTxtField" width="308" height="27.5"/>
