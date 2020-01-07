@@ -52,7 +52,8 @@ extension Trip {
     
     @discardableResult convenience init?(tripRepresentation: TripRepresentation, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         
-        guard let identifier = tripRepresentation.identifier,
+        guard let identifierString = tripRepresentation.identifier,
+            let identifier = UUID(uuidString: identifierString),
             let airport = tripRepresentation.airport,
             let airline = tripRepresentation.airline,
             let completedStatus = tripRepresentation.completedStatus,
@@ -63,7 +64,7 @@ extension Trip {
             let checkedBagQty = tripRepresentation.checkedBagQty,
             let notes = tripRepresentation.notes else { return nil }
         
-        self.init(identifier: UUID(uuidString: identifier) ?? UUID(), airport: airport, airline: airline, completedStatus: completedStatus, flightNumber: flightNumber, departureTime: departureTime, childrenQty: Int16(childrenQty), carryOnQty: Int16(carryOnQty), checkedBagQty: Int16(checkedBagQty), notes: notes)
+        self.init(identifier: identifier, airport: airport, airline: airline, completedStatus: completedStatus, flightNumber: flightNumber, departureTime: departureTime, childrenQty: Int16(childrenQty), carryOnQty: Int16(carryOnQty), checkedBagQty: Int16(checkedBagQty), notes: notes)
     }
     
     var tripRepresentation: TripRepresentation {

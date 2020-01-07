@@ -55,7 +55,8 @@ extension Traveler {
     
     @discardableResult convenience init?(travelerRepresentation: TravelerRepresentation, context: NSManagedObjectContext) {
         
-        guard let identifier = travelerRepresentation.identifier,
+        guard let identifierString = travelerRepresentation.identifier,
+            let identifier = UUID(uuidString: identifierString),
             let firstName = travelerRepresentation.firstName,
             let lastName = travelerRepresentation.lastName,
             let streetAddress = travelerRepresentation.streetAddress,
@@ -65,7 +66,7 @@ extension Traveler {
             let phoneNumber = travelerRepresentation.phoneNumber,
             let airport = travelerRepresentation.airport else { return nil }
         
-        self.init(identifier: UUID(uuidString: identifier) ?? UUID(), username: travelerRepresentation.username, password: travelerRepresentation.password, firstName: firstName, lastName: lastName, streetAddress: streetAddress, cityAddress: cityAddress, stateAddress: stateAddress, zipCode: zipCode, phoneNumber: phoneNumber, airport: airport)
+        self.init(identifier: identifier, username: travelerRepresentation.username, password: travelerRepresentation.password, firstName: firstName, lastName: lastName, streetAddress: streetAddress, cityAddress: cityAddress, stateAddress: stateAddress, zipCode: zipCode, phoneNumber: phoneNumber, airport: airport)
     }
     
     var travelerRepresentation: TravelerRepresentation? {

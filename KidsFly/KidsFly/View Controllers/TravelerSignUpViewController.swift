@@ -66,7 +66,7 @@ class TravelerSignUpViewController: UIViewController {
             // Create a Traveler object
             let traveler = Traveler(username: username, password: password, firstName: firstName, lastName: lastName, streetAddress: street, cityAddress: city, stateAddress: state, zipCode: zipCode, phoneNumber: phoneNumber, airport: airport)
             
-            // Transform Traveler into representation for json
+            // Transform Traveler into representation for json and pass it back to the SignInVC via the delegate method.
             if let newTraveler = traveler.travelerRepresentation {
                 delegate?.newTravelerCreated(newTraveler)
             }
