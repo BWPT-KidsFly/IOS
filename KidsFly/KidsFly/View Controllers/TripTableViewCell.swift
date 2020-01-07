@@ -8,6 +8,8 @@
 
 import UIKit
 
+//  The basic custom cell with a few items to use for testing purposes.
+
 class TripTableViewCell: UITableViewCell {
     
     var trip: Trip? {

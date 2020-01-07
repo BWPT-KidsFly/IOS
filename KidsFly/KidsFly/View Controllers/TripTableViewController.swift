@@ -37,7 +37,7 @@ class TripTableViewController: UITableViewController {
         super.viewWillAppear(animated)
         
         if travelerController.bearer == nil {
-            performSegue(withIdentifier: "NewTravelerSegue", sender: self)
+            performSegue(withIdentifier: "TravelerSignInSegue", sender: self)
         }
         
         tableView.reloadData()
@@ -100,9 +100,16 @@ class TripTableViewController: UITableViewController {
             guard let newTripVC = segue.destination as? NewTripViewController else { return }
             newTripVC.tripController = tripController
             newTripVC.travelerController = travelerController
-        } else if segue.identifier == "NewTravelerSegue" {
-            guard let newTravelerVC = segue.destination as? TravelerSignUpViewController else { return }
-            newTravelerVC.travelerController = travelerController
+        } else if segue.identifier == "TravelerSignInSegue" {
+            guard let travelerSignInVC = segue.destination as? TravelerSignInViewController else { return }
+            travelerSignInVC.travelerController = travelerController
+        } else if segue.identifier == "TripDetailSegue" {
+            guard let tripDetailVC = segue.destination as? NewTripViewController else { return }
+            tripDetailVC.tripController = tripController
+            tripDetailVC.travelerController = travelerController
+            if let indexPath = tableView.indexPathForSelectedRow {
+                tripDetailVC.trip = fetchedResultsController.object(at: indexPath)
+            }
         }
         
     }

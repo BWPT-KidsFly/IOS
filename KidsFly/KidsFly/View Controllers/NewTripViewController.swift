@@ -8,6 +8,10 @@
 
 import UIKit
 
+// TODO: Add a required MVP button to alert KidsConnection when user is 5 minutes from airport and again when they have arrived at airport.
+
+// This view is for an existing user to enter the required details regarding a new trip.  It is also used to edit details of an existing trip or to mark the status as completed.
+
 class NewTripViewController: UIViewController {
     
     // MARK: - Properties
@@ -33,6 +37,8 @@ class NewTripViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        updateViews()
     }
     
     // MARK: - Actions
@@ -74,7 +80,12 @@ class NewTripViewController: UIViewController {
     }
     
     @IBAction func toggleTripCompletionStatus(_ sender: UIButton) {
-        
+        guard let trip = trip,
+        let travelerController = travelerController,
+            let traveler = travelerController.traveler else { return }
+        trip.completedStatus.toggle()
+        tripController?.updateExistingTrip(for: traveler, trip: trip)
+        self.dismiss(animated: true, completion: nil)
     }
     
     private func updateViews() {
@@ -92,6 +103,7 @@ class NewTripViewController: UIViewController {
             departureTimePicker.date = trip.departureTime!
         } else {
         title = "Create New Trip"
+            markAsCompletedButton.isEnabled = false
             markAsCompletedButton.setTitleColor(UIColor.systemGray, for: .disabled)
         }
         
