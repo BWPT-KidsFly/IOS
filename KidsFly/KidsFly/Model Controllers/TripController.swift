@@ -222,4 +222,35 @@ class TripController {
         trip.identifier = UUID(uuidString: representation.identifier!)
         trip.notes = representation.notes
     }
+    
+    func deleteTrip(for trip: Trip) {
+        let moc = CoreDataStack.shared.mainContext
+        moc.delete(trip)
+        deleteTripFromServer(trip)
+        do {
+            try CoreDataStack.shared.save()
+        } catch {
+            print("Error deleting trip from Core Data")
+        }
+    }
+    
+    func deleteTripFromServer(_ trip: Trip, completion: @escaping (Error?) -> Void = {_ in }) {
+        guard let identifier = trip.identifier else {
+            completion(NSError())
+            return
+        }
+        
+        let requestUrl = baseURL.appendingPathComponent(identifier.uuidString).appendingPathExtension("json")
+        var request = URLRequest(url: requestUrl)
+        request.httpMethod = "DELETE"
+        
+        URLSession.shared.dataTask(with: request) { _, _, error in
+            guard error == nil else {
+                print("Error deleting trip from server: \(error!)")
+                completion(error)
+                return
+            }
+            completion(nil)
+        }.resume()
+    }
 }
