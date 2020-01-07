@@ -8,6 +8,11 @@
 
 import UIKit
 
+
+// TODO: Add this to the main.storyboard as well as the segue. Delete the existing segue from tableview to signUp.  Add segue from here to signUp.
+
+//  This idea behind this view is that is accessed when launching the app and provides the user a username and password field to login. There is also a new user registration button to tap if the user does not yet have proper credentials.
+
 class TravelerSignInViewController: UIViewController {
     
     var travelerController: TravelerController?
@@ -15,11 +20,12 @@ class TravelerSignInViewController: UIViewController {
 
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var signInButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        updateViews()
     }
     
     @IBAction func userRegistrationButtonTapped(_ sender: UIButton) {
@@ -53,6 +59,16 @@ class TravelerSignInViewController: UIViewController {
         if segue.identifier == "UserRegistrationSegue" {
             guard let travelerSignUpVC = segue.destination as? TravelerSignUpViewController else { return }
             travelerSignUpVC.travelerController = travelerController
+        }
+    }
+    
+    func updateViews() {
+        if let traveler = traveler {
+            usernameTextField.text = traveler.username
+            passwordTextField.text = traveler.password
+        } else {
+            signInButton.isEnabled = false
+            signInButton.setTitleColor(.systemGray, for: .disabled)
         }
     }
 

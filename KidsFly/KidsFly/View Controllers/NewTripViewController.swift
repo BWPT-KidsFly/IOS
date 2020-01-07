@@ -8,6 +8,10 @@
 
 import UIKit
 
+// TODO: Add a required MVP button to alert KidsConnection when user is 5 minutes from airport and again when they have arrived at airport.
+
+// This view is for an existing user to enter the required details regarding a new trip.  It is also used to edit details of an existing trip or to mark the status as completed.
+
 class NewTripViewController: UIViewController {
     
     // MARK: - Properties

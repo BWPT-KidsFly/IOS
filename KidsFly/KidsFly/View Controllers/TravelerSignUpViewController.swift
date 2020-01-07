@@ -8,6 +8,8 @@
 
 import UIKit
 
+//  This view is to register a new user.  It takes in all of the required information and creates a new Traveler object. It then returns the user to the log in view where they can log in to view or add trips.
+
 class TravelerSignUpViewController: UIViewController {
     
     // MARK: - Properties
