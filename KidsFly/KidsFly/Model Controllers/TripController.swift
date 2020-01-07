@@ -234,6 +234,15 @@ class TripController {
         }
     }
     
+    func updateExistingTrip(for traveler: TravelerRepresentation, trip: Trip) {
+        put(traveler: traveler, trip: trip)
+        do {
+            try CoreDataStack.shared.save()
+        } catch {
+            print("Error updating existing trip")
+        }
+    }
+    
     func deleteTripFromServer(_ trip: Trip, completion: @escaping (Error?) -> Void = {_ in }) {
         guard let identifier = trip.identifier else {
             completion(NSError())

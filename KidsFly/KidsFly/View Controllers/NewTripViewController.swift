@@ -76,8 +76,11 @@ class NewTripViewController: UIViewController {
     }
     
     @IBAction func toggleTripCompletionStatus(_ sender: UIButton) {
-        guard let trip = trip else { return }
+        guard let trip = trip,
+        let travelerController = travelerController,
+            let traveler = travelerController.traveler else { return }
         trip.completedStatus.toggle()
+        tripController?.updateExistingTrip(for: traveler, trip: trip)
         self.dismiss(animated: true, completion: nil)
     }
     
