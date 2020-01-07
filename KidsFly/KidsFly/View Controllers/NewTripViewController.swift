@@ -99,6 +99,7 @@ class NewTripViewController: UIViewController {
             departureTimePicker.date = trip.departureTime!
         } else {
         title = "Create New Trip"
+            markAsCompletedButton.isEnabled = false
             markAsCompletedButton.setTitleColor(UIColor.systemGray, for: .disabled)
         }
         

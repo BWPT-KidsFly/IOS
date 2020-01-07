@@ -62,8 +62,7 @@ class TravelerSignUpViewController: UIViewController {
             let newTraveler = traveler.travelerRepresentation
             travelerController.traveler = newTraveler
             
-            // Until we get the backend up and running I am going to manually set a bearer token value and dismiss the view controller screen.
-            travelerController.bearer?.token = "yes"
+            // Until we get the proper endpoints, I'm not going to call the signUp method and simply dismiss the screen and go back to signIn
             self.dismiss(animated: true, completion: nil)
             
             // Call signUp method with traveler representation
@@ -84,14 +83,6 @@ class TravelerSignUpViewController: UIViewController {
         }
         
         
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "TripSegue" {
-            guard let newTripVC = segue.destination as? NewTripViewController else { return }
-            newTripVC.tripController = tripController
-            newTripVC.travelerController = travelerController
-        }
     }
 
 }
