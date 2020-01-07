@@ -16,7 +16,11 @@ import UIKit
 class TravelerSignInViewController: UIViewController {
     
     var travelerController: TravelerController?
-    var traveler: TravelerRepresentation?
+    var traveler: TravelerRepresentation? {
+        didSet {
+            updateViews()
+        }
+    }
 
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -24,6 +28,10 @@ class TravelerSignInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         updateViews()
     }
@@ -39,10 +47,12 @@ class TravelerSignInViewController: UIViewController {
             !username.isEmpty,
             let password = passwordTextField.text,
             !password.isEmpty {
+/* COMMENTING THIS OUT UNTIL OUR BACKEND AUTHORIZATION IS FUNCTIONAL
             travelerController.logIn(with: traveler) { error in
                 if let error = error {
                     print("Error occurred during logging in: \(error)")
                 } else {
+ 
                     // Until we get the backend up and running I am going to manually set a bearer token value and dismiss the view controller screen.
                     travelerController.bearer?.token = "yes"
                     DispatchQueue.main.async {
@@ -50,6 +60,10 @@ class TravelerSignInViewController: UIViewController {
                     }
                 }
             }
+*/
+            // Until we get the backend up and running I am going to manually set a bearer token value and dismiss the view controller screen.
+            travelerController.bearer?.token = "yes"
+                self.dismiss(animated: true, completion: nil)
         }
     }
     
@@ -59,6 +73,7 @@ class TravelerSignInViewController: UIViewController {
         if segue.identifier == "UserRegistrationSegue" {
             guard let travelerSignUpVC = segue.destination as? TravelerSignUpViewController else { return }
             travelerSignUpVC.travelerController = travelerController
+            travelerSignUpVC.delegate = self
         }
     }
     
@@ -67,9 +82,16 @@ class TravelerSignInViewController: UIViewController {
             usernameTextField.text = traveler.username
             passwordTextField.text = traveler.password
         } else {
-            signInButton.isEnabled = false
-            signInButton.setTitleColor(.systemGray, for: .disabled)
+//            signInButton.isEnabled = false
+//            signInButton.setTitleColor(.systemGray, for: .disabled)
         }
     }
+}
 
+extension TravelerSignInViewController: TravelerSignUpDelegate {
+    func newTravelerCreated(_ traveler: TravelerRepresentation) {
+        self.traveler = traveler
+    }
+    
+    
 }

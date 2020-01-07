@@ -115,7 +115,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4CD-pw-x42" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2571.0144927536235" y="403.79464285714283"/>
+            <point key="canvasLocation" x="2687" y="779"/>
         </scene>
         <!--Trip Table View Controller-->
         <scene sceneID="NPk-Uu-pbO">
@@ -253,7 +253,6 @@
                                 <state key="normal" title="Sign In"/>
                                 <connections>
                                     <action selector="userSignIn:" destination="dv5-6f-cZd" eventType="touchUpInside" id="3GA-tI-B9c"/>
-                                    <segue destination="E8T-na-IfB" kind="presentation" identifier="UserRegistrationSegue" id="Tu6-on-aEA"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="4h5-lq-XYc">
@@ -271,6 +270,7 @@
                                         <state key="normal" title="Tap Here to Register"/>
                                         <connections>
                                             <action selector="userRegistrationButtonTapped:" destination="dv5-6f-cZd" eventType="touchUpInside" id="yZ1-9v-uB8"/>
+                                            <segue destination="E8T-na-IfB" kind="presentation" identifier="UserRegistrationSegue" id="WGr-Yt-4rW"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -297,7 +297,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AL8-rA-YWN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2247" y="-444"/>
+            <point key="canvasLocation" x="2329" y="-589"/>
         </scene>
         <!--Traveler Sign Up View Controller-->
         <scene sceneID="ED3-VG-3FT">
@@ -395,7 +395,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v9W-xc-XjT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2909" y="-315"/>
+            <point key="canvasLocation" x="3162" y="-589"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="144-1s-xt1">
@@ -863,7 +863,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GCr-cb-ffQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3702.898550724638" y="-285.26785714285711"/>
+            <point key="canvasLocation" x="2688" y="144"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3rL-wa-G9V">
