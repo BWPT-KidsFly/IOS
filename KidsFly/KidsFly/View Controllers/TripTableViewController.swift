@@ -103,6 +103,13 @@ class TripTableViewController: UITableViewController {
         } else if segue.identifier == "NewTravelerSegue" {
             guard let newTravelerVC = segue.destination as? TravelerSignUpViewController else { return }
             newTravelerVC.travelerController = travelerController
+        } else if segue.identifier == "TripDetailSegue" {
+            guard let tripDetailVC = segue.destination as? NewTripViewController else { return }
+            tripDetailVC.tripController = tripController
+            tripDetailVC.travelerController = travelerController
+            if let indexPath = tableView.indexPathForSelectedRow {
+                tripDetailVC.trip = fetchedResultsController.object(at: indexPath)
+            }
         }
         
     }

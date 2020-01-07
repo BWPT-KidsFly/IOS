@@ -33,6 +33,8 @@ class NewTripViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        updateViews()
     }
     
     // MARK: - Actions
@@ -74,7 +76,9 @@ class NewTripViewController: UIViewController {
     }
     
     @IBAction func toggleTripCompletionStatus(_ sender: UIButton) {
-        
+        guard let trip = trip else { return }
+        trip.completedStatus.toggle()
+        self.dismiss(animated: true, completion: nil)
     }
     
     private func updateViews() {
