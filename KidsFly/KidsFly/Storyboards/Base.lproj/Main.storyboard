@@ -6,6 +6,14 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="MYRIADPRO-BOLD.OTF">
+            <string>MyriadPro-Bold</string>
+        </array>
+        <array key="MYRIADPRO-SEMIBOLDIT.OTF">
+            <string>MyriadPro-SemiboldIt</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--New Trip View Controller-->
         <scene sceneID="1eM-qy-YAO">
@@ -318,31 +326,35 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Vys-b9-6cd">
-                                <rect key="frame" x="25" y="12" width="364" height="30"/>
+                                <rect key="frame" x="25" y="26" width="364" height="17"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add New Trip" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="azN-91-KaA">
-                                        <rect key="frame" x="0.0" y="0.0" width="103" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="101" height="17"/>
+                                        <fontDescription key="fontDescription" name="MyriadPro-Bold" family="Myriad Pro" pointSize="17"/>
+                                        <color key="textColor" red="0.2627450980392157" green="0.25098039215686274" blue="0.26666666666666666" alpha="1" colorSpace="custom" customColorSpace="adobeRGB1998"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LRK-X5-tN1">
-                                        <rect key="frame" x="292" y="0.0" width="72" height="30"/>
-                                        <state key="normal" title="Close Icon"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LRK-X5-tN1">
+                                        <rect key="frame" x="347" y="0.0" width="17" height="17"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="17" id="LlE-nL-GSr"/>
+                                            <constraint firstAttribute="height" constant="17" id="Lxb-oT-jfE"/>
+                                        </constraints>
+                                        <state key="normal" title="Close Icon" image="CloseIcon"/>
                                     </button>
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="It2-SU-i3m">
-                                <rect key="frame" x="25" y="57" width="364" height="64.5"/>
+                                <rect key="frame" x="35" y="58" width="344" height="58"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d0X-UK-OG0">
-                                        <rect key="frame" x="0.0" y="0.0" width="364" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="344" height="14"/>
+                                        <fontDescription key="fontDescription" name="MyriadPro-SemiboldIt" family="Myriad Pro" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" background="DepartTxtField" translatesAutoresizingMaskIntoConstraints="NO" id="yhT-UR-sFg">
-                                        <rect key="frame" x="0.0" y="34.5" width="364" height="30"/>
+                                        <rect key="frame" x="0.0" y="28" width="344" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="vPJ-K9-9sq"/>
                                         </constraints>
@@ -352,16 +364,16 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="tjk-E2-mpc">
-                                <rect key="frame" x="25" y="136.5" width="364" height="64.5"/>
+                                <rect key="frame" x="35" y="131" width="344" height="58"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kfY-6p-dNu">
-                                        <rect key="frame" x="0.0" y="0.0" width="364" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="344" height="14"/>
+                                        <fontDescription key="fontDescription" name="MyriadPro-SemiboldIt" family="Myriad Pro" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" background="ReturnTxtField" translatesAutoresizingMaskIntoConstraints="NO" id="MbB-AB-zNa">
-                                        <rect key="frame" x="0.0" y="34.5" width="364" height="30"/>
+                                        <rect key="frame" x="0.0" y="28" width="344" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="FgL-vB-0JV"/>
                                         </constraints>
@@ -371,13 +383,13 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5LP-P2-1D1">
-                                <rect key="frame" x="25" y="247" width="36" height="20"/>
+                                <rect key="frame" x="25" y="235" width="36" height="20"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="GUd-2M-v6c">
-                                <rect key="frame" x="55" y="281" width="77" height="50.5"/>
+                                <rect key="frame" x="55" y="269" width="77" height="50.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Leave" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CTK-5i-rqk">
                                         <rect key="frame" x="0.0" y="0.0" width="77" height="20.5"/>
@@ -392,7 +404,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="AwO-Zi-GSi">
-                                <rect key="frame" x="277" y="281" width="82" height="50.5"/>
+                                <rect key="frame" x="277" y="269" width="82" height="50.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Return" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oHW-ea-7A4">
                                         <rect key="frame" x="0.0" y="0.0" width="82" height="20.5"/>
@@ -440,19 +452,19 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="GUd-2M-v6c" firstAttribute="leading" secondItem="jVT-lV-Edr" secondAttribute="leading" constant="55" id="ObG-0x-2ze"/>
-                            <constraint firstItem="jVT-lV-Edr" firstAttribute="trailing" secondItem="It2-SU-i3m" secondAttribute="trailing" constant="25" id="PRl-4Y-gJV"/>
+                            <constraint firstItem="jVT-lV-Edr" firstAttribute="trailing" secondItem="It2-SU-i3m" secondAttribute="trailing" constant="35" id="PRl-4Y-gJV"/>
                             <constraint firstItem="tjk-E2-mpc" firstAttribute="top" secondItem="It2-SU-i3m" secondAttribute="bottom" constant="15" id="REc-cH-Uze"/>
-                            <constraint firstItem="Vys-b9-6cd" firstAttribute="top" secondItem="jVT-lV-Edr" secondAttribute="top" constant="12" id="UsB-LC-ntd"/>
+                            <constraint firstItem="Vys-b9-6cd" firstAttribute="top" secondItem="jVT-lV-Edr" secondAttribute="top" constant="26" id="UsB-LC-ntd"/>
                             <constraint firstItem="5LP-P2-1D1" firstAttribute="leading" secondItem="jVT-lV-Edr" secondAttribute="leading" constant="25" id="Vjo-w0-ymq"/>
                             <constraint firstItem="Vys-b9-6cd" firstAttribute="leading" secondItem="jVT-lV-Edr" secondAttribute="leading" constant="25" id="YCb-FL-cNo"/>
                             <constraint firstItem="jVT-lV-Edr" firstAttribute="trailing" secondItem="Vys-b9-6cd" secondAttribute="trailing" constant="25" id="Zzq-7X-mIl"/>
                             <constraint firstItem="GUd-2M-v6c" firstAttribute="top" secondItem="5LP-P2-1D1" secondAttribute="bottom" constant="14" id="ddi-RP-600"/>
                             <constraint firstItem="GUd-2M-v6c" firstAttribute="top" secondItem="tjk-E2-mpc" secondAttribute="bottom" constant="80" id="gSd-je-C6r"/>
-                            <constraint firstItem="tjk-E2-mpc" firstAttribute="leading" secondItem="jVT-lV-Edr" secondAttribute="leading" constant="25" id="j8H-ll-tsE"/>
+                            <constraint firstItem="tjk-E2-mpc" firstAttribute="leading" secondItem="jVT-lV-Edr" secondAttribute="leading" constant="35" id="j8H-ll-tsE"/>
                             <constraint firstItem="AwO-Zi-GSi" firstAttribute="top" secondItem="tjk-E2-mpc" secondAttribute="bottom" constant="80" id="p2a-hL-tYb"/>
-                            <constraint firstItem="It2-SU-i3m" firstAttribute="leading" secondItem="jVT-lV-Edr" secondAttribute="leading" constant="25" id="suN-jU-9t1"/>
+                            <constraint firstItem="It2-SU-i3m" firstAttribute="leading" secondItem="jVT-lV-Edr" secondAttribute="leading" constant="35" id="suN-jU-9t1"/>
                             <constraint firstItem="jVT-lV-Edr" firstAttribute="trailing" secondItem="AwO-Zi-GSi" secondAttribute="trailing" constant="55" id="xc0-iR-tAd"/>
-                            <constraint firstItem="jVT-lV-Edr" firstAttribute="trailing" secondItem="tjk-E2-mpc" secondAttribute="trailing" constant="25" id="zh3-Bd-F7K"/>
+                            <constraint firstItem="jVT-lV-Edr" firstAttribute="trailing" secondItem="tjk-E2-mpc" secondAttribute="trailing" constant="35" id="zh3-Bd-F7K"/>
                             <constraint firstItem="It2-SU-i3m" firstAttribute="top" secondItem="Vys-b9-6cd" secondAttribute="bottom" constant="15" id="zjq-Sz-DAb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jVT-lV-Edr"/>
@@ -483,6 +495,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="CloseIcon" width="17" height="17"/>
         <image name="DepartTxtField" width="462" height="41"/>
         <image name="ReturnTxtField" width="308" height="27.5"/>
     </resources>
