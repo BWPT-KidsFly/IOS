@@ -10,11 +10,17 @@ import UIKit
 
 //  This view is to register a new user.  It takes in all of the required information and creates a new Traveler object. It then returns the user to the log in view where they can log in to view or add trips.
 
+protocol TravelerSignUpDelegate {
+    func newTravelerCreated(_ traveler: TravelerRepresentation)
+}
+
+
 class TravelerSignUpViewController: UIViewController {
     
     // MARK: - Properties
     var travelerController: TravelerController?
     var tripController: TripController?
+    var delegate: TravelerSignUpDelegate?
     
     // MARK: - Outlets
     @IBOutlet weak var airportTextField: UITextField!
@@ -60,9 +66,11 @@ class TravelerSignUpViewController: UIViewController {
             // Create a Traveler object
             let traveler = Traveler(username: username, password: password, firstName: firstName, lastName: lastName, streetAddress: street, cityAddress: city, stateAddress: state, zipCode: zipCode, phoneNumber: phoneNumber, airport: airport)
             
-            // Transform Traveler into representation for json
-            let newTraveler = traveler.travelerRepresentation
-            travelerController.traveler = newTraveler
+            // Transform Traveler into representation for json and pass it back to the SignInVC via the delegate method.
+            if let newTraveler = traveler.travelerRepresentation {
+                travelerController.traveler = newTraveler
+                delegate?.newTravelerCreated(newTraveler)
+            }
             
             // Until we get the proper endpoints, I'm not going to call the signUp method and simply dismiss the screen and go back to signIn
             self.dismiss(animated: true, completion: nil)

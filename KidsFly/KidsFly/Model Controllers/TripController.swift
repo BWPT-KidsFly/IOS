@@ -50,6 +50,7 @@ class TripController {
         do {
             var representation = trip.tripRepresentation
             representation.identifier = identifier.uuidString
+            trip.identifier = identifier
             try CoreDataStack.shared.save()
             request.httpBody = try jsonEncoder.encode(representation)
         } catch {

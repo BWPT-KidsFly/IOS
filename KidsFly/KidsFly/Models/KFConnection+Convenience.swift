@@ -24,14 +24,16 @@ extension KFConnection {
                                         context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         
         self.init(context: context)
+        self.identifier = identifier
         self.username = username
         self.password = password
     }
     
     @discardableResult convenience init?(kfConnectionRepresentation: KFConnectionRepresentation, context: NSManagedObjectContext) {
-        guard let identifier = kfConnectionRepresentation.identifier else { return nil }
+        guard let identifierString = kfConnectionRepresentation.identifier,
+        let identifier =  UUID(uuidString: identifierString) else { return nil }
         
-        self.init(identifier: UUID(uuidString: identifier) ?? UUID(), username: kfConnectionRepresentation.username, password: kfConnectionRepresentation.password)
+        self.init(identifier: identifier, username: kfConnectionRepresentation.username, password: kfConnectionRepresentation.password)
     }
     
     var kfConnectionRepresentation: KFConnectionRepresentation? {

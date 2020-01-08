@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 
+// I'm not sure how to link a KFConnection to a trip.  I think it doesn't have to be complicated, just any way to link them.  Possibly a KFC user looking for the first instance of a non-completed trip from the user?  But then it's not really clear to me how to have both the Traveler user and the KFC user linked to the same trip.
+
 class KFConnectionController {
     
     var bearer: Bearer?

@@ -33,9 +33,10 @@ class TripTableViewController: UITableViewController {
         super.viewDidLoad()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
+        print(travelerController.bearer?.token)
         if travelerController.bearer == nil {
             performSegue(withIdentifier: "TravelerSignInSegue", sender: self)
         }
@@ -45,7 +46,7 @@ class TripTableViewController: UITableViewController {
     
     // Implement pull down to refresh in table view
     @IBAction func refresh(_ sender: Any) {
-        tripController.fetchTripsFromServer { _ in
+        tripController.fetchTripsFromServer { (_) in
             DispatchQueue.main.async {
                 self.refreshControl?.endRefreshing()
             }
@@ -82,11 +83,9 @@ class TripTableViewController: UITableViewController {
         return cell
     }
 
-
-    // Uncomment after creating a "deleteTrip" method in the TripController.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
+
             let trip = fetchedResultsController.object(at: indexPath)
             tripController.deleteTrip(for: trip)
             tableView.reloadData()

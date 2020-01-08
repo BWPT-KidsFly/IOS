@@ -24,8 +24,9 @@ class TravelerController {
     var bearer: Bearer?
     private let baseURL = URL(string: "https://kidsfly-43b49.firebaseio.com/")! // TODO: Change url
     
-    
+
     // MARK: - Sign Up New Traveler
+     
     func signUp(with traveler: TravelerRepresentation, completion: @escaping (Error?) -> ()) {
         let signUpURL = baseURL.appendingPathComponent("auth/register")
         
