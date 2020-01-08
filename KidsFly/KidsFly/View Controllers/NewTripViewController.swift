@@ -62,9 +62,17 @@ class NewTripViewController: UIViewController {
             
             // The first part of the if let looks for an existing trip.  If there is one, it uses the identifier of that trip so it doesn't duplicate it on the server. There is an issue though in that it creates a new version in core data while simply updating it on the server.  I probably need to call an "updateTrip" method rather than the "put" method.
             if let trip = trip {
-                let newTrip = Trip(identifier: trip.identifier!, airport: airport, airline: airline, completedStatus: trip.completedStatus, flightNumber: flightNumber, departureTime: departureTimePicker.date, childrenQty: Int16(childrenQty)!, carryOnQty: Int16(carryOnQty)!, checkedBagQty: Int16(checkedBagQty)!, notes: notesTextView.text)
+                trip.airport = airport
+                trip.airline = airline
+                trip.flightNumber = flightNumber
+                trip.departureTime = departureTimePicker.date
+                trip.childrenQty = Int16(childrenQty)!
+                trip.carryOnQty = Int16(carryOnQty)!
+                trip .checkedBagQty = Int16(checkedBagQty)!
+                trip.notes = notesTextView.text
+//                let newTrip = Trip(identifier: trip.identifier!, airport: airport, airline: airline, completedStatus: trip.completedStatus, flightNumber: flightNumber, departureTime: departureTimePicker.date, childrenQty: Int16(childrenQty)!, carryOnQty: Int16(carryOnQty)!, checkedBagQty: Int16(checkedBagQty)!, notes: notesTextView.text)
                 
-                tripController.updateExistingTrip(for: traveler, trip: newTrip)
+                tripController.updateExistingTrip(for: traveler, trip: trip)
                 
                 let alertController = UIAlertController(title: "Trip Updated", message: "Your trip was successfully changed.", preferredStyle: .alert)
                 let alertAction = UIAlertAction(title: "OK", style: .default) { (_) in
