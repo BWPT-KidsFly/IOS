@@ -58,7 +58,6 @@ class TravelerSignInViewController: UIViewController {
                 }
             }
 */
-            travelerController.getTempAuthorization()
             
             print(travelerController.bearer?.token)
                 self.dismiss(animated: true, completion: nil)
