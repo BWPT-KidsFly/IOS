@@ -12,19 +12,19 @@ import CoreData
 extension Traveler {
     
     // uncomment CodingKeys when we get the api endpoints.
-//    enum CodingKeys: String, CodingKey {
+    enum CodingKeys: String, CodingKey {
 //        case identifier = ""
-//        case username = ""
-//        case password = ""
-//        case firstName = ""
-//        case lastName = ""
-//        case streetAddress = ""
-//        case cityAddress = ""
-//        case stateAddress = ""
-//        case zipCode = ""
-//        case phoneNumber = ""
-//        case airport = ""
-//    }
+        case username = "username"
+        case password = "password"
+        case firstName = "first_name"
+        case lastName = "last_name"
+        case streetAddress = "street_address"
+        case cityAddress = "city"
+        case stateAddress = "state"
+        case zipCode = "zip"
+        case phoneNumber = "phone_number"
+        case airport = "home_airport"
+    }
     
     @discardableResult convenience init(identifier: UUID = UUID(),
                                         username: String,

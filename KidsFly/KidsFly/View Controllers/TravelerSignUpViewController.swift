@@ -68,28 +68,25 @@ class TravelerSignUpViewController: UIViewController {
             
             // Transform Traveler into representation for json and pass it back to the SignInVC via the delegate method.
             if let newTraveler = traveler.travelerRepresentation {
-                travelerController.traveler = newTraveler
-                delegate?.newTravelerCreated(newTraveler)
-            }
-            
-            // Until we get the proper endpoints, I'm not going to call the signUp method and simply dismiss the screen and go back to signIn
-            self.dismiss(animated: true, completion: nil)
             
             // Call signUp method with traveler representation
-//            travelerController.signUp(with: representation) { error in
-//                if let error = error {
-//                    print("Error occurred during sign up: \(error)")
-//                } else {
-//                    DispatchQueue.main.async {
-//                        let alertController = UIAlertController(title: "Sign Up Successful", message: "Your account was created, please log in to continue.", preferredStyle: .alert)
-//                        let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-//                        alertController.addAction(alertAction)
-//                        self.present(alertController, animated: true) {
-//                            self.dismiss(animated: true, completion: nil)
-//                        }
-//                    }
-//                }
-//            }
+            travelerController.signUp(with: newTraveler) { error in
+                if let error = error {
+                    print("Error occurred during sign up: \(error)")
+                } else {
+                    DispatchQueue.main.async {
+                        let alertController = UIAlertController(title: "Sign Up Successful", message: "Your account was created, please log in to continue.", preferredStyle: .alert)
+                        let alertAction = UIAlertAction(title: "OK", style: .default) { (_) in
+                            self.delegate?.newTravelerCreated(newTraveler)
+                            self.dismiss(animated: true, completion: nil)
+                        }
+                        alertController.addAction(alertAction)
+                        self.present(alertController, animated: true) {
+                        }
+                    }
+                }
+            }
+            }
         }
         
         

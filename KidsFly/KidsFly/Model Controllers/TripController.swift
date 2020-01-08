@@ -14,7 +14,7 @@ class TripController {
     
     var travelerController: TravelerController?
     
-    private let baseURL = URL(string: "https://kidsfly-43b49.firebaseio.com/")! // TODO: Change url
+    private let baseURL = URL(string: "https://bw-kids-fly.herokuapp.com/api/")! // TODO: Change url
     var trips: [TripRepresentation] = []
     var openTrips: [TripRepresentation] = []  // Idea is to filter on completedStatus to find the Trip that has not been marked as completed.
     var completedTrips: [TripRepresentation] = []
