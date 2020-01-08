@@ -47,7 +47,6 @@ class TravelerSignInViewController: UIViewController {
             !username.isEmpty,
             let password = passwordTextField.text,
             !password.isEmpty {
-/* COMMENTING THIS OUT UNTIL OUR BACKEND AUTHORIZATION IS FUNCTIONAL
             travelerController.logIn(with: traveler) { error in
                 if let error = error {
                     print("Error occurred during logging in: \(error)")
@@ -57,10 +56,6 @@ class TravelerSignInViewController: UIViewController {
                     }
                 }
             }
-*/
-            
-            print(travelerController.bearer?.token)
-                self.dismiss(animated: true, completion: nil)
             
         }
     }
