@@ -58,9 +58,11 @@ class TravelerSignInViewController: UIViewController {
                 }
             }
 */
-            // Until we get the backend up and running I am going to manually set a bearer token value and dismiss the view controller screen.
-            travelerController.bearer?.token = "yes"
+            travelerController.getTempAuthorization()
+            
+            print(travelerController.bearer?.token)
                 self.dismiss(animated: true, completion: nil)
+            
         }
     }
     

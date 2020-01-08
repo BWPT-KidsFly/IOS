@@ -70,13 +70,12 @@ class NewTripViewController: UIViewController {
                 trip.carryOnQty = Int16(carryOnQty)!
                 trip .checkedBagQty = Int16(checkedBagQty)!
                 trip.notes = notesTextView.text
-//                let newTrip = Trip(identifier: trip.identifier!, airport: airport, airline: airline, completedStatus: trip.completedStatus, flightNumber: flightNumber, departureTime: departureTimePicker.date, childrenQty: Int16(childrenQty)!, carryOnQty: Int16(carryOnQty)!, checkedBagQty: Int16(checkedBagQty)!, notes: notesTextView.text)
                 
                 tripController.updateExistingTrip(for: traveler, trip: trip)
                 
                 let alertController = UIAlertController(title: "Trip Updated", message: "Your trip was successfully changed.", preferredStyle: .alert)
                 let alertAction = UIAlertAction(title: "OK", style: .default) { (_) in
-                    self.dismiss(animated: true, completion: nil)
+                    self.navigationController?.popViewController(animated: true)
                 }
                 alertController.addAction(alertAction)
                 self.present(alertController, animated: true)
