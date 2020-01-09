@@ -52,8 +52,8 @@ class KFConnectionController {
     }
     
     // MARK: - Log In KFConnection
-    func logIn(with user: KFConnectionRepresentation, completion: @escaping (Error?) -> ()) {
-        let logInUrl = baseURL.appendingPathComponent("users/login")  // TODO: Change url
+    func logIn(with user: KFConnectionLogIn, completion: @escaping (Error?) -> ()) {
+        let logInUrl = baseURL.appendingPathComponent("adminauth/login/admin")
         
         var request = URLRequest(url: logInUrl)
         request.httpMethod = HTTPMethod.post.rawValue

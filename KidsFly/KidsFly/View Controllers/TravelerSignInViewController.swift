@@ -85,8 +85,8 @@ class TravelerSignInViewController: UIViewController {
                     }
                 }
             case .kidsConnectionAgent:
-                guard let kfConnection = kfConnection else { return }
-                kfconnectionController.logIn(with: kfConnection) { error in
+                let kfConnectionLogIn = KFConnectionLogIn(username: username, password: password)
+                kfconnectionController.logIn(with: kfConnectionLogIn) { error in
                     if let error = error {
                         print("Error occured during loggin in KFC: \(error)")
                     } else {

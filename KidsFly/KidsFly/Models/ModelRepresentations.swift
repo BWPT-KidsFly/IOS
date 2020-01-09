@@ -37,6 +37,11 @@ struct KFConnectionRepresentation: Equatable, Codable {
     var last_name: String
 }
 
+struct KFConnectionLogIn: Equatable, Codable {
+    var username: String
+    var password: String
+}
+
 struct TripRepresentation: Equatable, Codable {
     var identifier: String?
     var airport: String?
