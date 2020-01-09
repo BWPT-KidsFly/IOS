@@ -48,11 +48,11 @@ class TravelerController {
         }
         
         URLSession.shared.dataTask(with: request) { data, response, error in
-//            if let response = response as? HTTPURLResponse,
-//            response.statusCode != 200 {
-//                completion(NSError(domain: "", code: response.statusCode, userInfo: nil))
-//                return
-//            }
+            if let response = response as? HTTPURLResponse,
+            response.statusCode != 201 {
+                completion(NSError(domain: "", code: response.statusCode, userInfo: nil))
+                return
+            }
             
             if let error = error {
                 completion(error)
@@ -87,7 +87,6 @@ class TravelerController {
         
         let jsonEncoder = JSONEncoder()
         do {
-            print(traveler)
             let jsonData = try jsonEncoder.encode(traveler)
             request.httpBody = jsonData
         } catch {
@@ -96,12 +95,12 @@ class TravelerController {
             return
         }
         
-        URLSession.shared.dataTask(with: request) { data, _, error in
-//            if let response = response as? HTTPURLResponse,
-//                response.statusCode != 200 {
-//                completion(NSError(domain: "", code: response.statusCode, userInfo: nil))
-//                return
-//            }
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let response = response as? HTTPURLResponse,
+                response.statusCode != 200 {
+                completion(NSError(domain: "", code: response.statusCode, userInfo: nil))
+                return
+            }
             
             if let error = error {
                 completion(error)
