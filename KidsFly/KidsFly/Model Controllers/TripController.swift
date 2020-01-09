@@ -19,9 +19,9 @@ class TripController {
     var openTrips: [TripRepresentation] = []  // Idea is to filter on completedStatus to find the Trip that has not been marked as completed.
     var completedTrips: [TripRepresentation] = []
     
-    init() {
-        fetchTripsFromServer()
-    }
+//    init() {
+//        fetchTripsFromServer()
+//    }
     
     // MARK: - Put Trip to Server
     func put(traveler: TravelerRepresentation, trip: Trip, completion: @escaping (Result<Bool, NetworkError>) -> Void = {_ in }) {
@@ -112,28 +112,28 @@ class TripController {
     // MARK: - Fetch Trips from Server
     func fetchTripsFromServer(completion: @escaping (Result<[TripRepresentation], NetworkError>) -> Void = {_ in }) {
      
-/* TESTING WITH FIREBASE URL -- UNCOMMENT THIS FOR PRODUCTION BACK END
+/* TESTING WITH FIREBASE URL -- UNCOMMENT THIS FOR PRODUCTION BACK END */
         guard let travelerController = travelerController,
             let bearer = travelerController.bearer else {
             completion(.failure(.noAuthorization))
             return
         }
         
-        let requestUrl = baseURL.appendingPathComponent("trips") // TODO: change URL
+        let requestUrl = baseURL.appendingPathComponent("trips")
         var request = URLRequest(url: requestUrl)
         request.httpMethod = HTTPMethod.get.rawValue
-        request.setValue("Bearer \(bearer.token)", forHTTPHeaderField: "Authorization")
+        request.setValue("\(bearer.token)", forHTTPHeaderField: "Authorization")
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
 
         
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let response = response as? HTTPURLResponse,
-                response.statusCode != 200 {
+                response.statusCode != 201 {
                 completion(.failure(.otherError))
                 return
             }
-*/
-        
+
+/*  THIS BLOCK WAS USED TO TEST WITH FIREBASE BEFORE OUR BACKEND WAS WORKING
         let requestUrl = baseURL.appendingPathExtension("json")
         let request = URLRequest(url: requestUrl)
         
@@ -142,7 +142,7 @@ class TripController {
                 completion(.failure(.otherError))
                 return
             }
-            
+*/
             guard let data = data else {
                 completion(.failure(.badData))
                 return

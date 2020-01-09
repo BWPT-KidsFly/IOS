@@ -45,6 +45,7 @@ class TripTableViewController: UITableViewController {
     
     // Implement pull down to refresh in table view
     @IBAction func refresh(_ sender: Any) {
+        print(travelerController.bearer?.token)
         tripController.fetchTripsFromServer { (_) in
             DispatchQueue.main.async {
                 self.refreshControl?.endRefreshing()
@@ -101,6 +102,7 @@ class TripTableViewController: UITableViewController {
         } else if segue.identifier == "TravelerSignInSegue" {
             guard let travelerSignInVC = segue.destination as? TravelerSignInViewController else { return }
             travelerSignInVC.travelerController = travelerController
+            travelerSignInVC.tripController = tripController
         } else if segue.identifier == "TripDetailSegue" {
             guard let tripDetailVC = segue.destination as? NewTripViewController else { return }
             tripDetailVC.tripController = tripController

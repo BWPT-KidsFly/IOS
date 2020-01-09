@@ -13,6 +13,7 @@ import UIKit
 class TravelerSignInViewController: UIViewController {
     
     var travelerController: TravelerController?
+    var tripController: TripController?
     var traveler: TravelerRepresentation? {
         didSet {
             updateViews()
