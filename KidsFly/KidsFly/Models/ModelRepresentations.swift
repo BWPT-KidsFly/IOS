@@ -9,17 +9,23 @@
 import Foundation
 
 struct TravelerRepresentation: Equatable, Codable {
-    var identifier: String?
+//    var identifier: String?
     var username: String
     var password: String
-    var firstName: String?
-    var lastName: String?
-    var streetAddress: String?
-    var cityAddress: String?
-    var stateAddress: String?
-    var zipCode: String?
-    var phoneNumber: String?
-    var airport: String?
+    var confirm: String
+    var first_name: String?
+    var last_name: String?
+    var street_address: String?
+    var city: String?
+    var state: String?
+    var zip: String?
+    var phone_number: String?
+    var home_airport: String?
+}
+
+struct TravelerLogIn: Equatable, Codable {
+    var username: String
+    var password: String
 }
 
 struct KFConnectionRepresentation: Equatable, Codable {

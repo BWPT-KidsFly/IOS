@@ -17,18 +17,21 @@ enum HTTPMethod: String {
 
 class TravelerController {
     
-    // Return the traveler's data and also their associated trips.
     // If there is an active (non-completed) trip, that should be highlighted
     
     var traveler: TravelerRepresentation?
     var bearer: Bearer?
-    private let baseURL = URL(string: "https://kidsfly-43b49.firebaseio.com/")! // TODO: Change url
+    private let baseURL = URL(string: "https://bw-kids-fly.herokuapp.com/api/")!
     
 
     // MARK: - Sign Up New Traveler
+    
+    /* Example Output:
+    { "id": 1, "username": "LambdaStudent247", "password": "$2a$10$6NrOGH/43.iC.t8gndaGV.N3ZNRnaaoln44K.urxOCsgmdwp67EeK", "first_name": "Heather", "last_name": "Ridgill", "street_address": "123 Lambda Court", "city": "LambdaVille", "state": "CA", "zip": "92831", "phone_number": "555-555-5555", "home_airport": "LAX", "admin": 0 }
+    */
      
     func signUp(with traveler: TravelerRepresentation, completion: @escaping (Error?) -> ()) {
-        let signUpURL = baseURL.appendingPathComponent("auth/register")
+        let signUpURL = baseURL.appendingPathComponent("auth/register/user")
         
         var request = URLRequest(url: signUpURL)
         request.httpMethod = HTTPMethod.post.rawValue
@@ -44,9 +47,9 @@ class TravelerController {
             return
         }
         
-        URLSession.shared.dataTask(with: request) { _, response, error in
+        URLSession.shared.dataTask(with: request) { data, response, error in
             if let response = response as? HTTPURLResponse,
-            response.statusCode != 200 {
+            response.statusCode != 201 {
                 completion(NSError(domain: "", code: response.statusCode, userInfo: nil))
                 return
             }
@@ -56,13 +59,27 @@ class TravelerController {
                 return
             }
             
+  // THIS WAS USED FOR TESTING TO UNDERSTAND WHY I COULDN'T GET A VALID SIGN UP.
+//            guard let data = data else {
+//                print("Error in data")
+//                return
+//            }
+//          let decoder = JSONDecoder()
+//            do {
+//                print(traveler)
+//                try decoder.decode(TravelerRepresentation.self, from: data)
+//            } catch {
+//                print("Error decoding sign up data: \(error)")
+//                completion(error)
+//                return
+//            }
             completion(nil)
         }.resume()
     }
     
     // MARK: - Log In Traveler
-    func logIn(with traveler: TravelerRepresentation, completion: @escaping (Error?) -> ()) {
-        let logInUrl = baseURL.appendingPathComponent("auth/login")
+    func logIn(with traveler: TravelerLogIn, completion: @escaping (Error?) -> ()) {
+        let logInUrl = baseURL.appendingPathComponent("auth/login/user")
         
         var request = URLRequest(url: logInUrl)
         request.httpMethod = HTTPMethod.post.rawValue

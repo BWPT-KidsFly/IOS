@@ -12,11 +12,11 @@ import CoreData
 extension KFConnection {
     
     // uncomment CodingKeys when we get the api endpoints.
-//    enum CodingKeys: String, CodingKey {
+    enum CodingKeys: String, CodingKey {
 //        case identifier = ""
-//        case username = ""
-//        case password = ""
-//    }
+        case username = "username"
+        case password = "password"
+    }
     
     @discardableResult convenience init(identifier: UUID,
                                         username: String,

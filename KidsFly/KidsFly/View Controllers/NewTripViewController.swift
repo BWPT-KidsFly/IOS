@@ -75,6 +75,7 @@ class NewTripViewController: UIViewController {
                 
                 let alertController = UIAlertController(title: "Trip Updated", message: "Your trip was successfully changed.", preferredStyle: .alert)
                 let alertAction = UIAlertAction(title: "OK", style: .default) { (_) in
+                    self.dismiss(animated: true, completion: nil)
                     self.navigationController?.popViewController(animated: true)
                 }
                 alertController.addAction(alertAction)
@@ -122,6 +123,7 @@ class NewTripViewController: UIViewController {
             let traveler = travelerController.traveler else { return }
         trip.completedStatus.toggle()
         tripController?.updateExistingTrip(for: traveler, trip: trip)
+        navigationController?.popViewController(animated: true)
         self.dismiss(animated: true, completion: nil)
     }
     
