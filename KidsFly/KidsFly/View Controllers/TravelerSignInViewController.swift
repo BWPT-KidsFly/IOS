@@ -23,6 +23,8 @@ class TravelerSignInViewController: UIViewController {
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signInButton: UIButton!
+    @IBOutlet weak var newUserLabel: UILabel!
+    @IBOutlet weak var userTypeSegmentedControl: UISegmentedControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +34,9 @@ class TravelerSignInViewController: UIViewController {
         super.viewWillAppear(animated)
         
         updateViews()
+    }
+    
+    @IBAction func userTypeChanged(_ sender: UISegmentedControl) {
     }
     
     @IBAction func userRegistrationButtonTapped(_ sender: UIButton) {
