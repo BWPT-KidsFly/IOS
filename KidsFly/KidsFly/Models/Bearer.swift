@@ -10,9 +10,5 @@ import Foundation
 
 // used to get the authorization token from the API
 struct Bearer: Codable {
-    var token: String
-    
-        enum CodingKeys: String, CodingKey {
-            case token = "token"
-        }
+    let token: String
 }

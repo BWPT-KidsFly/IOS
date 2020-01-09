@@ -59,33 +59,35 @@ class TravelerController {
                 return
             }
             
-            guard let data = data else {
-                print("Error in data")
-                return
-            }
-          let decoder = JSONDecoder()
-            do {
-                let myData = try decoder.decode(TravelerRepresentation.self, from: data)
-                print(myData)
-            } catch {
-                print("Error decoding sign up data: \(error)")
-                completion(error)
-                return
-            }
+  // THIS WAS USED FOR TESTING TO UNDERSTAND WHY I COULDN'T GET A VALID SIGN UP.
+//            guard let data = data else {
+//                print("Error in data")
+//                return
+//            }
+//          let decoder = JSONDecoder()
+//            do {
+//                print(traveler)
+//                try decoder.decode(TravelerRepresentation.self, from: data)
+//            } catch {
+//                print("Error decoding sign up data: \(error)")
+//                completion(error)
+//                return
+//            }
             completion(nil)
         }.resume()
     }
     
     // MARK: - Log In Traveler
-    func logIn(with traveler: TravelerRepresentation, completion: @escaping (Error?) -> ()) {
+    func logIn(with traveler: TravelerLogIn, completion: @escaping (Error?) -> ()) {
         let logInUrl = baseURL.appendingPathComponent("auth/login/user")
         
         var request = URLRequest(url: logInUrl)
         request.httpMethod = HTTPMethod.post.rawValue
-//        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
         let jsonEncoder = JSONEncoder()
         do {
+            print(traveler)
             let jsonData = try jsonEncoder.encode(traveler)
             request.httpBody = jsonData
         } catch {
