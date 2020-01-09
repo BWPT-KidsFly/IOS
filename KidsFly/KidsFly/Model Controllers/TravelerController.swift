@@ -35,7 +35,7 @@ class TravelerController {
         
         var request = URLRequest(url: signUpURL)
         request.httpMethod = HTTPMethod.post.rawValue
-//        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
         let jsonEncoder = JSONEncoder()
         do {
@@ -47,7 +47,7 @@ class TravelerController {
             return
         }
         
-        URLSession.shared.dataTask(with: request) { _, _, error in
+        URLSession.shared.dataTask(with: request) { data, response, error in
 //            if let response = response as? HTTPURLResponse,
 //            response.statusCode != 200 {
 //                completion(NSError(domain: "", code: response.statusCode, userInfo: nil))
@@ -59,6 +59,19 @@ class TravelerController {
                 return
             }
             
+            guard let data = data else {
+                print("Error in data")
+                return
+            }
+          let decoder = JSONDecoder()
+            do {
+                let myData = try decoder.decode(TravelerRepresentation.self, from: data)
+                print(myData)
+            } catch {
+                print("Error decoding sign up data: \(error)")
+                completion(error)
+                return
+            }
             completion(nil)
         }.resume()
     }
