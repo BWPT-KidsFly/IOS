@@ -380,9 +380,8 @@
                                     </textField>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HON-13-S55">
-                                <rect key="frame" x="190" y="566" width="34" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HON-13-S55">
+                                <rect key="frame" x="30" y="520" width="354" height="30"/>
                                 <state key="normal" title="Save"/>
                                 <connections>
                                     <action selector="signUpButtonTapped:" destination="E8T-na-IfB" eventType="touchUpInside" id="L0w-CP-qrh"/>
@@ -392,8 +391,12 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="3Be-If-xYY" firstAttribute="top" secondItem="gEP-rZ-6ga" secondAttribute="top" constant="40" id="5my-RD-kGn"/>
+                            <constraint firstItem="HON-13-S55" firstAttribute="centerX" secondItem="JPj-ec-ota" secondAttribute="centerX" id="93l-Xh-QLh"/>
+                            <constraint firstItem="gEP-rZ-6ga" firstAttribute="trailing" secondItem="HON-13-S55" secondAttribute="trailing" constant="30" id="F33-5y-j6f"/>
                             <constraint firstItem="3Be-If-xYY" firstAttribute="leading" secondItem="gEP-rZ-6ga" secondAttribute="leading" constant="40" id="G0J-9B-0Mw"/>
+                            <constraint firstItem="HON-13-S55" firstAttribute="top" secondItem="3Be-If-xYY" secondAttribute="bottom" constant="50" id="IHX-ge-W8D"/>
                             <constraint firstItem="gEP-rZ-6ga" firstAttribute="trailing" secondItem="3Be-If-xYY" secondAttribute="trailing" constant="40" id="O01-8J-T9i"/>
+                            <constraint firstItem="HON-13-S55" firstAttribute="leading" secondItem="gEP-rZ-6ga" secondAttribute="leading" constant="30" id="PPk-t3-YbI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gEP-rZ-6ga"/>
                     </view>
@@ -405,6 +408,7 @@
                         <outlet property="lastNameTextField" destination="SPI-GK-NrR" id="Odz-Z3-ico"/>
                         <outlet property="passwordTextField" destination="Eqa-c3-yfe" id="od6-en-h9x"/>
                         <outlet property="phoneNumberTextField" destination="Vmo-cD-wmX" id="suM-0h-RoI"/>
+                        <outlet property="saveButton" destination="HON-13-S55" id="7kb-jw-1bd"/>
                         <outlet property="stateTextField" destination="yjx-Id-yh5" id="4iP-nI-46w"/>
                         <outlet property="streetTextField" destination="WAJ-8M-sfa" id="UM6-wU-j0N"/>
                         <outlet property="usernameTextField" destination="RAP-Pg-Iu0" id="Nt4-L2-bJV"/>

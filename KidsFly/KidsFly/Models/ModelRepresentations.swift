@@ -29,9 +29,12 @@ struct TravelerLogIn: Equatable, Codable {
 }
 
 struct KFConnectionRepresentation: Equatable, Codable {
-    var identifier: String?
+//    var identifier: String?
     var username: String
     var password: String
+    var confirm: String
+    var first_name: String
+    var last_name: String
 }
 
 struct TripRepresentation: Equatable, Codable {

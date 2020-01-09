@@ -14,6 +14,7 @@ class TripTableViewController: UITableViewController {
     // MARK: - Properties
     var tripController = TripController()
     var travelerController = TravelerController()
+    var kfConnectionController = KFConnectionController()
     
     private lazy var fetchedResultsController: NSFetchedResultsController<Trip> = {
         let fetchRequest: NSFetchRequest<Trip> = Trip.fetchRequest()
@@ -103,6 +104,7 @@ class TripTableViewController: UITableViewController {
             guard let travelerSignInVC = segue.destination as? TravelerSignInViewController else { return }
             travelerSignInVC.travelerController = travelerController
             travelerSignInVC.tripController = tripController
+            travelerSignInVC.kfConnectionController = kfConnectionController
         } else if segue.identifier == "TripDetailSegue" {
             guard let tripDetailVC = segue.destination as? NewTripViewController else { return }
             tripDetailVC.tripController = tripController

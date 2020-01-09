@@ -14,12 +14,12 @@ import UIKit
 class KFConnectionController {
     
     var bearer: Bearer?
-    private let baseURL = URL(string: "https://kidsfly-43b49.firebaseio.com/")! // TODO: Change url
+    private let baseURL = URL(string: "https://bw-kids-fly.herokuapp.com/api/")!
     
     
     // MARK: - Sign Up New KFConnection
     func signUp(with user: KFConnectionRepresentation, completion: @escaping (Error?) -> ()) {
-        let signUpURL = baseURL.appendingPathComponent("users/signup")  // TODO: Change url
+        let signUpURL = baseURL.appendingPathComponent("adminauth/register/admin")
         
         var request = URLRequest(url: signUpURL)
         request.httpMethod = HTTPMethod.post.rawValue
@@ -37,7 +37,7 @@ class KFConnectionController {
         
         URLSession.shared.dataTask(with: request) { _, response, error in
             if let response = response as? HTTPURLResponse,
-            response.statusCode != 200 {
+            response.statusCode != 201 {
                 completion(NSError(domain: "", code: response.statusCode, userInfo: nil))
                 return
             }
