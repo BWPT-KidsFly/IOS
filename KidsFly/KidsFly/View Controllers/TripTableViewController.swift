@@ -100,6 +100,7 @@ class TripTableViewController: UITableViewController {
             guard let newTripVC = segue.destination as? NewTripViewController else { return }
             newTripVC.tripController = tripController
             newTripVC.travelerController = travelerController
+            newTripVC.kfConnectionController = kfConnectionController
         } else if segue.identifier == "TravelerSignInSegue" {
             guard let travelerSignInVC = segue.destination as? TravelerSignInViewController else { return }
             travelerSignInVC.travelerController = travelerController
@@ -109,6 +110,7 @@ class TripTableViewController: UITableViewController {
             guard let tripDetailVC = segue.destination as? NewTripViewController else { return }
             tripDetailVC.tripController = tripController
             tripDetailVC.travelerController = travelerController
+            tripDetailVC.kfConnectionController = kfConnectionController
             if let indexPath = tableView.indexPathForSelectedRow {
                 tripDetailVC.trip = fetchedResultsController.object(at: indexPath)
             }

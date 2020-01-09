@@ -26,33 +26,38 @@ class TripController {
     // MARK: - Put Trip to Server
     func put(traveler: TravelerRepresentation, trip: Trip, completion: @escaping (Result<Bool, NetworkError>) -> Void = {_ in }) {
         
-/* TESTING WITH FIREBASE URL -- UNCOMMENT THIS FOR PRODUCTION BACK END
-//        guard let travelerController = travelerController,
-//            let bearer = travelerController.bearer else {
-//            print("No authorized to put trip to server")
-//            completion(.failure(.noAuthorization))
-//            return
-//        }
-//
-//        let requestUrl = baseURL.appendingPathComponent("trips") // TODO: change URL
-//        var request = URLRequest(url: requestUrl)
-//        request.httpMethod = HTTPMethod.post.rawValue  // TODO: post or put?
-//        request.setValue("Bearer \(bearer.token)", forHTTPHeaderField: "Authorization")
-//        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
- */
+        guard let travelerController = travelerController,
+            let bearer = travelerController.bearer else {
+            print("No authorized to put trip to server")
+            completion(.failure(.noAuthorization))
+            return
+        }
+
+        let requestUrl = baseURL.appendingPathComponent("trips/trip")
+        var request = URLRequest(url: requestUrl)
+        request.httpMethod = HTTPMethod.post.rawValue
+        request.setValue("\(bearer.token)", forHTTPHeaderField: "Authorization")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+
+/*  THIS BLOCK WAS USED FOR TESTING WITH FIREBASE
         guard let identifier = trip.identifier else { return }
         let requestUrl = baseURL.appendingPathComponent(identifier.uuidString).appendingPathExtension("json")
         var request = URLRequest(url: requestUrl)
         request.httpMethod = "PUT"
+ */
         
         let jsonEncoder = JSONEncoder()
         jsonEncoder.dateEncodingStrategy = .iso8601
         do {
-            var representation = trip.tripRepresentation
-            representation.identifier = identifier.uuidString
-            trip.identifier = identifier
+            let representation = trip.tripRepresentation
+            guard let carryons = representation.carryOnQty,
+                let checkedBags = representation.checkedBagQty,
+                let children = representation.childrenQty else { return }
+            let tripToPost = TripPostToServer(airport_name: representation.airport, airline: representation.airline, flight_number: representation.flightNumber, departure_time: representation.departureTime, carryon_items: String(carryons), checked_items: String(checkedBags), children: String(children), special_needs: representation.notes)
+//            representation.identifier = identifier.uuidString
+//            trip.identifier = identifier
             try CoreDataStack.shared.save()
-            request.httpBody = try jsonEncoder.encode(representation)
+            request.httpBody = try jsonEncoder.encode(tripToPost)
         } catch {
             print("Error encoding trip: \(error)")
             completion(.failure(.notEncodedProperly))

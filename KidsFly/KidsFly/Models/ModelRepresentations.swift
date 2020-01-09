@@ -54,3 +54,14 @@ struct TripRepresentation: Equatable, Codable {
     var checkedBagQty: Int?
     var notes: String?
 }
+
+struct TripPostToServer: Equatable, Codable {
+    var airport_name: String?
+    var airline: String?
+    var flight_number: String?
+    var departure_time: Date?
+    var carryon_items: String?
+    var checked_items: String?
+    var children: String?
+    var special_needs: String?
+}
