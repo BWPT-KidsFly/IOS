@@ -45,6 +45,11 @@ class NewTripViewController: UIViewController {
     // MARK: - Actions
     @IBAction func addNewTripButtonTapped(_ sender: Any) {
         print(travelerController?.bearer?.token)
+        
+        
+        // TODO: This code needs a traveler object that has been passed from the registration screen.  Since we can now log in as an existing user, I am not able to pass it from registration.  Possibly I can specify by using the bearer token, which we do have.
+        
+        
         guard let travelerController = travelerController,
             let tripController = tripController,
             let traveler = travelerController.traveler
