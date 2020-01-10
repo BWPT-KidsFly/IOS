@@ -111,7 +111,7 @@ class NewTripViewController: UIViewController {
     
     // MARK: - Toggle Trip Completion
     
-    // UpdateExistingTrip is called, which in turn calls the put method with the UPDATE HTTPMethod.
+    // UpdateExistingTrip is called, which in turn calls the put method with the PUT HTTPMethod.
     @IBAction func toggleTripCompletionStatus(_ sender: UIButton) {
         guard let trip = trip,
         let bearer = bearer else { return }
