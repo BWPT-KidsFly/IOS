@@ -19,40 +19,45 @@ class TripController {
     var openTrips: [TripRepresentation] = []  // Idea is to filter on completedStatus to find the Trip that has not been marked as completed.
     var completedTrips: [TripRepresentation] = []
     
-    init() {
-        fetchTripsFromServer()
-    }
+//    init() {
+//        fetchTripsFromServer()
+//    }
     
     // MARK: - Put Trip to Server
     func put(traveler: TravelerRepresentation, trip: Trip, completion: @escaping (Result<Bool, NetworkError>) -> Void = {_ in }) {
         
-/* TESTING WITH FIREBASE URL -- UNCOMMENT THIS FOR PRODUCTION BACK END
-//        guard let travelerController = travelerController,
-//            let bearer = travelerController.bearer else {
-//            print("No authorized to put trip to server")
-//            completion(.failure(.noAuthorization))
-//            return
-//        }
-//
-//        let requestUrl = baseURL.appendingPathComponent("trips") // TODO: change URL
-//        var request = URLRequest(url: requestUrl)
-//        request.httpMethod = HTTPMethod.post.rawValue  // TODO: post or put?
-//        request.setValue("Bearer \(bearer.token)", forHTTPHeaderField: "Authorization")
-//        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
- */
+        guard let travelerController = travelerController,
+            let bearer = travelerController.bearer else {
+            print("No authorized to put trip to server")
+            completion(.failure(.noAuthorization))
+            return
+        }
+
+        let requestUrl = baseURL.appendingPathComponent("trips/trip")
+        var request = URLRequest(url: requestUrl)
+        request.httpMethod = HTTPMethod.post.rawValue
+        request.setValue("\(bearer.token)", forHTTPHeaderField: "Authorization")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+
+/*  THIS BLOCK WAS USED FOR TESTING WITH FIREBASE
         guard let identifier = trip.identifier else { return }
         let requestUrl = baseURL.appendingPathComponent(identifier.uuidString).appendingPathExtension("json")
         var request = URLRequest(url: requestUrl)
         request.httpMethod = "PUT"
+ */
         
         let jsonEncoder = JSONEncoder()
         jsonEncoder.dateEncodingStrategy = .iso8601
         do {
-            var representation = trip.tripRepresentation
-            representation.identifier = identifier.uuidString
-            trip.identifier = identifier
+            let representation = trip.tripRepresentation
+            guard let carryons = representation.carryOnQty,
+                let checkedBags = representation.checkedBagQty,
+                let children = representation.childrenQty else { return }
+            let tripToPost = TripPostToServer(airport_name: representation.airport, airline: representation.airline, flight_number: representation.flightNumber, departure_time: representation.departureTime, carryon_items: String(carryons), checked_items: String(checkedBags), children: String(children), special_needs: representation.notes)
+//            representation.identifier = identifier.uuidString
+//            trip.identifier = identifier
             try CoreDataStack.shared.save()
-            request.httpBody = try jsonEncoder.encode(representation)
+            request.httpBody = try jsonEncoder.encode(tripToPost)
         } catch {
             print("Error encoding trip: \(error)")
             completion(.failure(.notEncodedProperly))
@@ -112,28 +117,28 @@ class TripController {
     // MARK: - Fetch Trips from Server
     func fetchTripsFromServer(completion: @escaping (Result<[TripRepresentation], NetworkError>) -> Void = {_ in }) {
      
-/* TESTING WITH FIREBASE URL -- UNCOMMENT THIS FOR PRODUCTION BACK END
+/* TESTING WITH FIREBASE URL -- UNCOMMENT THIS FOR PRODUCTION BACK END */
         guard let travelerController = travelerController,
             let bearer = travelerController.bearer else {
             completion(.failure(.noAuthorization))
             return
         }
         
-        let requestUrl = baseURL.appendingPathComponent("trips") // TODO: change URL
+        let requestUrl = baseURL.appendingPathComponent("trips")
         var request = URLRequest(url: requestUrl)
         request.httpMethod = HTTPMethod.get.rawValue
-        request.setValue("Bearer \(bearer.token)", forHTTPHeaderField: "Authorization")
+        request.setValue("\(bearer.token)", forHTTPHeaderField: "Authorization")
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
 
         
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let response = response as? HTTPURLResponse,
-                response.statusCode != 200 {
+                response.statusCode != 201 {
                 completion(.failure(.otherError))
                 return
             }
-*/
-        
+
+/*  THIS BLOCK WAS USED TO TEST WITH FIREBASE BEFORE OUR BACKEND WAS WORKING
         let requestUrl = baseURL.appendingPathExtension("json")
         let request = URLRequest(url: requestUrl)
         
@@ -142,7 +147,7 @@ class TripController {
                 completion(.failure(.otherError))
                 return
             }
-            
+*/
             guard let data = data else {
                 completion(.failure(.badData))
                 return

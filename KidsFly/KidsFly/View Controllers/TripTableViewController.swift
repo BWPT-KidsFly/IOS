@@ -14,6 +14,7 @@ class TripTableViewController: UITableViewController {
     // MARK: - Properties
     var tripController = TripController()
     var travelerController = TravelerController()
+    var kfConnectionController = KFConnectionController()
     
     private lazy var fetchedResultsController: NSFetchedResultsController<Trip> = {
         let fetchRequest: NSFetchRequest<Trip> = Trip.fetchRequest()
@@ -45,6 +46,7 @@ class TripTableViewController: UITableViewController {
     
     // Implement pull down to refresh in table view
     @IBAction func refresh(_ sender: Any) {
+        print(travelerController.bearer?.token)
         tripController.fetchTripsFromServer { (_) in
             DispatchQueue.main.async {
                 self.refreshControl?.endRefreshing()
@@ -98,13 +100,17 @@ class TripTableViewController: UITableViewController {
             guard let newTripVC = segue.destination as? NewTripViewController else { return }
             newTripVC.tripController = tripController
             newTripVC.travelerController = travelerController
+            newTripVC.kfConnectionController = kfConnectionController
         } else if segue.identifier == "TravelerSignInSegue" {
             guard let travelerSignInVC = segue.destination as? TravelerSignInViewController else { return }
             travelerSignInVC.travelerController = travelerController
+            travelerSignInVC.tripController = tripController
+            travelerSignInVC.kfConnectionController = kfConnectionController
         } else if segue.identifier == "TripDetailSegue" {
             guard let tripDetailVC = segue.destination as? NewTripViewController else { return }
             tripDetailVC.tripController = tripController
             tripDetailVC.travelerController = travelerController
+            tripDetailVC.kfConnectionController = kfConnectionController
             if let indexPath = tableView.indexPathForSelectedRow {
                 tripDetailVC.trip = fetchedResultsController.object(at: indexPath)
             }

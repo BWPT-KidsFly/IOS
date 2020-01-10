@@ -17,6 +17,7 @@ class NewTripViewController: UIViewController {
     // MARK: - Properties
     var travelerController: TravelerController?
     var tripController: TripController?
+    var kfConnectionController: KFConnectionController?
     var trip: Trip? {
         didSet {
             updateViews()
@@ -43,6 +44,12 @@ class NewTripViewController: UIViewController {
     
     // MARK: - Actions
     @IBAction func addNewTripButtonTapped(_ sender: Any) {
+        print(travelerController?.bearer?.token)
+        
+        
+        // TODO: This code needs a traveler object that has been passed from the registration screen.  Since we can now log in as an existing user, I am not able to pass it from registration.  Possibly I can specify by using the bearer token, which we do have.
+        
+        
         guard let travelerController = travelerController,
             let tripController = tripController,
             let traveler = travelerController.traveler
@@ -60,7 +67,7 @@ class NewTripViewController: UIViewController {
             let flightNumber = flightNumberTextField.text,
             !flightNumber.isEmpty {
             
-            // The first part of the if let looks for an existing trip.  If there is one, it uses the identifier of that trip so it doesn't duplicate it on the server. There is an issue though in that it creates a new version in core data while simply updating it on the server.  I probably need to call an "updateTrip" method rather than the "put" method.
+            // The first part of the if let looks for an existing trip.  If there is one, it uses the identifier of that trip so it doesn't duplicate it on the server.
             if let trip = trip {
                 trip.airport = airport
                 trip.airline = airline

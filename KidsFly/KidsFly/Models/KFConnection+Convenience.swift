@@ -16,30 +16,38 @@ extension KFConnection {
 //        case identifier = ""
         case username = "username"
         case password = "password"
+        case firstName = "first_name"
+        case lastName = "last_name"
     }
     
-    @discardableResult convenience init(identifier: UUID,
+    @discardableResult convenience init(identifier: UUID = UUID(),
                                         username: String,
                                         password: String,
+                                        firstName: String,
+                                        lastName: String,
                                         context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         
         self.init(context: context)
         self.identifier = identifier
         self.username = username
         self.password = password
+        self.firstName = firstName
+        self.lastName = lastName
     }
     
     @discardableResult convenience init?(kfConnectionRepresentation: KFConnectionRepresentation, context: NSManagedObjectContext) {
-        guard let identifierString = kfConnectionRepresentation.identifier,
-        let identifier =  UUID(uuidString: identifierString) else { return nil }
+//        guard let identifierString = kfConnectionRepresentation.identifier,
+//        let identifier =  UUID(uuidString: identifierString) else { return nil }
         
-        self.init(identifier: identifier, username: kfConnectionRepresentation.username, password: kfConnectionRepresentation.password)
+        self.init(username: kfConnectionRepresentation.username, password: kfConnectionRepresentation.password, firstName: kfConnectionRepresentation.first_name, lastName: kfConnectionRepresentation.last_name)
     }
     
     var kfConnectionRepresentation: KFConnectionRepresentation? {
         guard let username = username,
-            let password = password else { return nil }
-        return KFConnectionRepresentation(identifier: identifier?.uuidString, username: username, password: password)
+            let password = password,
+            let firstName = firstName,
+            let lastName = lastName else { return nil }
+        return KFConnectionRepresentation(username: username, password: password, confirm: password, first_name: firstName, last_name: lastName)
     }
     
 }

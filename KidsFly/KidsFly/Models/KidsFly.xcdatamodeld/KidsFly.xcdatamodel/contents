@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="18G95" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="KFConnection" representedClassName="KFConnection" syncable="YES" codeGenerationType="class">
+        <attribute name="firstName" attributeType="String"/>
         <attribute name="identifier" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="lastName" attributeType="String"/>
         <attribute name="password" attributeType="String"/>
         <attribute name="username" attributeType="String"/>
         <relationship name="travelers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Traveler" inverseName="connections" inverseEntity="Traveler"/>
@@ -37,7 +39,7 @@
         <relationship name="traveler" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Traveler" inverseName="trips" inverseEntity="Traveler"/>
     </entity>
     <elements>
-        <element name="KFConnection" positionX="84.296875" positionY="-75.76953125" width="128" height="118"/>
+        <element name="KFConnection" positionX="84.296875" positionY="-75.76953125" width="128" height="148"/>
         <element name="Traveler" positionX="-286.1875" positionY="-146.671875" width="128" height="238"/>
         <element name="Trip" positionX="-108.4609375" positionY="-305.94921875" width="128" height="223"/>
     </elements>
