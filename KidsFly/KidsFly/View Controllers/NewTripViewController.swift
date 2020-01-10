@@ -15,7 +15,7 @@ import UIKit
 class NewTripViewController: UIViewController {
     
     // MARK: - Properties
-    var travelerController: TravelerController?
+    var bearer: Bearer?
     var tripController: TripController?
     var kfConnectionController: KFConnectionController?
     var trip: Trip? {
@@ -44,15 +44,12 @@ class NewTripViewController: UIViewController {
     
     // MARK: - Actions
     @IBAction func addNewTripButtonTapped(_ sender: Any) {
-        print(travelerController?.bearer?.token)
+        
+        // TODO: This code needs a traveler object that has, in previous code, been passed from the registration screen.  Since we can now log in as an existing user, I am not able to pass a traveler from registration.  Possibly I can specify by using the bearer token, which we do have.
         
         
-        // TODO: This code needs a traveler object that has been passed from the registration screen.  Since we can now log in as an existing user, I am not able to pass it from registration.  Possibly I can specify by using the bearer token, which we do have.
-        
-        
-        guard let travelerController = travelerController,
-            let tripController = tripController,
-            let traveler = travelerController.traveler
+        guard let tripController = tripController,
+            let bearer = bearer
             else { return }
         if let airline = airlineTextField.text,
             !airline.isEmpty,
@@ -78,7 +75,7 @@ class NewTripViewController: UIViewController {
                 trip .checkedBagQty = Int16(checkedBagQty)!
                 trip.notes = notesTextView.text
                 
-                tripController.updateExistingTrip(for: traveler, trip: trip)
+                tripController.updateExistingTrip(for: bearer, trip: trip)
                 
                 let alertController = UIAlertController(title: "Trip Updated", message: "Your trip was successfully changed.", preferredStyle: .alert)
                 let alertAction = UIAlertAction(title: "OK", style: .default) { (_) in
@@ -105,7 +102,7 @@ class NewTripViewController: UIViewController {
 //                }
             } else {
                 let newTrip = Trip(airport: airport, airline: airline, flightNumber: flightNumber, departureTime: departureTimePicker.date, childrenQty: Int16(childrenQty)!, carryOnQty: Int16(carryOnQty)!, checkedBagQty: Int16(checkedBagQty)!, notes: notesTextView.text)
-                tripController.put(traveler: traveler, trip: newTrip) { error in
+                tripController.put(traveler: bearer, trip: newTrip) { error in
                     if error != .success(true) {
                         print("Error occurred while PUTin a new trip to server: \(error)")
                     } else {
@@ -124,16 +121,17 @@ class NewTripViewController: UIViewController {
         }
     }
     
+    // MARK: - Toggle Trim Completion
     @IBAction func toggleTripCompletionStatus(_ sender: UIButton) {
         guard let trip = trip,
-        let travelerController = travelerController,
-            let traveler = travelerController.traveler else { return }
+        let bearer = bearer else { return }
         trip.completedStatus.toggle()
-        tripController?.updateExistingTrip(for: traveler, trip: trip)
+        tripController?.updateExistingTrip(for: bearer, trip: trip)
         navigationController?.popViewController(animated: true)
         self.dismiss(animated: true, completion: nil)
     }
     
+    // MARK: - Update Views
     private func updateViews() {
         guard isViewLoaded else { return }
         

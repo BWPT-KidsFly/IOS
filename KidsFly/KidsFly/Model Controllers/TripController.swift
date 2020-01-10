@@ -12,8 +12,7 @@ import UIKit
 
 class TripController {
     
-    var travelerController: TravelerController?
-    
+//    var bearer: Bearer?
     private let baseURL = URL(string: "https://bw-kids-fly.herokuapp.com/api/")!
     var trips: [TripRepresentation] = []
     var openTrips: [TripRepresentation] = []  // Idea is to filter on completedStatus to find the Trip that has not been marked as completed.
@@ -24,19 +23,18 @@ class TripController {
 //    }
     
     // MARK: - Put Trip to Server
-    func put(traveler: TravelerRepresentation, trip: Trip, completion: @escaping (Result<Bool, NetworkError>) -> Void = {_ in }) {
+    func put(traveler: Bearer, trip: Trip, completion: @escaping (Result<Bool, NetworkError>) -> Void = {_ in }) {
         
-        guard let travelerController = travelerController,
-            let bearer = travelerController.bearer else {
-            print("No authorized to put trip to server")
-            completion(.failure(.noAuthorization))
-            return
-        }
+//        guard let bearer = traveler else {
+//            print("Not authorized to put trip to server")
+//            completion(.failure(.noAuthorization))
+//            return
+//        }
 
         let requestUrl = baseURL.appendingPathComponent("trips/trip")
         var request = URLRequest(url: requestUrl)
         request.httpMethod = HTTPMethod.post.rawValue
-        request.setValue("\(bearer.token)", forHTTPHeaderField: "Authorization")
+        request.setValue("\(traveler.token)", forHTTPHeaderField: "Authorization")
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
 
 /*  THIS BLOCK WAS USED FOR TESTING WITH FIREBASE
@@ -115,19 +113,19 @@ class TripController {
     }
     
     // MARK: - Fetch Trips from Server
-    func fetchTripsFromServer(completion: @escaping (Result<[TripRepresentation], NetworkError>) -> Void = {_ in }) {
+    func fetchTripsFromServer(traveler: Bearer, completion: @escaping (Result<[TripRepresentation], NetworkError>) -> Void = {_ in }) {
      
 /* TESTING WITH FIREBASE URL -- UNCOMMENT THIS FOR PRODUCTION BACK END */
-        guard let travelerController = travelerController,
-            let bearer = travelerController.bearer else {
-            completion(.failure(.noAuthorization))
-            return
-        }
+//        guard let travelerController = travelerController,
+//            let bearer = travelerController.bearer else {
+//            completion(.failure(.noAuthorization))
+//            return
+//        }
         
         let requestUrl = baseURL.appendingPathComponent("trips")
         var request = URLRequest(url: requestUrl)
         request.httpMethod = HTTPMethod.get.rawValue
-        request.setValue("\(bearer.token)", forHTTPHeaderField: "Authorization")
+        request.setValue("\(traveler.token)", forHTTPHeaderField: "Authorization")
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
 
         
@@ -240,7 +238,7 @@ class TripController {
         }
     }
     
-    func updateExistingTrip(for traveler: TravelerRepresentation, trip: Trip) {
+    func updateExistingTrip(for traveler: Bearer, trip: Trip) {
         put(traveler: traveler, trip: trip)
         do {
             try CoreDataStack.shared.save()
