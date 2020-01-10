@@ -23,7 +23,7 @@ class TripController {
 //    }
     
     // MARK: - Put Trip to Server
-    func put(traveler: Bearer, trip: Trip, completion: @escaping (Result<Bool, NetworkError>) -> Void = {_ in }) {
+    func put(traveler: Bearer, trip: Trip, method: HTTPMethod, completion: @escaping (Result<Bool, NetworkError>) -> Void = {_ in }) {
         
 //        guard let bearer = traveler else {
 //            print("Not authorized to put trip to server")
@@ -33,7 +33,7 @@ class TripController {
 
         let requestUrl = baseURL.appendingPathComponent("trips/trip")
         var request = URLRequest(url: requestUrl)
-        request.httpMethod = HTTPMethod.post.rawValue
+        request.httpMethod = method.rawValue
         request.setValue("\(traveler.token)", forHTTPHeaderField: "Authorization")
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
 
@@ -239,7 +239,7 @@ class TripController {
     }
     
     func updateExistingTrip(for traveler: Bearer, trip: Trip) {
-        put(traveler: traveler, trip: trip)
+        put(traveler: traveler, trip: trip, method: HTTPMethod.update)
         do {
             try CoreDataStack.shared.save()
         } catch {
