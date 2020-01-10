@@ -44,10 +44,7 @@ class NewTripViewController: UIViewController {
     
     // MARK: - Actions
     @IBAction func addNewTripButtonTapped(_ sender: Any) {
-        
-        // TODO: This code needs a traveler object that has, in previous code, been passed from the registration screen.  Since we can now log in as an existing user, I am not able to pass a traveler from registration.  Possibly I can specify by using the bearer token, which we do have.
-        
-        
+
         guard let tripController = tripController,
             let bearer = bearer
             else { return }
@@ -110,6 +107,7 @@ class NewTripViewController: UIViewController {
                             let alertController = UIAlertController(title: "New Trip Added", message: "Your new trip was created.", preferredStyle: .alert)
                             let alertAction = UIAlertAction(title: "OK", style: .default) { (_) in
                                 self.dismiss(animated: true, completion: nil)
+                                self.navigationController?.popViewController(animated: true)
                             }
                             alertController.addAction(alertAction)
                             self.present(alertController, animated: true)
@@ -121,7 +119,9 @@ class NewTripViewController: UIViewController {
         }
     }
     
-    // MARK: - Toggle Trim Completion
+    // MARK: - Toggle Trip Completion
+    
+    // change to update in HTTPMethod?
     @IBAction func toggleTripCompletionStatus(_ sender: UIButton) {
         guard let trip = trip,
         let bearer = bearer else { return }

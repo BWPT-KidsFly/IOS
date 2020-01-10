@@ -45,7 +45,7 @@ class TripTableViewController: UITableViewController {
     }
     
     // Implement pull down to refresh in table view
-    // TODO: This is not working correctly; it just clocks.
+    // TODO: This does not seem to be working correctly.
     @IBAction func refresh(_ sender: Any) {
         guard let bearer = travelerController.bearer else { return }
         tripController.fetchTripsFromServer(traveler: bearer) { (_) in
