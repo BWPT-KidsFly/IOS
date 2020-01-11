@@ -15,7 +15,7 @@ import UIKit
 class NewTripViewController: UIViewController {
     
     // MARK: - Properties
-    var travelerController: TravelerController?
+    var bearer: Bearer?
     var tripController: TripController?
     var kfConnectionController: KFConnectionController?
     var trip: Trip? {
@@ -39,20 +39,15 @@ class NewTripViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // updateViews looks to see if there is an existing trip, in which case it populates the elements with that trip data.
         updateViews()
     }
     
     // MARK: - Actions
     @IBAction func addNewTripButtonTapped(_ sender: Any) {
-        print(travelerController?.bearer?.token)
-        
-        
-        // TODO: This code needs a traveler object that has been passed from the registration screen.  Since we can now log in as an existing user, I am not able to pass it from registration.  Possibly I can specify by using the bearer token, which we do have.
-        
-        
-        guard let travelerController = travelerController,
-            let tripController = tripController,
-            let traveler = travelerController.traveler
+
+        guard let tripController = tripController,
+            let bearer = bearer
             else { return }
         if let airline = airlineTextField.text,
             !airline.isEmpty,
@@ -68,6 +63,7 @@ class NewTripViewController: UIViewController {
             !flightNumber.isEmpty {
             
             // The first part of the if let looks for an existing trip.  If there is one, it uses the identifier of that trip so it doesn't duplicate it on the server.
+            // TODO:  when moving to the production backend, this is duplicating it on the server.
             if let trip = trip {
                 trip.airport = airport
                 trip.airline = airline
@@ -78,8 +74,9 @@ class NewTripViewController: UIViewController {
                 trip .checkedBagQty = Int16(checkedBagQty)!
                 trip.notes = notesTextView.text
                 
-                tripController.updateExistingTrip(for: traveler, trip: trip)
+                tripController.updateExistingTrip(for: bearer, trip: trip)
                 
+                // Present alert to user to confirm successful change in the trip.
                 let alertController = UIAlertController(title: "Trip Updated", message: "Your trip was successfully changed.", preferredStyle: .alert)
                 let alertAction = UIAlertAction(title: "OK", style: .default) { (_) in
                     self.dismiss(animated: true, completion: nil)
@@ -88,24 +85,11 @@ class NewTripViewController: UIViewController {
                 alertController.addAction(alertAction)
                 self.present(alertController, animated: true)
             
-                
-//                { error in
-//                    if error != .success(true) {
-//                        print("Error occurred while PUTin a new trip to server: \(error)")
-//                    } else {
-//                        DispatchQueue.main.async {
-//                            let alertController = UIAlertController(title: "Trip Updated", message: "Your trip was successfully changed.", preferredStyle: .alert)
-//                            let alertAction = UIAlertAction(title: "OK", style: .default) { (_) in
-//                                self.dismiss(animated: true, completion: nil)
-//                            }
-//                            alertController.addAction(alertAction)
-//                            self.present(alertController, animated: true)
-//                        }
-//                    }
-//                }
+                // If there is not an existing trip, a newTrip is created and sent to the put method, which puts it on the server and saves to core data.
+                // The put method is used for new trips and updating trips, and they have different HTTPMethods on the back end, so the correct value is passed.
             } else {
                 let newTrip = Trip(airport: airport, airline: airline, flightNumber: flightNumber, departureTime: departureTimePicker.date, childrenQty: Int16(childrenQty)!, carryOnQty: Int16(carryOnQty)!, checkedBagQty: Int16(checkedBagQty)!, notes: notesTextView.text)
-                tripController.put(traveler: traveler, trip: newTrip) { error in
+                tripController.put(traveler: bearer, trip: newTrip, method: HTTPMethod.post) { error in
                     if error != .success(true) {
                         print("Error occurred while PUTin a new trip to server: \(error)")
                     } else {
@@ -113,6 +97,7 @@ class NewTripViewController: UIViewController {
                             let alertController = UIAlertController(title: "New Trip Added", message: "Your new trip was created.", preferredStyle: .alert)
                             let alertAction = UIAlertAction(title: "OK", style: .default) { (_) in
                                 self.dismiss(animated: true, completion: nil)
+                                self.navigationController?.popViewController(animated: true)
                             }
                             alertController.addAction(alertAction)
                             self.present(alertController, animated: true)
@@ -124,16 +109,19 @@ class NewTripViewController: UIViewController {
         }
     }
     
+    // MARK: - Toggle Trip Completion
+    
+    // UpdateExistingTrip is called, which in turn calls the put method with the PUT HTTPMethod.
     @IBAction func toggleTripCompletionStatus(_ sender: UIButton) {
         guard let trip = trip,
-        let travelerController = travelerController,
-            let traveler = travelerController.traveler else { return }
+        let bearer = bearer else { return }
         trip.completedStatus.toggle()
-        tripController?.updateExistingTrip(for: traveler, trip: trip)
+        tripController?.updateExistingTrip(for: bearer, trip: trip)
         navigationController?.popViewController(animated: true)
         self.dismiss(animated: true, completion: nil)
     }
     
+    // MARK: - Update Views
     private func updateViews() {
         guard isViewLoaded else { return }
         

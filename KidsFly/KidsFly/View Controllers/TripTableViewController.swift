@@ -45,9 +45,10 @@ class TripTableViewController: UITableViewController {
     }
     
     // Implement pull down to refresh in table view
+    // TODO: This does not seem to be working correctly.
     @IBAction func refresh(_ sender: Any) {
-        print(travelerController.bearer?.token)
-        tripController.fetchTripsFromServer { (_) in
+        guard let bearer = travelerController.bearer else { return }
+        tripController.fetchTripsFromServer(traveler: bearer) { (_) in
             DispatchQueue.main.async {
                 self.refreshControl?.endRefreshing()
             }
@@ -99,8 +100,8 @@ class TripTableViewController: UITableViewController {
         if segue.identifier == "NewTripSegue" {
             guard let newTripVC = segue.destination as? NewTripViewController else { return }
             newTripVC.tripController = tripController
-            newTripVC.travelerController = travelerController
             newTripVC.kfConnectionController = kfConnectionController
+            newTripVC.bearer = travelerController.bearer
         } else if segue.identifier == "TravelerSignInSegue" {
             guard let travelerSignInVC = segue.destination as? TravelerSignInViewController else { return }
             travelerSignInVC.travelerController = travelerController
@@ -109,7 +110,7 @@ class TripTableViewController: UITableViewController {
         } else if segue.identifier == "TripDetailSegue" {
             guard let tripDetailVC = segue.destination as? NewTripViewController else { return }
             tripDetailVC.tripController = tripController
-            tripDetailVC.travelerController = travelerController
+            tripDetailVC.bearer = travelerController.bearer
             tripDetailVC.kfConnectionController = kfConnectionController
             if let indexPath = tableView.indexPathForSelectedRow {
                 tripDetailVC.trip = fetchedResultsController.object(at: indexPath)

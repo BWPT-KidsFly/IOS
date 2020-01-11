@@ -12,8 +12,7 @@ import UIKit
 
 class TripController {
     
-    var travelerController: TravelerController?
-    
+//    var bearer: Bearer?
     private let baseURL = URL(string: "https://bw-kids-fly.herokuapp.com/api/")!
     var trips: [TripRepresentation] = []
     var openTrips: [TripRepresentation] = []  // Idea is to filter on completedStatus to find the Trip that has not been marked as completed.
@@ -24,27 +23,20 @@ class TripController {
 //    }
     
     // MARK: - Put Trip to Server
-    func put(traveler: TravelerRepresentation, trip: Trip, completion: @escaping (Result<Bool, NetworkError>) -> Void = {_ in }) {
+    func put(traveler: Bearer, trip: Trip, method: HTTPMethod, completion: @escaping (Result<Bool, NetworkError>) -> Void = {_ in }) {
         
-        guard let travelerController = travelerController,
-            let bearer = travelerController.bearer else {
-            print("No authorized to put trip to server")
-            completion(.failure(.noAuthorization))
-            return
-        }
+//        guard let bearer = traveler else {
+//            print("Not authorized to put trip to server")
+//            completion(.failure(.noAuthorization))
+//            return
+//        }
 
         let requestUrl = baseURL.appendingPathComponent("trips/trip")
         var request = URLRequest(url: requestUrl)
-        request.httpMethod = HTTPMethod.post.rawValue
-        request.setValue("\(bearer.token)", forHTTPHeaderField: "Authorization")
+        request.httpMethod = method.rawValue
+        request.setValue("\(traveler.token)", forHTTPHeaderField: "Authorization")
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-
-/*  THIS BLOCK WAS USED FOR TESTING WITH FIREBASE
-        guard let identifier = trip.identifier else { return }
-        let requestUrl = baseURL.appendingPathComponent(identifier.uuidString).appendingPathExtension("json")
-        var request = URLRequest(url: requestUrl)
-        request.httpMethod = "PUT"
- */
+        print(request)
         
         let jsonEncoder = JSONEncoder()
         jsonEncoder.dateEncodingStrategy = .iso8601
@@ -54,8 +46,10 @@ class TripController {
                 let checkedBags = representation.checkedBagQty,
                 let children = representation.childrenQty else { return }
             let tripToPost = TripPostToServer(airport_name: representation.airport, airline: representation.airline, flight_number: representation.flightNumber, departure_time: representation.departureTime, carryon_items: String(carryons), checked_items: String(checkedBags), children: String(children), special_needs: representation.notes)
+            
 //            representation.identifier = identifier.uuidString
 //            trip.identifier = identifier
+            
             try CoreDataStack.shared.save()
             request.httpBody = try jsonEncoder.encode(tripToPost)
         } catch {
@@ -73,40 +67,6 @@ class TripController {
             completion(.success(true))
         }.resume()
         
-/* TESTING WITH FIREBASE URL -- UNCOMMENT THIS FOR PRODUCTION BACK END
-        URLSession.shared.dataTask(with: request) { data, response, error in
-            if let response = response as? HTTPURLResponse,
-                response.statusCode != 200 {
-                completion(.failure(.otherError))
-                return
-            }
-            
-            if error != nil {
-                completion(.failure(.otherError))
-                return
-            }
-            
-            guard let data = data else {
-                completion(.failure(.badData))
-                return
-            }
-            
-            let decoder = JSONDecoder()
-            decoder.dateDecodingStrategy = .iso8601
-            do {
-                // I'm not sure what the API will return -- either all trips or a single trip?  This assumes only the new trip and then appends it to the array with this data.
-                let newTrip = try decoder.decode(TripRepresentation.self, from: data)
-                self.trips.append(newTrip)
-                self.openTrips = self.trips.filter {$0.completedStatus == false}
-                self.completedTrips = self.trips.filter {$0.completedStatus == true}
-                completion(.success(true))
-            } catch {
-                print("Error decoding new Trip: \(error)")
-                completion(.failure(.notDecodedProperly))
-                return
-            }
-        }.resume()
- */
         // The following block is me trying to understand how the relationships work between the two models.
         //        let traveler = Traveler(identifier: UUID(), username: "bob", password: "jones", firstName: "bob", lastName: "jones", streetAddress: "123", cityAddress: "madris", stateAddress: "MN", zipCode: "55352", phoneNumber: "34543", airport: "MSP", context: CoreDataStack.shared.mainContext)
         //        let trip1 = Trip(identifier: UUID(), airport: "MSP", airline: "Delta", flightNumber: "345", departureTime: Date(), childrenQty: 2, carryOnQty: 2, checkedBagQty: 2, notes: "None", context: CoreDataStack.shared.mainContext)
@@ -115,19 +75,19 @@ class TripController {
     }
     
     // MARK: - Fetch Trips from Server
-    func fetchTripsFromServer(completion: @escaping (Result<[TripRepresentation], NetworkError>) -> Void = {_ in }) {
+    func fetchTripsFromServer(traveler: Bearer, completion: @escaping (Result<[TripRepresentation], NetworkError>) -> Void = {_ in }) {
      
 /* TESTING WITH FIREBASE URL -- UNCOMMENT THIS FOR PRODUCTION BACK END */
-        guard let travelerController = travelerController,
-            let bearer = travelerController.bearer else {
-            completion(.failure(.noAuthorization))
-            return
-        }
+//        guard let travelerController = travelerController,
+//            let bearer = travelerController.bearer else {
+//            completion(.failure(.noAuthorization))
+//            return
+//        }
         
         let requestUrl = baseURL.appendingPathComponent("trips")
         var request = URLRequest(url: requestUrl)
         request.httpMethod = HTTPMethod.get.rawValue
-        request.setValue("\(bearer.token)", forHTTPHeaderField: "Authorization")
+        request.setValue("\(traveler.token)", forHTTPHeaderField: "Authorization")
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
 
         
@@ -240,8 +200,8 @@ class TripController {
         }
     }
     
-    func updateExistingTrip(for traveler: TravelerRepresentation, trip: Trip) {
-        put(traveler: traveler, trip: trip)
+    func updateExistingTrip(for traveler: Bearer, trip: Trip) {
+        put(traveler: traveler, trip: trip, method: HTTPMethod.put)
         do {
             try CoreDataStack.shared.save()
         } catch {
