@@ -23,14 +23,13 @@ class TravelerController {
     var traveler: TravelerRepresentation?
     var bearer: Bearer?
     private let baseURL = URL(string: "https://bw-kids-fly.herokuapp.com/api/")!
-    
 
     // MARK: - Sign Up New Traveler
     
     /* Example Output:
     { "id": 1, "username": "LambdaStudent247", "password": "$2a$10$6NrOGH/43.iC.t8gndaGV.N3ZNRnaaoln44K.urxOCsgmdwp67EeK", "first_name": "Heather", "last_name": "Ridgill", "street_address": "123 Lambda Court", "city": "LambdaVille", "state": "CA", "zip": "92831", "phone_number": "555-555-5555", "home_airport": "LAX", "admin": 0 }
     */
-     
+    
     func signUp(with traveler: TravelerRepresentation, completion: @escaping (Error?) -> ()) {
         let signUpURL = baseURL.appendingPathComponent("auth/register/user")
         
