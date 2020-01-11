@@ -22,7 +22,7 @@ class TravelerController {
     
     var traveler: TravelerRepresentation?
     var bearer: Bearer?
-    private let baseURL = URL(string: "https://bw-kids-fly.herokuapp.com/api/")!
+//    private let baseURL = URL(string: "https://bw-kids-fly.herokuapp.com/api/")!
 
     // MARK: - Sign Up New Traveler
     

@@ -50,24 +50,24 @@ extension Trip {
         self.notes = notes
     }
     
-    @discardableResult convenience init?(tripRepresentation: TripRepresentation, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
-        
-        guard let identifierString = tripRepresentation.identifier,
-            let identifier = UUID(uuidString: identifierString),
-            let airport = tripRepresentation.airport,
-            let airline = tripRepresentation.airline,
-            let completedStatus = tripRepresentation.completedStatus,
-            let flightNumber = tripRepresentation.flightNumber,
-            let departureTime = tripRepresentation.departureTime,
-            let childrenQty = tripRepresentation.childrenQty,
-            let carryOnQty = tripRepresentation.carryOnQty,
-            let checkedBagQty = tripRepresentation.checkedBagQty,
-            let notes = tripRepresentation.notes else { return nil }
-        
-        self.init(identifier: identifier, airport: airport, airline: airline, completedStatus: completedStatus, flightNumber: flightNumber, departureTime: departureTime, childrenQty: Int16(childrenQty), carryOnQty: Int16(carryOnQty), checkedBagQty: Int16(checkedBagQty), notes: notes)
-    }
-    
-    var tripRepresentation: TripRepresentation {
-        return TripRepresentation(identifier: identifier?.uuidString, airport: airport, airline: airline, completedStatus: completedStatus, flightNumber: flightNumber, departureTime: departureTime, childrenQty: Int(childrenQty), carryOnQty: Int(carryOnQty), checkedBagQty: Int(checkedBagQty), notes: notes)
-    }
+//    @discardableResult convenience init?(tripRepresentation: TripRepresentation, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
+//        
+//        guard let identifierString = tripRepresentation.identifier,
+//            let identifier = UUID(uuidString: identifierString),
+//            let airport = tripRepresentation.airport,
+//            let airline = tripRepresentation.airline,
+//            let completedStatus = tripRepresentation.completedStatus,
+//            let flightNumber = tripRepresentation.flightNumber,
+//            let departureTime = tripRepresentation.departureTime,
+//            let childrenQty = tripRepresentation.childrenQty,
+//            let carryOnQty = tripRepresentation.carryOnQty,
+//            let checkedBagQty = tripRepresentation.checkedBagQty,
+//            let notes = tripRepresentation.notes else { return nil }
+//        
+//        self.init(identifier: identifier, airport: airport, airline: airline, completedStatus: completedStatus, flightNumber: flightNumber, departureTime: departureTime, childrenQty: Int16(childrenQty), carryOnQty: Int16(carryOnQty), checkedBagQty: Int16(checkedBagQty), notes: notes)
+//    }
+//    
+//    var tripRepresentation: TripRepresentation {
+//        return TripRepresentation(identifier: identifier?.uuidString, airport: airport, airline: airline, completedStatus: completedStatus, flightNumber: flightNumber, departureTime: departureTime, childrenQty: Int(childrenQty), carryOnQty: Int(carryOnQty), checkedBagQty: Int(checkedBagQty), notes: notes)
+//    }
 }

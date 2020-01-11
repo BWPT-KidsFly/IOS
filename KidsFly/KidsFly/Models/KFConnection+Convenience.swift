@@ -35,19 +35,19 @@ extension KFConnection {
         self.lastName = lastName
     }
     
-    @discardableResult convenience init?(kfConnectionRepresentation: KFConnectionRepresentation, context: NSManagedObjectContext) {
-//        guard let identifierString = kfConnectionRepresentation.identifier,
-//        let identifier =  UUID(uuidString: identifierString) else { return nil }
-        
-        self.init(username: kfConnectionRepresentation.username, password: kfConnectionRepresentation.password, firstName: kfConnectionRepresentation.first_name, lastName: kfConnectionRepresentation.last_name)
-    }
-    
-    var kfConnectionRepresentation: KFConnectionRepresentation? {
-        guard let username = username,
-            let password = password,
-            let firstName = firstName,
-            let lastName = lastName else { return nil }
-        return KFConnectionRepresentation(username: username, password: password, confirm: password, first_name: firstName, last_name: lastName)
-    }
-    
+//    @discardableResult convenience init?(kfConnectionRepresentation: KFConnectionRepresentation, context: NSManagedObjectContext) {
+////        guard let identifierString = kfConnectionRepresentation.identifier,
+////        let identifier =  UUID(uuidString: identifierString) else { return nil }
+//        
+//        self.init(username: kfConnectionRepresentation.username, password: kfConnectionRepresentation.password, firstName: kfConnectionRepresentation.first_name, lastName: kfConnectionRepresentation.last_name)
+//    }
+//    
+//    var kfConnectionRepresentation: KFConnectionRepresentation? {
+//        guard let username = username,
+//            let password = password,
+//            let firstName = firstName,
+//            let lastName = lastName else { return nil }
+//        return KFConnectionRepresentation(username: username, password: password, confirm: password, first_name: firstName, last_name: lastName)
+//    }
+//    
 }
