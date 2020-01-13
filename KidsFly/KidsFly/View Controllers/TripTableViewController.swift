@@ -56,6 +56,8 @@ class TripTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
+    
+    // I attempted to write the data source code so the source would only be those trips linked with the current traveler.  I have not been able to get that to work though.
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return fetchedResultsController.sections?.count ?? 0
