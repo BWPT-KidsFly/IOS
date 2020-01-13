@@ -92,6 +92,11 @@ class TravelerSignUpViewController: UIViewController {
                         if let error = error {
                             print("Error occurred during sign up: \(error)")
                         } else {
+                            do {
+                                try CoreDataStack.shared.save()
+                            } catch {
+                                print("Error with saving new Traveler")
+                            }
                             DispatchQueue.main.async {
                                 let alertController = UIAlertController(title: "Sign Up Successful", message: "Your account was created, please log in to continue.", preferredStyle: .alert)
                                 let alertAction = UIAlertAction(title: "OK", style: .default) { (_) in
@@ -128,6 +133,11 @@ class TravelerSignUpViewController: UIViewController {
                                                 if let error = error {
                             print("Error occurred during sign up: \(error)")
                         } else {
+                                                    do {
+                                                        try CoreDataStack.shared.save()
+                                                    } catch {
+                                                        print("Error with saving new KFConnection")
+                                                    }
                             DispatchQueue.main.async {
                                 let alertController = UIAlertController(title: "Sign Up Successful", message: "Your account was created, please log in to continue.", preferredStyle: .alert)
                                 let alertAction = UIAlertAction(title: "OK", style: .default) { (_) in

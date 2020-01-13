@@ -91,11 +91,10 @@ class NewTripViewController: UIViewController {
             } else {
                 let newTrip = Trip(airport: airport, airline: airline, flightNumber: flightNumber, departureTime: departureTimePicker.date, childrenQty: Int16(childrenQty)!, carryOnQty: Int16(carryOnQty)!, checkedBagQty: Int16(checkedBagQty)!, notes: notesTextView.text)
                 
-                // attempt to add the trip to the current traveler entity
+                // Add the trip to the current traveler entity
                 guard let travelerController = travelerController else { return }
-                if let traveler = travelerController.traveler {
-                    traveler.trips?.adding(newTrip)
-                }
+                newTrip.traveler = travelerController.traveler
+                
                 
                 tripController.put(traveler: bearer, trip: newTrip, method: HTTPMethod.post) { error in
                     if error != .success(true) {

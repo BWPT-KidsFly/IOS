@@ -89,6 +89,7 @@ class TravelerController {
             let result = try CoreDataStack.shared.mainContext.fetch(travelerFetched)
             if result.count > 0 {
                 self.traveler = result.first
+                print(self.traveler)
             }
         } catch let error as NSError {
             print("Fetch error: \(error) description \(error.userInfo)")
