@@ -56,12 +56,18 @@ class TripTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
+    
+    // I attempted to write the data source code so the source would only be those trips linked with the current traveler.  I have not been able to get that to work though.
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return fetchedResultsController.sections?.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        guard let traveler = travelerController.traveler else { return 0 }
+//        guard let travelerTrips = fetchedResultsController.fetchedObjects else { return 0 }
+//        let myTrips = travelerTrips.filter { $0.traveler?.username == traveler.username }
+//        return myTrips.count
         return fetchedResultsController.sections?[section].numberOfObjects ?? 0
     }
     
@@ -78,7 +84,10 @@ class TripTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "TripCell", for: indexPath) as? TripTableViewCell else { return UITableViewCell()}
-        
+//        guard let traveler = travelerController.traveler,
+//            let travelerTrips = fetchedResultsController.fetchedObjects else { return UITableViewCell() }
+//        let myTrips = travelerTrips.filter { $0.traveler?.username == traveler.username }
+//        let trip = myTrips[indexPath.row]
         let trip = fetchedResultsController.object(at: indexPath)
         cell.trip = trip
 
