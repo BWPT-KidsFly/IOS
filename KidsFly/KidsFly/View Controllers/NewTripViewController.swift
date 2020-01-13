@@ -18,6 +18,7 @@ class NewTripViewController: UIViewController {
     var bearer: Bearer?
     var tripController: TripController?
     var kfConnectionController: KFConnectionController?
+    var travelerController: TravelerController?
     var trip: Trip? {
         didSet {
             updateViews()
@@ -89,6 +90,13 @@ class NewTripViewController: UIViewController {
                 // The put method is used for new trips and updating trips, and they have different HTTPMethods on the back end, so the correct value is passed.
             } else {
                 let newTrip = Trip(airport: airport, airline: airline, flightNumber: flightNumber, departureTime: departureTimePicker.date, childrenQty: Int16(childrenQty)!, carryOnQty: Int16(carryOnQty)!, checkedBagQty: Int16(checkedBagQty)!, notes: notesTextView.text)
+                
+                // attempt to add the trip to the current traveler entity
+                guard let travelerController = travelerController else { return }
+                if let traveler = travelerController.traveler {
+                    traveler.trips?.adding(newTrip)
+                }
+                
                 tripController.put(traveler: bearer, trip: newTrip, method: HTTPMethod.post) { error in
                     if error != .success(true) {
                         print("Error occurred while PUTin a new trip to server: \(error)")
@@ -104,6 +112,7 @@ class NewTripViewController: UIViewController {
                         }
                     }
                 }
+                
             }
             
         }

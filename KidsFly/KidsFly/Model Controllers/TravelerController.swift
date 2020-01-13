@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 enum HTTPMethod: String {
     case get = "GET"
@@ -20,7 +21,7 @@ class TravelerController {
     
     // If there is an active (non-completed) trip, that should be highlighted
     
-    var traveler: TravelerRepresentation?
+    var traveler: Traveler?
     var bearer: Bearer?
     private let baseURL = URL(string: "https://bw-kids-fly.herokuapp.com/api/")!
 
@@ -80,6 +81,19 @@ class TravelerController {
     // MARK: - Log In Traveler
     func logIn(with traveler: TravelerLogIn, completion: @escaping (Error?) -> ()) {
         let logInUrl = baseURL.appendingPathComponent("auth/login/user")
+        
+        // trying to fetch traveler based on username property
+        let travelerFetched: NSFetchRequest<Traveler> = Traveler.fetchRequest()
+        travelerFetched.predicate = NSPredicate(format: "%K == %@", #keyPath(Traveler.username), traveler.username)
+        do {
+            let result = try CoreDataStack.shared.mainContext.fetch(travelerFetched)
+            if result.count > 0 {
+                self.traveler = result.first
+            }
+        } catch let error as NSError {
+            print("Fetch error: \(error) description \(error.userInfo)")
+        }
+
         
         var request = URLRequest(url: logInUrl)
         request.httpMethod = HTTPMethod.post.rawValue

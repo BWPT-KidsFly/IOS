@@ -100,6 +100,7 @@ class TripTableViewController: UITableViewController {
         if segue.identifier == "NewTripSegue" {
             guard let newTripVC = segue.destination as? NewTripViewController else { return }
             newTripVC.tripController = tripController
+            newTripVC.travelerController = travelerController
             newTripVC.kfConnectionController = kfConnectionController
             newTripVC.bearer = travelerController.bearer
         } else if segue.identifier == "TravelerSignInSegue" {
